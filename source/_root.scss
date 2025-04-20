@@ -67,54 +67,32 @@
   --color-resource-science1-dark: hsl(194, 100%, 75%);
   --color-resource-science1-light: lightblue;
 
-  --color-resource-rare0: light-dark(
-    var(--color-resource-rare0-light),
-    var(--color-resource-rare0-dark)
-  );
-  --color-resource-rare1: light-dark(
-    var(--color-resource-rare1-light),
-    var(--color-resource-rare1-dark)
-  );
-  --color-resource-rare2: light-dark(
-    var(--color-resource-rare2-light),
-    var(--color-resource-rare2-dark)
-  );
-  --color-resource-rare3: light-dark(
-    var(--color-resource-rare3-light),
-    var(--color-resource-rare3-dark)
-  );
-  --color-resource-rare4: light-dark(
-    var(--color-resource-rare4-light),
-    var(--color-resource-rare4-dark)
-  );
-  --color-resource-rare5: light-dark(
-    var(--color-resource-rare5-light),
-    var(--color-resource-rare5-dark)
-  );
+  --color-resource-rare0: light-dark(var(--color-resource-rare0-light),
+      var(--color-resource-rare0-dark));
+  --color-resource-rare1: light-dark(var(--color-resource-rare1-light),
+      var(--color-resource-rare1-dark));
+  --color-resource-rare2: light-dark(var(--color-resource-rare2-light),
+      var(--color-resource-rare2-dark));
+  --color-resource-rare3: light-dark(var(--color-resource-rare3-light),
+      var(--color-resource-rare3-dark));
+  --color-resource-rare4: light-dark(var(--color-resource-rare4-light),
+      var(--color-resource-rare4-dark));
+  --color-resource-rare5: light-dark(var(--color-resource-rare5-light),
+      var(--color-resource-rare5-dark));
   --color-p0: var(--color-resource-rare0);
   --color-p1: var(--color-resource-rare1);
   --color-p2: var(--color-resource-rare2);
   --color-p3: var(--color-resource-rare3);
-  --color-resource-metallic0: light-dark(
-    var(--color-resource-metallic0-light),
-    var(--color-resource-metallic0-dark)
-  );
-  --color-resource-radioactive0: light-dark(
-    var(--color-resource-radioactive0-light),
-    var(--color-resource-radioactive0-dark)
-  );
-  --color-resource-radioactive1: light-dark(
-    var(--color-resource-radioactive1-light),
-    var(--color-resource-radioactive1-dark)
-  );
-  --color-resource-science0: light-dark(
-    var(--color-resource-science0-light),
-    var(--color-resource-science0-dark)
-  );
-  --color-resource-science1: light-dark(
-    var(--color-resource-science1-light),
-    var(--color-resource-science1-dark)
-  );
+  --color-resource-metallic0: light-dark(var(--color-resource-metallic0-light),
+      var(--color-resource-metallic0-dark));
+  --color-resource-radioactive0: light-dark(var(--color-resource-radioactive0-light),
+      var(--color-resource-radioactive0-dark));
+  --color-resource-radioactive1: light-dark(var(--color-resource-radioactive1-light),
+      var(--color-resource-radioactive1-dark));
+  --color-resource-science0: light-dark(var(--color-resource-science0-light),
+      var(--color-resource-science0-dark));
+  --color-resource-science1: light-dark(var(--color-resource-science1-light),
+      var(--color-resource-science1-dark));
 
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
     Cantarell, "Helvetica Neue", sans-serif;
@@ -131,33 +109,35 @@
 html {
   margin: 0;
   padding: 0;
-}
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
 
-  background-color: var(--color-background);
-}
+  body {
+    display: flex;
 
-body {
-  display: flex;
-}
-#gamePageContainer {
-  display: flex;
-  flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 
-  overflow: hidden;
+    background-color: var(--color-background);
 
-  #topBar {
-    @include top-bar.topBar;
-  }
-  #game {
-    @include game.game;
-  }
-  #footerLinks {
-    display: none;
+    #gamePageContainer {
+      display: flex;
+      flex-direction: column;
+
+      overflow: hidden;
+
+      #topBar {
+        @include top-bar.topBar;
+      }
+
+      #game {
+        @include game.game;
+      }
+
+      #footerLinks {
+        display: none;
+      }
+    }
   }
 }
 

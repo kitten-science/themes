@@ -1,0 +1,238 @@
+@mixin bonfire {
+  &:hover .btnContent {
+    opacity: 0.6;
+  }
+
+  .bldTopContainer {
+    .bldGroupContainer {
+      /* Dismantle table structure. */
+      table {
+        display: block;
+      }
+      tr {
+        display: grid;
+        grid-template-columns: auto;
+      }
+      td {
+        display: contents;
+
+        .btn.modern {
+          position: initial !important;
+          display: contents !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+
+          font-family: var(--font-family);
+          font-size: var(--font-size-base) !important;
+
+          .btnContent {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: 1 / 11;
+
+            cursor: pointer;
+
+            &:hover {
+              opacity: 1 !important;
+            }
+
+            > * {
+              flex: 0;
+            }
+
+            .btnTitle {
+              display: grid;
+              grid-template-columns: subgrid;
+              grid-column: 1 / 9;
+              grid-row: 1;
+
+              .label {
+                grid-column: 8 / 9;
+                grid-row: 1;
+              }
+
+              /* Building count. */
+              div:not(.label) {
+                grid-column: 1 / 7;
+                grid-row: 1;
+                text-align: right;
+
+                position: relative;
+                color: transparent;
+                text-shadow: 0 0 0 var(--color-text);
+
+                &::after,
+                &::before {
+                  position: absolute;
+                  color: var(--color-background);
+                  text-shadow: 0 0 0 var(--color-background), 0 0 1px
+                    var(--color-background), 0 0 0 var(--color-background);
+                }
+                &::before {
+                  content: "(";
+                }
+                &::after {
+                  content: ")";
+                  right: 0;
+                }
+
+                opacity: 0.6;
+              }
+            }
+
+            /* These are all the +/- on/off things on the building. */
+            a {
+              color: var(--color-text);
+              opacity: 0.6;
+              font-size: calc(var(--font-size-base) * 0.5);
+
+              &:hover {
+                opacity: 1;
+              }
+            }
+            div {
+              float: none !important;
+            }
+
+            /* Negate inline styles. */
+            > a,
+            > div,
+            > div > a {
+              padding: 0 !important;
+              float: none !important;
+            }
+            > div {
+              display: contents;
+              .linkContent {
+                /* Negate inline styles. */
+                display: contents !important;
+                position: relative !important;
+                float: none !important;
+                margin-top: 0 !important;
+                z-index: 0 !important;
+                left: initial !important;
+              }
+            }
+
+            a.auto-on {
+              grid-column: 8;
+              grid-row: 1;
+              justify-self: end;
+              font-size: 0;
+              width: var(--font-size-base);
+              height: var(--font-size-base);
+              line-height: var(--font-size-base);
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M132-160v-60h123l-14-14q-60-60-86.5-121.5T128-476q0-109 62.5-195T355-790v62q-76 30-121.5 99T188-476q0 52 17.5 98.5T265-293l30 27v-117h60v223H132Zm699-334h-60q-2-51-20-94.5T695-667l-30-27v117h-60v-223h223v60H704l15 14q58 55 84 115t28 117ZM696-40l-5-48q-20-6-41-17.5T616-131l-42 20-35-54 38-30q-5-23-5-41.5t5-41.5l-38-30 35-55 42 20q13-12 34-24t41-18l5-49h60l6 49q20 6 41 18t34 24l42-20 35 55-38 30q5 23 5 41.5t-5 41.5l38 30-35 54-42-20q-13 14-34 25.5T762-88l-6 48h-60Zm30-95q44 0 73-29t29-73q0-44-29-73t-73-29q-44 0-73 29t-29 73q0 44 29 73t73 29Z'/%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+            a.bld-on {
+              grid-column: 1;
+              grid-row: 1;
+            }
+            a.add1Link {
+              grid-column: 1;
+              grid-row: 2;
+            }
+            a.off1Link {
+              grid-column: 6;
+              grid-row: 2;
+            }
+
+            a.dropdown-link {
+              padding: 0 !important;
+              grid-column: 8;
+              grid-row: 2;
+            }
+            a.dropdown-link[title="-all"] {
+              padding: 0 !important;
+              grid-column: 4;
+              grid-row: 2;
+            }
+            a.dropdown-link[title="-25"] {
+              padding: 0 !important;
+              grid-column: 5;
+              grid-row: 2;
+            }
+            a.dropdown-link[title="+25"] {
+              padding: 0 !important;
+              grid-column: 2;
+              grid-row: 2;
+            }
+            a.dropdown-link[title="+all"] {
+              padding: 0 !important;
+              grid-column: 3;
+              grid-row: 2;
+            }
+
+            /* Sell/Upgrade */
+            a[href="#"][class=""] {
+              grid-row: 1 / 2;
+
+              transition: opacity 0.5s;
+
+              /* First one is Sell. */
+              &:nth-child(2) {
+                grid-column: 9;
+                font-size: 0;
+                opacity: 0;
+                width: var(--font-size-base);
+                height: var(--font-size-base);
+                line-height: var(--font-size-base);
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M780-365v-322L570-834 360-687v129h-60v-159l270-193 270 193v352h-60ZM570-834Zm20 204h40v-40h-40v40Zm-80 0h40v-40h-40v40Zm80 80h40v-40h-40v40Zm-80 0h40v-40h-40v40ZM255-200l307 90 248-78q0-20-15.5-33.5T758-235H549q-16 0-31.5-2.5T487-245l-96-29 19-61 94 32q11 4 22.5 6t22.5 2h56q0-21-14-36.5T557-355l-218-83h-84v238ZM40-80v-418h298q5.33 0 10.67 1 5.33 1 10.33 3l218 82q38 14 64.5 45t26.5 72h90q50.83 0 86.42 37Q880-221 880-170v26L567-48l-312-89v57H40Zm60-60h94v-298h-94v298Z'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+              /* Assume Upgrade button by default. Customize below. */
+              &:nth-child(3) {
+                grid-column: 1;
+                z-index: 2;
+                font-size: 0;
+                width: var(--font-size-base);
+                height: var(--font-size-base);
+                line-height: var(--font-size-base);
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M165-226q-39-45-58.5-100T80-440h62q8 46 24 89t45 80l-46 45ZM80-520q9-58 29-113t56-101l46 45q-29 37-45 80t-24 89H80ZM438-82q-58-7-113-27t-101-56l45-47q38 27 80.5 45t88.5 25v60ZM272-748l-48-47q47-36 102.5-56T441-878v60q-46 7-89 24.5T272-748ZM518-82v-60q47-7 90-25.5t82-44.5l47 47q-47 37-103 56.5T518-82Zm174-666q-38-27-81-45t-90-25v-60q59 7 113.5 27.5T737-795l-45 47Zm104 522-45-45q28-37 44-80t24-89h62q-9 58-28.5 113T796-226Zm23-294q-8-46-24-89t-44-80l45-45q39 45 58.5 100T881-520h-62ZM450-280v-284L323-437l-43-43 200-200 200 200-43 43-127-127v284h-60Z'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+            }
+          }
+
+          /* Continuing btn.modern ... */
+          /* Broadcast tower. */
+          &[aria-description="Generates culture and happiness. More effective with high energy production."],
+          /* Data center. */
+            &[aria-description="Increases total effect of compendia on your max science"],
+          /* Hydro plant. */
+            &[aria-description="A modern source of power production"],
+          /* Solar farm. */
+            &[aria-description="Provides an additional source of energy depending on the seasons."] {
+            /* Downgrade button. */
+            a[href="#"][class=""]:nth-child(3) {
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M436-82q-76-8-141-42t-112.5-88Q135-266 108-335T81-481q0-155 101.5-269T437-880v60q-128 19-212 115t-84 224q0 128 83.5 224T436-142v60Zm44-198L280-480l43-43 127 127v-284h60v284l127-127 43 43-200 200Zm44 198v-60q46-6 88.5-23.5T691-212l44 44q-46 35-99.5 58T524-82Zm168-667q-38-27-80-45.5T524-820v-60q58 7 111 29.5T735-793l-43 44Zm100 519-43-42q29-37 46-79.5t23-88.5h61q-7 58-29 111.5T792-230Zm26-292q-6-46-23-89t-46-79l47-41q35 46 56 99t27 110h-61Z'/%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+          }
+          /* Show Sell button only when building is hovered. */
+          &:hover {
+            a[href="#"][class=""]:nth-child(2) {
+              opacity: 0.6;
+              &:hover {
+                opacity: 1;
+              }
+            }
+          }
+        }
+        .btn.small-text span {
+          font-size: var(--font-size-base);
+        }
+      }
+
+      /* Hide gather/refine catnip buttons. */
+      td > .btn.modern:first-child {
+        display: none !important;
+      }
+    }
+  }
+}
