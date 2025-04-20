@@ -1,3 +1,95 @@
+@mixin job($row, $icon) {
+  .btnContent {
+    &::before {
+      content: "";
+      width: var(--font-size-base);
+      height: var(--font-size-base);
+      line-height: var(--font-size-base);
+      font-size: 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: $icon;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-column: 1 / 3;
+    grid-row: $row;
+    align-items: center;
+
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+
+    span.btnTitle {
+      grid-column: 2 / 10;
+      grid-row: 1;
+
+      border: 1px solid pink;
+    }
+
+    /* Job Actions */
+    >div {
+      float: none !important;
+      display: contents !important;
+
+      .linkContent {
+        display: contents !important;
+        position: relative !important;
+        float: none !important;
+        margin: 0 !important;
+        z-index: 0 !important;
+        left: initial !important;
+      }
+
+      .linkContent a.dropdown-link,
+      .assignLink,
+      .unassignLink {
+        float: none !important;
+        padding: 0 !important;
+
+        grid-row: 1;
+
+        font-size: calc(var(--font-size-base) * 0.5);
+        line-height: calc(var(--font-size-base) * 0.5);
+        color: var(--color-text);
+        opacity: 0.5;
+      }
+
+      .dropdown-link[title="[-all]"] {
+        grid-column: 2;
+      }
+
+      .dropdown-link[title="[-25]"] {
+        grid-column: 3;
+      }
+
+      .dropdown-link[title="[-5]"] {
+        grid-column: 4;
+      }
+
+      .unassignLink {
+        grid-column: 5;
+      }
+
+      .assignLink {
+        grid-column: 6;
+      }
+
+      .dropdown-link[title="[+5]"] {
+        grid-column: 7;
+      }
+
+      .dropdown-link[title="[+25]"] {
+        grid-column: 8;
+      }
+
+      .dropdown-link[title="[+all]"] {
+        grid-column: 9;
+      }
+    }
+  }
+}
+
 @mixin village {
   display: grid;
 
@@ -57,165 +149,59 @@
       >.btn.modern {
         display: contents !important;
 
-        /* Job baseline */
-        &[aria-description~="wood"],
-        &[aria-description~="catnip"],
-        &[aria-description~="science"],
-        &[aria-description~="catpower"],
-        &[aria-description~="mineral"],
-        &[aria-description~="faith"],
-        &[aria-description~="coal"],
-        &[aria-description~="automate"],
-        &[aria-description~="all"] {
-          .btnContent::before {
-            content: "";
+        // Woodcutter
+        &[aria-description~="wood"] {
+          @include job(1, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M303-80v-149H0l189-274H94l266-377 120 170 120-170 266 377h-94l188 274H658v149H543v-149H418v149H303Zm377-209h165L656-563h89L600-769l-80 115 106 151h-94l148 214Zm-564 0h489L416-563h89L360-769 215-563h90L116-289Zm0 0h189-90 290-89 189-489Zm564 0H532h94-106 225-89 189-165Zm-137 60h115-115Zm178 0Z'/%3E%3C/svg%3E"));
+        }
+
+        // Farmer
+        &[aria-description~="catnip"] {
+          @include job(2, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M145-599q-11.48 0-19.24-9-7.76-9-7.76-21t7.76-21q7.76-9 19.24-9h149q25.16 0 43.08 17.5Q355-624 360-599H145Zm84.88 379Q284-220 322-257.88q38-37.88 38-92T322.12-442q-37.88-38-92-38T138-442.12q-38 37.88-38 92T137.88-258q37.88 38 92 38Zm554.94 0Q816-220 838-241.82q22-21.83 22-53Q860-326 838.18-348q-21.83-22-53-22Q754-370 732-348.18q-22 21.83-22 53Q710-264 731.82-242q21.83 22 53 22Zm-554.7-60q-29.12 0-49.62-20.38-20.5-20.38-20.5-49.5t20.38-49.62q20.38-20.5 49.5-20.5t49.62 20.38q20.5 20.38 20.5 49.5t-20.38 49.62q-20.38 20.5-49.5 20.5ZM810-428q19 5 31.5 11t28.5 18v-260q0-26-17-43t-43-17H538l-49-49 62-62-18-18-141 141 18 19 61-61 49 47.64V-597q0 41.66-28.5 71.33T421-496h-69q17 14 26.5 27t21.5 33h21q65 0 112-48t47-113v-62h230v231ZM653-320q6-22 12.5-34.5T684-381H418q2 18 2 30.5t-2 30.5h235Zm132.5 160q-56.5 0-96-38.66Q650-237.31 650-292q0-57.17 40.41-97.59Q730.83-430 788-430q54.69 0 93.34 39.54Q920-350.93 920-295q0 57-39 96t-95.5 39ZM228-160q-79 0-133.5-55.57Q40-271.15 40-350q0-78.85 55.5-134.42Q151-540 229.89-540q78.9 0 134.5 55.61Q420-428.79 420-349.89q0 78.89-55.5 134.39Q309-160 228-160Zm394-360Z'/%3E%3C/svg%3E"));
+        }
+
+        // Scholar
+        &[aria-description~="science"] {
+          @include job(3, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M479-120 189-279v-240L40-600l439-240 441 240v317h-60v-282l-91 46v240L479-120Zm0-308 315-172-315-169-313 169 313 172Zm0 240 230-127v-168L479-360 249-485v170l230 127Zm1-240Zm-1 74Zm0 0Z'/%3E%3C/svg%3E"));
+        }
+
+        // Hunter
+        &[aria-description~="catpower"] {
+          @include job(4, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M482-120q-96 0-165-62t-77-154q-68-17-114-67T80-522q0-81 60-134.5T282-710h106q14 0 23-10.5t9-24.5q0-14-9-24.5T388-780h-65q-14.02 0-23.51-8.68-9.49-8.67-9.49-21.5 0-12.82 9.5-21.32T322-840h63q39 0 67 28t28 67.5q0 39.5-27.84 67T384-650H278q-57.5 0-97.75 37.5T140-519.94Q140-475 169.5-442t72.5 46q13-88 79.1-146T475-600q21.36 0 42.18 3t37.82 9q8-3 15.98-5.29 7.99-2.28 16.5-4Q596-599 604-599.5t17.11-.5q73.89 0 126.39 51.5T800-423v12q0 7-2 15l36 35q22 21 33.5 46.5t11.5 54.67q0 58.35-40 99.09T741-120H482Zm0-60h257q32 0 56.5-24t24.5-56q0-16.34-7-30.17Q806-304 792-318l-59-58q4-12 5.5-23.5T740-422q0-49-34.51-83.5T621-540q-46 0-78.5 33.35T510-425q0 21.05 6 40.53Q522-365 535-349l-42 42q-23-24-33-55.4T450-427q0-31.27 10-60.14Q470-516 490-539q-8-2-13.5-1.5t-10.5.5q-67 0-117.5 55T298-357q0 35.87 14.5 67.93Q327-257 352.45-232.65q25.45 24.34 59 38.5Q445-180 482-180Zm198-70q-12 0-21-9t-9-21.5q0-12.5 9-21t21.5-8.5q12.5 0 21 8.62 8.5 8.63 8.5 21.38 0 12-8.62 21-8.63 9-21.38 9ZM559-390Z'/%3E%3C/svg%3E"));
+        }
+
+        // Miner
+        &[aria-description~="mineral"] {
+          @include job(5, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M80-80h800L640-400l-200-80-120-160H80v560Zm60-60v-101l100 32 375-124 145 193H140Zm100-131-100-34v-96l100 32 173-56 122 55-295 99Zm500-129 180-80v-160l-180-40-100 80v120l100 80Zm-500-31-100-34v-115h150l82 105-132 44Zm508-27-58-45v-73l63-50 117 26v87l-122 55ZM480-640l200-80v-200l-200-40-120 80v160l120 80Zm5-56-75-51v-106l81-54 139 28v125l-145 58Z'/%3E%3C/svg%3E"));
+        }
+
+        // Priest
+        &[aria-description~="faith"] {
+          @include job(6, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M240-80v-172q-57-52-88.5-121.5T120-520q0-150 105-255t255-105q125 0 221.5 73.5T827-615l55 218q4 14-5 25.5T853-360h-93v140q0 24.75-17.62 42.37Q724.75-160 700-160H600v80h-60v-140h160v-200h114l-45-180q-24-97-105-158.5T480-820q-125 0-212.5 86.5T180-522.46q0 64.42 26.32 122.39Q232.65-342.09 281-297l19 18v199h-60Zm257-370Zm-17 130q17 0 28.5-11.5T520-360q0-17-11.5-28.5T480-400q-17 0-28.5 11.5T440-360q0 17 11.5 28.5T480-320Zm-30-128h61q0-25 6.5-40.5T544-526q18-20 35-40.5t17-53.5q0-42-32.5-71T483-720q-40 0-72.5 23T365-637l55 23q7-22 24.5-35.5T483-663q22 0 36.5 12t14.5 31q0 21-12.5 37.5T492-549q-20 21-31 42t-11 59Z'/%3E%3C/svg%3E"));
+        }
+
+        // Geologist
+        &[aria-description~="coal"] {
+          @include job(7, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M458-81q-79-4-148-37t-120-86.5q-51-53.5-80.5-124.27T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q149 0 259 94t135 236h-61q-17-84-71-150t-135-99v18q0 35-24 61t-59 26h-87v87q0 16.58-13.5 27.79T393-568h-83v88h110v125h-67L149-559q-5 20-7 39.67-2 19.66-2 39.33 0 135 91 233t227 106v60Zm392-26L716-241q-21 15-45.5 23t-50.07 8q-71.01 0-120.72-49.62Q450-309.24 450-380.12t49.62-120.38q49.62-49.5 120.5-49.5t120.38 49.71Q790-450.58 790-379.57q0 25.57-8.5 50.07T759-283l134 133-43 43ZM619.86-270Q666-270 698-301.86t32-78Q730-426 698.14-458t-78-32Q574-490 542-458.14t-32 78Q510-334 541.86-302t78 32Z'/%3E%3C/svg%3E"));
+        }
+
+        // Engineer
+        &[aria-description~="automate"] {
+          @include job(8, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M42-120v-92q0-34 16-56.5t45-36.5q54-26 115.5-43T358-365q78 0 139.5 17T613-305q29 14 45 36.5t16 56.5v92H42Zm60-60h512v-32q0-15-8.5-24.5T585-251q-43-19-96-36.5T358-305q-78 0-131 17.5T131-251q-12 5-20.5 14.5T102-212v32Zm256-245q-66 0-108-43t-42-107h-10q-8 0-14-6t-6-14q0-8 6-14t14-6h10q0-40 20-72t52-52v39q0 6 4.5 10.5T295-685q7 0 11-4.5t4-10.5v-52q8-2 22-3.5t27-1.5q13 0 27 1.5t22 3.5v52q0 6 4 10.5t11 4.5q6 0 10.5-4.5T438-700v-39q32 20 51 52t19 72h10q8 0 14 6t6 14q0 8-6 14t-14 6h-10q0 64-42 107t-108 43Zm0-60q42 0 66-25t24-65H268q0 40 24 65t66 25Zm302 124-2-29q-7-4-14.5-9T630-409l-26 14-22-32 26-19q-2-4-2-7.5v-15q0-3.5 2-7.5l-26-19 22-32 26 14 14-10q7-5 14-9l2-29h40l2 29q7 4 14 9l14 10 26-14 22 32-26 19q2 4 2 7.5v15q0 3.5-2 7.5l26 19-22 32-26-14q-6 5-13.5 10t-14.5 9l-2 29h-40Zm20-62q16 0 27-11t11-27q0-16-11-27t-27-11q-16 0-27 11t-11 27q0 16 11 27t27 11Zm88-155-9-35q-10-4-20.5-11T721-639l-44 16-20-35 35-28q-2-5-3.5-11t-1.5-12q0-6 1.5-12t3.5-11l-35-28 20-35 44 16q7-8 17.5-15.5T759-805l9-35h38l9 35q10 3 20.5 10.5T853-779l44-16 20 35-35 28q2 5 3.5 11t1.5 12q0 6-1.5 12t-3.5 11l35 28-20 35-44-16q-7 8-17.5 15T815-613l-9 35h-38Zm19-73q25 0 41.5-16.5T845-709q0-25-16.5-41.5T787-767q-25 0-41.5 16.5T729-709q0 25 16.5 41.5T787-651ZM358-180Z'/%3E%3C/svg%3E"));
+        }
+
+        /* Clear job assignments */
+        &[aria-description~="all"] .btnContent {
+          grid-row: 9;
+
+          &::before {
+            display: inline-block;
             width: var(--font-size-base);
             height: var(--font-size-base);
             line-height: var(--font-size-base);
             font-size: 0;
             background-repeat: no-repeat;
             background-size: contain;
-          }
-        }
-
-        /* Woodcutter */
-        &[aria-description~="wood"] .btnContent {
-          &::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M303-80v-149H0l189-274H94l266-377 120 170 120-170 266 377h-94l188 274H658v149H543v-149H418v149H303Zm377-209h165L656-563h89L600-769l-80 115 106 151h-94l148 214Zm-564 0h489L416-563h89L360-769 215-563h90L116-289Zm0 0h189-90 290-89 189-489Zm564 0H532h94-106 225-89 189-165Zm-137 60h115-115Zm178 0Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        /* Farmer */
-        &[aria-description~="catnip"] .btnContent {
-          &::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M145-599q-11.48 0-19.24-9-7.76-9-7.76-21t7.76-21q7.76-9 19.24-9h149q25.16 0 43.08 17.5Q355-624 360-599H145Zm84.88 379Q284-220 322-257.88q38-37.88 38-92T322.12-442q-37.88-38-92-38T138-442.12q-38 37.88-38 92T137.88-258q37.88 38 92 38Zm554.94 0Q816-220 838-241.82q22-21.83 22-53Q860-326 838.18-348q-21.83-22-53-22Q754-370 732-348.18q-22 21.83-22 53Q710-264 731.82-242q21.83 22 53 22Zm-554.7-60q-29.12 0-49.62-20.38-20.5-20.38-20.5-49.5t20.38-49.62q20.38-20.5 49.5-20.5t49.62 20.38q20.5 20.38 20.5 49.5t-20.38 49.62q-20.38 20.5-49.5 20.5ZM810-428q19 5 31.5 11t28.5 18v-260q0-26-17-43t-43-17H538l-49-49 62-62-18-18-141 141 18 19 61-61 49 47.64V-597q0 41.66-28.5 71.33T421-496h-69q17 14 26.5 27t21.5 33h21q65 0 112-48t47-113v-62h230v231ZM653-320q6-22 12.5-34.5T684-381H418q2 18 2 30.5t-2 30.5h235Zm132.5 160q-56.5 0-96-38.66Q650-237.31 650-292q0-57.17 40.41-97.59Q730.83-430 788-430q54.69 0 93.34 39.54Q920-350.93 920-295q0 57-39 96t-95.5 39ZM228-160q-79 0-133.5-55.57Q40-271.15 40-350q0-78.85 55.5-134.42Q151-540 229.89-540q78.9 0 134.5 55.61Q420-428.79 420-349.89q0 78.89-55.5 134.39Q309-160 228-160Zm394-360Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        /* Scholar */
-        &[aria-description~="science"] .btnContent {
-          &::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M479-120 189-279v-240L40-600l439-240 441 240v317h-60v-282l-91 46v240L479-120Zm0-308 315-172-315-169-313 169 313 172Zm0 240 230-127v-168L479-360 249-485v170l230 127Zm1-240Zm-1 74Zm0 0Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        /* Hunter */
-        &[aria-description~="catpower"] .btnContent {
-          &::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M482-120q-96 0-165-62t-77-154q-68-17-114-67T80-522q0-81 60-134.5T282-710h106q14 0 23-10.5t9-24.5q0-14-9-24.5T388-780h-65q-14.02 0-23.51-8.68-9.49-8.67-9.49-21.5 0-12.82 9.5-21.32T322-840h63q39 0 67 28t28 67.5q0 39.5-27.84 67T384-650H278q-57.5 0-97.75 37.5T140-519.94Q140-475 169.5-442t72.5 46q13-88 79.1-146T475-600q21.36 0 42.18 3t37.82 9q8-3 15.98-5.29 7.99-2.28 16.5-4Q596-599 604-599.5t17.11-.5q73.89 0 126.39 51.5T800-423v12q0 7-2 15l36 35q22 21 33.5 46.5t11.5 54.67q0 58.35-40 99.09T741-120H482Zm0-60h257q32 0 56.5-24t24.5-56q0-16.34-7-30.17Q806-304 792-318l-59-58q4-12 5.5-23.5T740-422q0-49-34.51-83.5T621-540q-46 0-78.5 33.35T510-425q0 21.05 6 40.53Q522-365 535-349l-42 42q-23-24-33-55.4T450-427q0-31.27 10-60.14Q470-516 490-539q-8-2-13.5-1.5t-10.5.5q-67 0-117.5 55T298-357q0 35.87 14.5 67.93Q327-257 352.45-232.65q25.45 24.34 59 38.5Q445-180 482-180Zm198-70q-12 0-21-9t-9-21.5q0-12.5 9-21t21.5-8.5q12.5 0 21 8.62 8.5 8.63 8.5 21.38 0 12-8.62 21-8.63 9-21.38 9ZM559-390Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        /* Miner */
-        &[aria-description~="mineral"] .btnContent {
-          &::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M80-80h800L640-400l-200-80-120-160H80v560Zm60-60v-101l100 32 375-124 145 193H140Zm100-131-100-34v-96l100 32 173-56 122 55-295 99Zm500-129 180-80v-160l-180-40-100 80v120l100 80Zm-500-31-100-34v-115h150l82 105-132 44Zm508-27-58-45v-73l63-50 117 26v87l-122 55ZM480-640l200-80v-200l-200-40-120 80v160l120 80Zm5-56-75-51v-106l81-54 139 28v125l-145 58Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        /* Priest */
-        &[aria-description~="faith"] .btnContent {
-          &::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M240-80v-172q-57-52-88.5-121.5T120-520q0-150 105-255t255-105q125 0 221.5 73.5T827-615l55 218q4 14-5 25.5T853-360h-93v140q0 24.75-17.62 42.37Q724.75-160 700-160H600v80h-60v-140h160v-200h114l-45-180q-24-97-105-158.5T480-820q-125 0-212.5 86.5T180-522.46q0 64.42 26.32 122.39Q232.65-342.09 281-297l19 18v199h-60Zm257-370Zm-17 130q17 0 28.5-11.5T520-360q0-17-11.5-28.5T480-400q-17 0-28.5 11.5T440-360q0 17 11.5 28.5T480-320Zm-30-128h61q0-25 6.5-40.5T544-526q18-20 35-40.5t17-53.5q0-42-32.5-71T483-720q-40 0-72.5 23T365-637l55 23q7-22 24.5-35.5T483-663q22 0 36.5 12t14.5 31q0 21-12.5 37.5T492-549q-20 21-31 42t-11 59Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        /* Geologist */
-        &[aria-description~="coal"] .btnContent {
-          &::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M458-81q-79-4-148-37t-120-86.5q-51-53.5-80.5-124.27T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q149 0 259 94t135 236h-61q-17-84-71-150t-135-99v18q0 35-24 61t-59 26h-87v87q0 16.58-13.5 27.79T393-568h-83v88h110v125h-67L149-559q-5 20-7 39.67-2 19.66-2 39.33 0 135 91 233t227 106v60Zm392-26L716-241q-21 15-45.5 23t-50.07 8q-71.01 0-120.72-49.62Q450-309.24 450-380.12t49.62-120.38q49.62-49.5 120.5-49.5t120.38 49.71Q790-450.58 790-379.57q0 25.57-8.5 50.07T759-283l134 133-43 43ZM619.86-270Q666-270 698-301.86t32-78Q730-426 698.14-458t-78-32Q574-490 542-458.14t-32 78Q510-334 541.86-302t78 32Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        /* Engineer */
-        &[aria-description~="automate"] .btnContent {
-          &::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M42-120v-92q0-34 16-56.5t45-36.5q54-26 115.5-43T358-365q78 0 139.5 17T613-305q29 14 45 36.5t16 56.5v92H42Zm60-60h512v-32q0-15-8.5-24.5T585-251q-43-19-96-36.5T358-305q-78 0-131 17.5T131-251q-12 5-20.5 14.5T102-212v32Zm256-245q-66 0-108-43t-42-107h-10q-8 0-14-6t-6-14q0-8 6-14t14-6h10q0-40 20-72t52-52v39q0 6 4.5 10.5T295-685q7 0 11-4.5t4-10.5v-52q8-2 22-3.5t27-1.5q13 0 27 1.5t22 3.5v52q0 6 4 10.5t11 4.5q6 0 10.5-4.5T438-700v-39q32 20 51 52t19 72h10q8 0 14 6t6 14q0 8-6 14t-14 6h-10q0 64-42 107t-108 43Zm0-60q42 0 66-25t24-65H268q0 40 24 65t66 25Zm302 124-2-29q-7-4-14.5-9T630-409l-26 14-22-32 26-19q-2-4-2-7.5v-15q0-3.5 2-7.5l-26-19 22-32 26 14 14-10q7-5 14-9l2-29h40l2 29q7 4 14 9l14 10 26-14 22 32-26 19q2 4 2 7.5v15q0 3.5-2 7.5l26 19-22 32-26-14q-6 5-13.5 10t-14.5 9l-2 29h-40Zm20-62q16 0 27-11t11-27q0-16-11-27t-27-11q-16 0-27 11t-11 27q0 16 11 27t27 11Zm88-155-9-35q-10-4-20.5-11T721-639l-44 16-20-35 35-28q-2-5-3.5-11t-1.5-12q0-6 1.5-12t3.5-11l-35-28 20-35 44 16q7-8 17.5-15.5T759-805l9-35h38l9 35q10 3 20.5 10.5T853-779l44-16 20 35-35 28q2 5 3.5 11t1.5 12q0 6-1.5 12t-3.5 11l35 28-20 35-44-16q-7 8-17.5 15T815-613l-9 35h-38Zm19-73q25 0 41.5-16.5T845-709q0-25-16.5-41.5T787-767q-25 0-41.5 16.5T729-709q0 25 16.5 41.5T787-651ZM358-180Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        /* Clear job assignments */
-        &[aria-description~="all"] .btnContent {
-          &::before {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='M480-344v-60h180v60H480Zm80 224v-54h-80v-60h80v-54h60v168h-60Zm100-54v-60h180v60H660Zm40-115v-169h60v54h80v60h-80v55h-60Zm135-251h-62q-23-102-104-171t-189-69q-125.36 0-212.68 87.32Q180-605.36 180-480q0 81 38.5 147.5T320-226v-114h60v220H160v-60h121q-73-48-117-127t-44-173q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q134 0 233.5 86T835-540Z'/%3E%3C/svg%3E");
-          }
-        }
-
-        .btnContent {
-          display: grid;
-          grid-template-columns: repeat(9, 1fr);
-          grid-column: 1 / 3;
-          align-items: center;
-
-          font-size: var(--font-size-base);
-          color: var(--color-text);
-
-          span.btnTitle {
-            grid-column: 2 / 10;
-            grid-row: 1;
-
-            border: 1px solid pink;
-          }
-
-          /* Job Actions */
-          >div {
-            float: none !important;
-            display: contents !important;
-
-            .linkContent {
-              display: contents !important;
-              position: relative !important;
-              float: none !important;
-              margin: 0 !important;
-              z-index: 0 !important;
-              left: initial !important;
-            }
-
-            .linkContent a.dropdown-link,
-            .assignLink,
-            .unassignLink {
-              float: none !important;
-              padding: 0 !important;
-
-              grid-row: 1;
-
-              font-size: calc(var(--font-size-base) * 0.5);
-              line-height: calc(var(--font-size-base) * 0.5);
-              color: var(--color-text);
-              opacity: 0.5;
-            }
-
-            .dropdown-link[title="[-all]"] {
-              grid-column: 2;
-            }
-
-            .dropdown-link[title="[-25]"] {
-              grid-column: 3;
-            }
-
-            .dropdown-link[title="[-5]"] {
-              grid-column: 4;
-            }
-
-            .unassignLink {
-              grid-column: 5;
-            }
-
-            .assignLink {
-              grid-column: 6;
-            }
-
-            .dropdown-link[title="[+5]"] {
-              grid-column: 7;
-            }
-
-            .dropdown-link[title="[+25]"] {
-              grid-column: 8;
-            }
-
-            .dropdown-link[title="[+all]"] {
-              grid-column: 9;
-            }
           }
         }
       }
