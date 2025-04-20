@@ -1,0 +1,172 @@
+@use "theme-reset";
+@use "game";
+@use "top-bar";
+
+:root {
+  color-scheme: light dark;
+
+  --hue: 33;
+  --color-primary-dark: hsl(var(--hue), 64%, 67%);
+  --color-primary-light: darkslategray;
+  --color-primary-a128-dark: hsla(var(--hue), 64%, 67%, 50%);
+  --color-primary-a128-light: hsla(204, 64%, 67%, 50%);
+  --color-positive-dark: hsl(128, 64%, 67%);
+  --color-positive-light: darkslategray;
+  --color-negative-dark: hsl(4, 64%, 67%);
+  --color-negative-light: darkslategray;
+  --color-primary: light-dark(var(--color-primary-light), var(--color-primary-dark));
+  --color-primary-a128: light-dark(var(--color-primary-a128-light), var(--color-primary-a128-dark));
+  --color-positive: light-dark(var(--color-positive-light), var(--color-positive-dark));
+  --color-negative: light-dark(var(--color-negative-light), var(--color-negative-dark));
+
+  --hue-text: 240;
+  --color-text-dark: hsl(var(--hue-text), 0%, 99%);
+  --color-text-light: darkslategray;
+  --color-text-dim-dark: hsl(var(--hue-text), 0%, 66%);
+  --color-text-dim-light: darkslategray;
+  --color-text-dimmer-dark: hsl(var(--hue-text), 0%, 33%);
+  --color-text-dimmer-light: darkslategray;
+  --color-text-dimmest-dark: hsl(var(--hue-text), 0%, 16.5%);
+  --color-text-dimmest-light: darkslategray;
+
+  --color-text: light-dark(var(--color-text-light), var(--color-text-dark));
+  --color-text-dim: light-dark(var(--color-text-dim-light), var(--color-text-dim-dark));
+  --color-text-dimmer: light-dark(var(--color-text-dimmer-light), var(--color-text-dimmer-dark));
+  --color-text-dimmest: light-dark(var(--color-text-dimmest-light), var(--color-text-dimmest-dark));
+  --color-text-a128: hsla(var(--color-text), 50%);
+  --color-text-a64: hsla(var(--color-text), 25%);
+  --color-text-a32: hsla(var(--color-text), 12.5%);
+
+  --hue-background: 0;
+  --color-background-dark: hsl(var(--hue-background), 0%, 0%);
+  --color-background-light: hsl(45, 53%, 88%);
+
+  --color-background: light-dark(var(--color-background-light), var(--color-background-dark));
+
+  --hue-resource-rarity: var(--hue);
+  --color-resource-rare0-dark: hsl(var(--hue-resource-rarity), 100%, 50%);
+  --color-resource-rare0-light: darkslategray;
+  --color-resource-rare1-dark: hsl(var(--hue-resource-rarity), 50%, 50%);
+  --color-resource-rare1-light: darkslategray;
+  --color-resource-rare2-dark: hsl(var(--hue-resource-rarity), 25%, 50%);
+  --color-resource-rare2-light: darkslategray;
+  --color-resource-rare3-dark: hsl(var(--hue-resource-rarity), 25%, 65%);
+  --color-resource-rare3-light: darkslategray;
+  --color-resource-rare4-dark: hsl(var(--hue-resource-rarity), 12.5%, 65%);
+  --color-resource-rare4-light: darkslategray;
+  --color-resource-rare5-dark: hsl(var(--hue-resource-rarity), 12.5%, 80%);
+  --color-resource-rare5-light: darkslategray;
+  --color-resource-metallic0-dark: hsl(0, 0%, 50%);
+  --color-resource-metallic0-light: gray;
+  --color-resource-radioactive0-dark: hsl(100, 100%, 50%);
+  --color-resource-radioactive0-light: green;
+  --color-resource-radioactive1-dark: hsl(100, 50%, 50%);
+  --color-resource-radioactive1-light: green;
+  --color-resource-science0-dark: hsl(194, 100%, 50%);
+  --color-resource-science0-light: darkblue;
+  --color-resource-science1-dark: hsl(194, 100%, 75%);
+  --color-resource-science1-light: lightblue;
+
+  --color-resource-rare0: light-dark(
+    var(--color-resource-rare0-light),
+    var(--color-resource-rare0-dark)
+  );
+  --color-resource-rare1: light-dark(
+    var(--color-resource-rare1-light),
+    var(--color-resource-rare1-dark)
+  );
+  --color-resource-rare2: light-dark(
+    var(--color-resource-rare2-light),
+    var(--color-resource-rare2-dark)
+  );
+  --color-resource-rare3: light-dark(
+    var(--color-resource-rare3-light),
+    var(--color-resource-rare3-dark)
+  );
+  --color-resource-rare4: light-dark(
+    var(--color-resource-rare4-light),
+    var(--color-resource-rare4-dark)
+  );
+  --color-resource-rare5: light-dark(
+    var(--color-resource-rare5-light),
+    var(--color-resource-rare5-dark)
+  );
+  --color-p0: var(--color-resource-rare0);
+  --color-p1: var(--color-resource-rare1);
+  --color-p2: var(--color-resource-rare2);
+  --color-p3: var(--color-resource-rare3);
+  --color-resource-metallic0: light-dark(
+    var(--color-resource-metallic0-light),
+    var(--color-resource-metallic0-dark)
+  );
+  --color-resource-radioactive0: light-dark(
+    var(--color-resource-radioactive0-light),
+    var(--color-resource-radioactive0-dark)
+  );
+  --color-resource-radioactive1: light-dark(
+    var(--color-resource-radioactive1-light),
+    var(--color-resource-radioactive1-dark)
+  );
+  --color-resource-science0: light-dark(
+    var(--color-resource-science0-light),
+    var(--color-resource-science0-dark)
+  );
+  --color-resource-science1: light-dark(
+    var(--color-resource-science1-light),
+    var(--color-resource-science1-dark)
+  );
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
+  --font-size-base: 2vw;
+}
+
+* {
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--color-background);
+}
+
+body {
+  display: flex;
+}
+#gamePageContainer {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  #topBar {
+    @include top-bar.topBar;
+  }
+  #game {
+    @include game.game;
+  }
+  #footerLinks {
+    display: none;
+  }
+}
+
+.kitten-scientists {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  right: 0;
+  top: calc(var(--font-size-base) * 3.8);
+  bottom: calc(100vh - var(--font-size-base) * 4);
+  overflow-y: scroll;
+}

@@ -33,4 +33,5 @@ node_modules:
 	yarn install
 
 output: node_modules
-	node build.js
+	mkdir -p output
+	node build.js > output/theme_neon.css
