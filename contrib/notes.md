@@ -1,5 +1,36 @@
 # Notes about Themes
 
+## Village Layout
+
+### Jobs
+
+- Job list is very narrow by nature.
+- Some jobs could include action items.
+
+### Loadouts
+
+- A layout problem.
+- Would be cool as `ol` items that stack on the right maybe? (Works: https://codepen.io/oliversalzburg/pen/)ZYYQgJe
+
+### Management
+
+- Happiness/Festival should be at the top
+- Send Hunters is job action
+- Manage Jobs is leader action
+- Promote Kittens is leader action
+- Unwrap present can't be too call-to-actiony, because people stash those
+
+### Census
+
+- Should be at the bottom.
+- Yet, should ideally be right below the jobs, to sandwich the leader in between.
+
+### The Top
+
+- Happiness/Festival
+
+
+
 ## Kittens Game Color Theory
 
 ### 10 Basic Rules
