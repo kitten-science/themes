@@ -25,10 +25,20 @@
 - Should be at the bottom.
 - Yet, should ideally be right below the jobs, to sandwich the leader in between.
 
-### The Top
+### Final Order
 
-- Happiness/Festival
-
+1.  Happiness/Festival
+2.  Woodcutter
+3.  Farmer
+4.  Scholar
+5.  Hunter + Send hunters
+6.  Miner
+7.  Priest
+8.  Geologist
+9.  Engineer
+10. Clear job assignments, Unwrap present box
+11. Leader
+12. Census
 
 
 ## Kittens Game Color Theory
