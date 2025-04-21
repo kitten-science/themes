@@ -1,0 +1,17 @@
+@mixin icon-before($icon) {
+  &::before {
+    content: "";
+    @include icon-instead($icon);
+  }
+}
+
+@mixin icon-instead($icon) {
+  display: inline-block;
+  width: var(--font-size-base);
+  height: var(--font-size-base);
+  line-height: var(--font-size-base);
+  font-size: 0 !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: $icon;
+}

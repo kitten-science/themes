@@ -1,5 +1,6 @@
-const library = {
+export const library = {
   __missing: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m611-323-43-43 114-113-114-113 43-43 113 114 113-114 43 43-114 113 114 113-43 43-113-114-113 114Zm-491-37v-240h160l200-200v640L280-360H120Z"/></svg>',
     id: "no_sound",
@@ -8,6 +9,7 @@ const library = {
     usages: ["Placeholder for missing icons."],
   },
   automation: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M132-160v-60h123l-14-14q-60-60-86.5-121.5T128-476q0-109 62.5-195T355-790v62q-76 30-121.5 99T188-476q0 52 17.5 98.5T265-293l30 27v-117h60v223H132Zm699-334h-60q-2-51-20-94.5T695-667l-30-27v117h-60v-223h223v60H704l15 14q58 55 84 115t28 117ZM696-40l-5-48q-20-6-41-17.5T616-131l-42 20-35-54 38-30q-5-23-5-41.5t5-41.5l-38-30 35-55 42 20q13-12 34-24t41-18l5-49h60l6 49q20 6 41 18t34 24l42-20 35 55-38 30q5 23 5 41.5t-5 41.5l38 30-35 54-42-20q-13 14-34 25.5T762-88l-6 48h-60Zm30-95q44 0 73-29t29-73q0-44-29-73t-73-29q-44 0-73 29t-29 73q0 44 29 73t73 29Z"/></svg>',
     id: "rule_settings",
@@ -16,6 +18,7 @@ const library = {
     usages: ["Bonfire > Building (Automation)"],
   },
   clear: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M480-344v-60h180v60H480Zm80 224v-54h-80v-60h80v-54h60v168h-60Zm100-54v-60h180v60H660Zm40-115v-169h60v54h80v60h-80v55h-60Zm135-251h-62q-23-102-104-171t-189-69q-125.36 0-212.68 87.32Q180-605.36 180-480q0 81 38.5 147.5T320-226v-114h60v220H160v-60h121q-73-48-117-127t-44-173q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q134 0 233.5 86T835-540Z"/></svg>',
     id: "reset_settings",
@@ -24,6 +27,7 @@ const library = {
     usages: ["Village > Job Assignments"],
   },
   delete: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M261-120q-24 0-42-18t-18-42v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm106-146h60v-399h-60v399Zm166 0h60v-399h-60v399Z"/></svg>',
     id: "delete",
@@ -32,6 +36,7 @@ const library = {
     usages: ["Village > Loadouts > Delete Loadout"],
   },
   downgrade: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M436-82q-76-8-141-42t-112.5-88Q135-266 108-335T81-481q0-155 101.5-269T437-880v60q-128 19-212 115t-84 224q0 128 83.5 224T436-142v60Zm44-198L280-480l43-43 127 127v-284h60v284l127-127 43 43-200 200Zm44 198v-60q46-6 88.5-23.5T691-212l44 44q-46 35-99.5 58T524-82Zm168-667q-38-27-80-45.5T524-820v-60q58 7 111 29.5T735-793l-43 44Zm100 519-43-42q29-37 46-79.5t23-88.5h61q-7 58-29 111.5T792-230Zm26-292q-6-46-23-89t-46-79l47-41q35 46 56 99t27 110h-61Z"/></svg>',
     id: "downloading",
@@ -40,6 +45,7 @@ const library = {
     usages: ["Bonfire > Building"],
   },
   effect: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M318-420v-295h90v295l-45-45-45 45Zm194 91v-551h90v461l-90 90ZM124-229v-320h90v230l-90 90Zm-4 111 246-246 149 132 262-262h-88v-60h191v190h-60v-88L517-149 368-280 206-118h-86Z"/></svg>',
     id: "finance_mode",
@@ -48,6 +54,7 @@ const library = {
     usages: ["Bonfire > Building (Tooltip)"],
   },
   energy: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M382-120v-118L240-394v-215q0-25 17.5-42.5T300-669h72l-30 30v-201h60v171h156v-171h60v201l-30-30h72q25 0 42.5 17.5T720-609v215L578-238v118H382Z"/></svg>',
     id: "power",
@@ -56,6 +63,7 @@ const library = {
     usages: ["Top Status Bar"],
   },
   engineer: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M42-120v-92q0-34 16-56.5t45-36.5q54-26 115.5-43T358-365q78 0 139.5 17T613-305q29 14 45 36.5t16 56.5v92H42Zm316-305q-66 0-108-43t-42-107h-10q-8 0-14-6t-6-14q0-8 6-14t14-6h10q0-40 20-72t52-52v39q0 6 4.5 10.5T295-685q7 0 11-4.5t4-10.5v-52q8-2 22-3.5t27-1.5q13 0 27 1.5t22 3.5v52q0 6 4 10.5t11 4.5q6 0 10.5-4.5T438-700v-39q32 20 51 52t19 72h10q8 0 14 6t6 14q0 8-6 14t-14 6h-10q0 64-42 107t-108 43Zm0-60q42 0 66-25t24-65H268q0 40 24 65t66 25Zm302 124-2-29q-7-4-14.5-9T630-409l-26 14-22-32 26-19q-2-4-2-7.5v-15q0-3.5 2-7.5l-26-19 22-32 26 14 14-10q7-5 14-9l2-29h40l2 29q7 4 14 9l14 10 26-14 22 32-26 19q2 4 2 7.5v15q0 3.5-2 7.5l26 19-22 32-26-14q-6 5-13.5 10t-14.5 9l-2 29h-40Zm20-62q16 0 27-11t11-27q0-16-11-27t-27-11q-16 0-27 11t-11 27q0 16 11 27t27 11Zm88-155-9-35q-10-4-20.5-11T721-639l-44 16-20-35 35-28q-2-5-3.5-11t-1.5-12q0-6 1.5-12t3.5-11l-35-28 20-35 44 16q7-8 17.5-15.5T759-805l9-35h38l9 35q10 3 20.5 10.5T853-779l44-16 20 35-35 28q2 5 3.5 11t1.5 12q0 6-1.5 12t-3.5 11l35 28-20 35-44-16q-7 8-17.5 15T815-613l-9 35h-38Zm19-73q25 0 41.5-16.5T845-709q0-25-16.5-41.5T787-767q-25 0-41.5 16.5T729-709q0 25 16.5 41.5T787-651Z"/></svg>',
     id: "engineering",
@@ -64,6 +72,7 @@ const library = {
     usages: ["Village > Job"],
   },
   farmer: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M228-160q-78.02 0-133.01-55.61Q40-271.21 40-350.11 40-429 95.61-484.5q55.6-55.5 134.5-55.5 78.89 0 134.39 55.61 55.5 55.6 55.5 134.5 0 78.89-56.16 134.39Q307.68-160 228-160Zm2.12-120q-29.12 0-49.62-20.38-20.5-20.38-20.5-49.5t20.38-49.62q20.38-20.5 49.5-20.5t49.62 20.38q20.5 20.38 20.5 49.5t-20.38 49.62q-20.38 20.5-49.5 20.5ZM785.5-160q-56.5 0-96-38.66Q650-237.31 650-292q0-57.17 40.41-97.59Q730.83-430 788-430q54.69 0 93.34 39.54Q920-350.93 920-295q0 57-39 96t-95.5 39ZM145-599q-11.48 0-19.24-9-7.76-9-7.76-21t7.76-21q7.76-9 19.24-9h149q25.16 0 43.08 17.5Q355-624 360-599H145Zm84.88 379Q284-220 322-257.88q38-37.88 38-92T322.12-442q-37.88-38-92-38T138-442.12q-38 37.88-38 92T137.88-258q37.88 38 92 38Zm554.94 0Q816-220 838-241.82q22-21.83 22-53Q860-326 838.18-348q-21.83-22-53-22Q754-370 732-348.18q-22 21.83-22 53Q710-264 731.82-242q21.83 22 53 22ZM448-320h174q15-63 63.5-100T791-457q20.27 0 40.14 5Q851-447 870-436v-223q0-24.75-17.62-42.38Q834.75-719 810-719H538l-49-49 62-62-18-18-141 141 18 19 61-61 49 47.64V-597q0 41.66-28.5 71.33T421-496h-26q30 32 43.5 73.5T450-337q0 5-.5 8.5T448-320Z"/></svg>',
     id: "agriculture",
@@ -72,6 +81,7 @@ const library = {
     usages: ["Village > Job"],
   },
   favorite: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M480-388q51-47 82.5-77.5T611-518q17-22 23-38.5t6-35.5q0-36-26-62t-62-26q-21 0-40.5 8.5T480-648q-12-15-31-23.5t-41-8.5q-36 0-62 26t-26 62q0 19 5.5 35t22.5 38q17 22 48 52.5t84 78.5ZM200-120v-665q0-24 18-42t42-18h440q24 0 42 18t18 42v665L480-240 200-120Z"/></svg>',
     id: "bookmark_heart",
@@ -80,6 +90,7 @@ const library = {
     usages: ["Village > Census > Kitten"],
   },
   festival: {
+    origin: "https://fonts.google.com/icons",
     id: "festival",
     usages: ["Village > Festival"],
     outline:
@@ -88,6 +99,7 @@ const library = {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M85-80q23-67 35-145t15-172q-42-13-68.5-52T40-536v-60q115-40 235-118.5T480-880q85 87 205 165.5T920-596v60q0 48-26 87t-68 52q2 90 14.5 169T876-80H85Zm105-516h580q-73-37-145-87T480-798q-69 62-142 113t-148 89Zm393 145q32 0 52-25.5t20-59.5H510q0 34 20.5 59.5T583-451Zm-205 0q32 0 52-25.5t20-59.5H305q0 34 20.5 59.5T378-451Zm-205 0q32 0 52-25.5t20-59.5H100q0 34 20.5 59.5T173-451Zm-8 311h133q8-51 14-111t11-149q-11-5-25.5-17.5T278-441q-17 20-37.5 32T195-392q-3 72-10.5 133.5T165-140Zm195 0h241q-8-52-13-112t-9-141q-33-2-60.5-16.5T477-449q-14 25-39 39.5T382-393q-4 64-8.5 127T360-140Zm302 0h134q-14-61-21-123.5T766-392q-24-5-42.5-16.5T688-441q-10 14-24 25t-26 16q3 57 8.5 120.5T662-140Zm126-311q32 0 52-25.5t20-59.5H715q0 34 20.5 59.5T788-451Z"/></svg>',
   },
   geologist: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M458-81q-79-4-148-37t-120-86.5q-51-53.5-80.5-124.27T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q149 0 259 94t135 236h-61q-17-84-71-150t-135-99v18q0 35-24 61t-59 26h-87v87q0 16.58-13.5 27.79T393-568h-83v88h110v125h-67L149-559q-5 20-7 39.67-2 19.66-2 39.33 0 135 91 233t227 106v60Zm392-26L716-241q-21 15-45.5 23t-50.07 8q-71.01 0-120.72-49.62Q450-309.24 450-380.12t49.62-120.38q49.62-49.5 120.5-49.5t120.38 49.71Q790-450.58 790-379.57q0 25.57-8.5 50.07T759-283l134 133-43 43ZM619.86-270Q666-270 698-301.86t32-78Q730-426 698.14-458t-78-32Q574-490 542-458.14t-32 78Q510-334 541.86-302t78 32Z"/></svg>',
     id: "travel_explore",
@@ -96,6 +108,7 @@ const library = {
     usages: ["Village > Job"],
   },
   happiness: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M626-533q22.5 0 38.25-15.75T680-587q0-22.5-15.75-38.25T626-641q-22.5 0-38.25 15.75T572-587q0 22.5 15.75 38.25T626-533Zm-292 0q22.5 0 38.25-15.75T388-587q0-22.5-15.75-38.25T334-641q-22.5 0-38.25 15.75T280-587q0 22.5 15.75 38.25T334-533Zm146 272q66 0 121.5-35.5T682-393H278q26 61 81 96.5T480-261Zm0 181q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>',
     id: "mood",
@@ -115,13 +128,14 @@ const library = {
   hunter: {
     origin: "https://pictogrammers.com/library/mdi/",
     filled:
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>bow-arrow</title><path d="M19.03 6.03L20 7L22 2L17 4L17.97 4.97L16.15 6.79C10.87 2.16 3.3 3.94 2.97 4L2 4.26L2.5 6.2L3.29 6L10.12 12.82L6.94 16H5L2 19L4 20L5 22L8 19V17.06L11.18 13.88L18 20.71L17.81 21.5L19.74 22L20 21.03C20.06 20.7 21.84 13.13 17.21 7.85L19.03 6.03M4.5 5.78C6.55 5.5 11.28 5.28 14.73 8.21L10.82 12.12L4.5 5.78M18.22 19.5L11.88 13.18L15.79 9.27C18.72 12.72 18.5 17.45 18.22 19.5Z" /></svg>',
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 24 24" width="48px" fill="#e3e3e3"><path d="M19.03 6.03L20 7L22 2L17 4L17.97 4.97L16.15 6.79C10.87 2.16 3.3 3.94 2.97 4L2 4.26L2.5 6.2L3.29 6L10.12 12.82L6.94 16H5L2 19L4 20L5 22L8 19V17.06L11.18 13.88L18 20.71L17.81 21.5L19.74 22L20 21.03C20.06 20.7 21.84 13.13 17.21 7.85L19.03 6.03M4.5 5.78C6.55 5.5 11.28 5.28 14.73 8.21L10.82 12.12L4.5 5.78M18.22 19.5L11.88 13.18L15.79 9.27C18.72 12.72 18.5 17.45 18.22 19.5Z" /></svg>',
     id: "bow-arrow",
     outline:
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>bow-arrow</title><path d="M19.03 6.03L20 7L22 2L17 4L17.97 4.97L16.15 6.79C10.87 2.16 3.3 3.94 2.97 4L2 4.26L2.5 6.2L3.29 6L10.12 12.82L6.94 16H5L2 19L4 20L5 22L8 19V17.06L11.18 13.88L18 20.71L17.81 21.5L19.74 22L20 21.03C20.06 20.7 21.84 13.13 17.21 7.85L19.03 6.03M4.5 5.78C6.55 5.5 11.28 5.28 14.73 8.21L10.82 12.12L4.5 5.78M18.22 19.5L11.88 13.18L15.79 9.27C18.72 12.72 18.5 17.45 18.22 19.5Z" /></svg>',
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 24 24" width="48px" fill="#e3e3e3"><path d="M19.03 6.03L20 7L22 2L17 4L17.97 4.97L16.15 6.79C10.87 2.16 3.3 3.94 2.97 4L2 4.26L2.5 6.2L3.29 6L10.12 12.82L6.94 16H5L2 19L4 20L5 22L8 19V17.06L11.18 13.88L18 20.71L17.81 21.5L19.74 22L20 21.03C20.06 20.7 21.84 13.13 17.21 7.85L19.03 6.03M4.5 5.78C6.55 5.5 11.28 5.28 14.73 8.21L10.82 12.12L4.5 5.78M18.22 19.5L11.88 13.18L15.79 9.27C18.72 12.72 18.5 17.45 18.22 19.5Z" /></svg>',
     usages: ["Village > Job"],
   },
   jobOptimize: {
+    origin: "https://fonts.google.com/icons",
     id: "assignment_ind",
     usages: ["Village > Manage Jobs"],
     outline:
@@ -130,6 +144,7 @@ const library = {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h207q-2-37 26-66.5t67-29.5q39 0 67 29.5t26 66.5h207q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm300-702q13 0 21.5-8.5T510-852q0-13-8.5-21.5T480-882q-13 0-21.5 8.5T450-852q0 13 8.5 21.5T480-822Zm2 421q58 0 98-40t40-98q0-58-40-98t-98-40q-58 0-98 40t-40 98q0 58 40 98t98 40ZM180-180h600v-37q-60-56-136-90.5T480-342q-88 0-164 34.5T180-217v37Z"/></svg>',
   },
   leaderBonus: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m385-412 36-115-95-74h116l38-119 37 119h117l-95 74 35 115-94-71-95 71ZM244-40v-304q-45-47-64.5-103T160-560q0-136 92-228t228-92q136 0 228 92t92 228q0 57-19.5 113T716-344v304l-236-79-236 79Zm236-260q109 0 184.5-75.5T740-560q0-109-75.5-184.5T480-820q-109 0-184.5 75.5T220-560q0 109 75.5 184.5T480-300Z"/></svg>',
     id: "workspace_premium",
@@ -138,6 +153,7 @@ const library = {
     usages: ["On Resources Boosted by Leader (.leaderBonus CSS Class)"],
   },
   loadoutActivate: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m125-40 114-586-98 43v134H81v-174l188-81q27-12 58.5-6.5T375-679l42 66q28 45 71.5 74.5T589-509v60q-60 0-115-28t-97-91l-39 153 89 83v292h-60v-239l-104-99-76 338h-62Zm250-714q-30 0-51.5-21.5T302-827q0-30 21.5-51.5T375-900q30 0 51.5 21.5T448-827q0 30-21.5 51.5T375-754ZM785-41l-35-35 35-35H560v-50h225l-35-35 35-35 95 95-95 95ZM655-217l-95-95 95-95 35 35-35 35h225v50H655l35 35-35 35Z"/></svg>',
     id: "transfer_within_a_station",
@@ -146,6 +162,7 @@ const library = {
     usages: ["Village > Loadouts > Loadout"],
   },
   loadoutCreate: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M480-797q14 0 24.5-10.5T515-832q0-14-10.5-24.5T480-867q-14 0-24.5 10.5T445-832q0 14 10.5 24.5T480-797ZM733-41q-78 0-133-55.5T545-228q0-78 55-133.5T733-417q77 0 132.5 55.5T921-228q0 76-55.5 131.5T733-41Zm-15-60h33v-110h110v-33H751v-110h-33v110H608v33h110v110ZM280-620h400v-60H280v60Zm230 500H180q-25 0-42.5-17.5T120-180v-600q0-25 17.5-42.5T180-840h205q5-35 32-57.5t63-22.5q36 0 63 22.5t32 57.5h205q25 0 42.5 17.5T840-780v329q-25-13-52-19t-55-6q-14 0-27 1.5t-26 4.5v-40H280v60h344q-36 18-64.5 46.5T513-340H280v60h211q-3 13-4.5 26t-1.5 27q0 29 6 55t19 52Z"/></svg>',
     id: "assignment_add",
@@ -154,6 +171,7 @@ const library = {
     usages: ["Village > Loadouts > Create Loadout"],
   },
   loadoutDefault: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M733-41q-78 0-133-55.5T545-228q0-78 55-133.5T733-417q77 0 132.5 55.5T921-228q0 76-55.5 131.5T733-41ZM280-620h400v-60H280v60Zm230 500H180q-25 0-42.5-17.5T120-180v-600q0-25 17.5-42.5T180-840h600q25 0 42.5 17.5T840-780v329q-25-13-52-19t-55-6q-14 0-27 1.5t-26 4.5v-40H280v60h344q-36 18-64.5 46.5T513-340H280v60h211q-3 13-4.5 26t-1.5 27q0 29 6 55t19 52Zm223-109q28 0 47.5-19.5T800-296q0-28-19.5-47T733-362q-27 0-46.5 19.5T667-296q0 28 19 47.5t47 19.5Zm0 133q33 0 62-15.5t47-42.5q-26-14-53-22.5t-56-8.5q-29 0-56 8.5T624-154q18 27 47 42.5T733-96Z"/></svg>',
     id: "demography",
@@ -162,6 +180,7 @@ const library = {
     usages: ["Village > Loadouts > Show/Remove Defaults"],
   },
   makeLeader: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m320-240 160-122 160 122-64-197 160-113H541l-61-203-62 203H223l160 113-63 197ZM480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-156t86-127Q252-817 325-848.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Z"/></svg>',
     id: "stars",
@@ -170,6 +189,7 @@ const library = {
     usages: ["Village > Census > Kitten"],
   },
   miner: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M80-80v-180l160 51 435-144L880-80H80Zm160-191L80-325v-95l160 51 264-85 129 51-393 132Zm500-129 180-80v-160l-180-40-100 80v120l100 80Zm-500-31L80-485v-155h240l109 146-189 63Zm240-209 200-80v-200l-200-40-120 80v160l120 80Z"/></svg>',
     id: "landslide",
@@ -178,6 +198,7 @@ const library = {
     usages: ["Village > Job"],
   },
   pin: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m634-448 86 77v60H510v241l-30 30-30-30v-241H240v-60l80-77v-333h-50v-60h414v60h-50v333Z"/></svg>',
     id: "keep",
@@ -186,6 +207,7 @@ const library = {
     usages: ["Village > Loadout"],
   },
   pollution: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M440-366q-14.45 0-24.23-9.77Q406-385.55 406-400v-160q0-14.45 9.77-24.22Q425.55-594 440-594h120q14.45 0 24.22 9.78Q594-574.45 594-560v160q0 14.45-9.78 24.23Q574.45-366 560-366H440Zm14-48h92v-132h-92v132Zm-294 48q-14.45 0-24.23-9.77Q126-385.55 126-400v-160q0-14.45 9.77-24.22Q145.55-594 160-594h120q14.45 0 24.23 9.78Q314-574.45 314-560v34h-48v-20h-92v132h92v-20h48v33.68q0 14.32-9.77 24.32-9.78 10-24.23 10H160Zm526 120v-94q0-14.45 9.78-24.23Q705.55-374 720-374h86v-52H686v-48h134q14.45 0 24.22 9.77Q854-454.45 854-440v60q0 14.45-9.78 24.23Q834.45-346 820-346h-86v52h120v48H686Z"/></svg>',
     id: "co2",
@@ -194,6 +216,7 @@ const library = {
     usages: ["Top Status Bar"],
   },
   pray: {
+    origin: "https://fonts.google.com/icons",
     id: "folded_hands",
     usages: ["Village > ???"],
     outline:
@@ -202,6 +225,7 @@ const library = {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M640-320v-124l-68-128q-34 11-53 41t-19 66v264l76 121h304l-40-495-278-324q-35 35-43 82t15 90l146 271v136h-40Zm-360 0v-136l146-271q23-42 14.5-89.5T398-899L120-575 80-80h304l76-121v-264q0-36-19-66t-53-41l-68 128v124h-40Z"/></svg>',
   },
   presentBox: {
+    origin: "https://fonts.google.com/icons",
     id: "redeem",
     usages: ["Village > Unwrap Present Box"],
     outline:
@@ -210,6 +234,7 @@ const library = {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M140-277v97h680v-97H140Zm0-443h125q-5-9-8-22.5t-3-24.5q0-47.08 33-80.04Q320-880 366-880q30.74 0 56.87 15.5T464-825l16.5 26 16.5-26q16-25 41.02-40 25.01-15 53.87-15Q640-880 673-847.5t33 80.86q0 10.64-2.5 21.64t-7.5 25h124q24 0 42 18t18 42v480q0 24-18 42t-42 18H140q-24 0-42-18t-18-42v-480q0-24 18-42t42-18Zm0 336h680v-276H571l100 139-48 36-143-198-143 198-48-36 100-139H140v276Zm227-330q22 0 37.5-15.5T420-767q0-22-15.5-37.5T367-820q-22 0-37.5 15.5T314-767q0 22 15.5 37.5T367-714Zm225 0q22.95 0 38.47-15.5Q646-745 646-767t-15.53-37.5Q614.95-820 592-820q-21 0-36.5 15.5T540-767q0 22 15.5 37.5T592-714Z"/></svg>',
   },
   price: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M286.79-81Q257-81 236-102.21t-21-51Q215-183 236.21-204t51-21Q317-225 338-203.79t21 51Q359-123 337.79-102t-51 21Zm400 0Q657-81 636-102.21t-21-51Q615-183 636.21-204t51-21Q717-225 738-203.79t21 51Q759-123 737.79-102t-51 21ZM205-801h589.07q22.97 0 34.95 21 11.98 21-.02 42L694-495q-11 19-28.56 30.5T627-453H324l-56 104h491v60H277q-42 0-60.5-28t.5-63l64-118-152-322H51v-60h117l37 79Z"/></svg>',
     id: "shopping_cart",
@@ -218,6 +243,7 @@ const library = {
     usages: ["Bonfire > Building (Tooltip)"],
   },
   priest: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M240-80v-172q-57-52-88.5-121.5T120-520q0-150 105-255t255-105q125 0 221.5 73.5T827-615l55 218q4 14-5 25.5T853-360h-93v140q0 25-17.5 42.5T700-160H600v80H240Zm240-240q17 0 28.5-11.5T520-360q0-17-11.5-28.5T480-400q-17 0-28.5 11.5T440-360q0 17 11.5 28.5T480-320Zm-30-128h61q0-25 6.5-40.5T544-526q18-20 35-40.5t17-53.5q0-42-32.5-71T483-720q-40 0-72.5 23T365-637l55 23q7-22 24.5-35.5T483-663q22 0 36.5 12t14.5 31q0 21-12.5 37.5T492-549q-20 21-31 42t-11 59Z"/></svg>',
     id: "psychology_alt",
@@ -226,6 +252,7 @@ const library = {
     usages: ["Village > Job"],
   },
   promote: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M450-332h60v-182l74 74 42-42-146-146-146 146 42 42 74-74v182Zm30 252q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-156t86-127Q252-817 325-848.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Z"/></svg>',
     id: "arrow_circle_up",
@@ -234,6 +261,7 @@ const library = {
     usages: ["Village > Census > Kitten"],
   },
   saveUpdate: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M167-160v-60h130l-15-12q-64-51-93-111t-29-134q0-106 62.5-190.5T387-784v62q-75 29-121 96.5T220-477q0 63 23.5 109.5T307-287l30 21v-124h60v230H167Zm407-15v-63q76-29 121-96.5T740-483q0-48-23.5-97.5T655-668l-29-26v124h-61v-230h230v60H665l15 14q60 56 90 120t30 123q0 106-62 191T574-175Z"/></svg>',
     id: "sync",
@@ -242,6 +270,7 @@ const library = {
     usages: ["Village > Loadout > Save"],
   },
   scholar: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M860-283v-282L479-360 40-600l439-240 441 240v317h-60ZM479-120 189-279v-210l290 159 290-159v210L479-120Z"/></svg>',
     id: "school",
@@ -250,6 +279,7 @@ const library = {
     usages: ["Village > Job"],
   },
   sell: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M255-137v-337h83q5.25 0 10.5 1.2T359-470l245 92q26 10 44 31t18 48q0 8.04-5 13.02T648-281h-73q-23 0-45.5-3.5T485-295l-73-24-10 28 75 26q26 9 54 11.5t56 2.5h195q42 0 70 31.5t28 75.5L567-48l-312-89ZM40-80v-394h154v394H40Zm550-550h40v-40h-40v40Zm-80 0h40v-40h-40v40Zm80 80h40v-40h-40v40Zm-80 0h40v-40h-40v40Zm216 185q-12-33-34-54.5T636-454L360-558h-60v-159l270-193 270 193v352H726Z"/></svg>',
     id: "real_estate_agent",
@@ -258,6 +288,7 @@ const library = {
     usages: ["Bonfire > Building"],
   },
   sorrow: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M479-208q16 0 24.5-5.5T512-230q0-11-8.5-17t-25.5-6q-42 0-85.5-26.5T337-373q-2-9-9-14.5t-15-5.5q-11 0-17 8.5t-4 17.5q15 84 71 121.5T479-208Zm1 128q-137 0-228.5-94T160-408q0-100 79.5-217.5T480-880q161 137 240.5 254.5T800-408q0 140-91.5 234T480-80Z"/></svg>',
     id: "water_drop",
@@ -266,6 +297,7 @@ const library = {
     usages: ["Top Status Bar"],
   },
   unassign: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M144-160q-44 0-74-31.5T40-268v-240q0-31 20.5-53.5T111-584q30 0 50.5 22.5T182-508v179h596v-179q0-31 20.5-53.5T849-584q30 0 50.5 22.5T920-508v240q0 45-29.5 76.5T817-160H144Zm98-229v-119q0-43-25-78t-65-53v-52q0-45 30-77t74-32h449q44 0 73.5 32t29.5 77v52q-41 16-65.5 51.5T718-508v119H242Z"/></svg>',
     id: "weekend",
@@ -274,6 +306,7 @@ const library = {
     usages: ["Village > Census > Kitten"],
   },
   upgrade: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M165-226q-39-45-58.5-100T80-440h62q8 46 24 89t45 80l-46 45ZM80-520q9-58 29-113t56-101l46 45q-29 37-45 80t-24 89H80ZM438-82q-58-7-113-27t-101-56l45-47q38 27 80.5 45t88.5 25v60ZM272-748l-48-47q47-36 102.5-56T441-878v60q-46 7-89 24.5T272-748ZM518-82v-60q47-7 90-25.5t82-44.5l47 47q-47 37-103 56.5T518-82Zm174-666q-38-27-81-45t-90-25v-60q59 7 113.5 27.5T737-795l-45 47Zm104 522-45-45q28-37 44-80t24-89h62q-9 58-28.5 113T796-226Zm23-294q-8-46-24-89t-44-80l45-45q39 45 58.5 100T881-520h-62ZM450-280v-284L323-437l-43-43 200-200 200 200-43 43-127-127v284h-60Z"/></svg>',
     id: "arrow_upload_ready",
@@ -282,6 +315,7 @@ const library = {
     usages: ["Bonfire > Building"],
   },
   woodcutter: {
+    origin: "https://fonts.google.com/icons",
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M543-80v-119h115v119H543Zm-240 0v-149H0l189-274H94l266-377 266 377h-94l189 274H418v149H303Zm455-149L590-473h93L499-737l101-143 266 377h-94l188 274H758Z"/></svg>',
     id: "forest",
