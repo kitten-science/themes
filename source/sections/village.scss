@@ -94,6 +94,381 @@
   }
 }
 
+@mixin panelJobs {
+  display: contents;
+
+  .container {
+    display: contents;
+
+    // Loadout Actions
+    table {
+      display: contents;
+
+      tr {
+        display: contents;
+
+        td {
+          font-size: 0;
+          grid-row: 11;
+
+          &:last-child {
+            display: contents;
+
+            // Create Loadout
+            >a.loadoutHref {
+              grid-column: 1;
+              grid-row: 11;
+              @include common.icon-instead(map.get(icons.$icons, "loadoutCreate"));
+            }
+          }
+        }
+      }
+    }
+
+    // Container for actual loadout configurations.
+    .loadout {
+      float: none !important;
+      width: initial !important;
+
+      grid-column: 1 / 3;
+      grid-row: 10;
+
+      // Loadouts have only btn.modern and .loadoutHref children.
+      >.btn.modern {
+        .btnContent {
+          display: grid;
+          grid-template-columns: auto;
+          align-items: center;
+
+          font-size: var(--font-size-base);
+          color: var(--color-text);
+
+          span.btnTitle {
+            grid-column: 2 / 10;
+            grid-row: 1;
+
+            border: 1px solid pink;
+          }
+
+          // Loadout Actions
+          >div {
+            float: none !important;
+            display: contents !important;
+
+            .linkContent {
+              display: contents !important;
+              position: relative !important;
+              float: none !important;
+              margin: 0 !important;
+              z-index: 0 !important;
+              left: initial !important;
+            }
+
+            .linkContent *,
+            a {
+              float: none !important;
+              padding: 0 !important;
+
+              grid-row: 2;
+
+              font-size: calc(var(--font-size-base) * 0.5);
+              line-height: calc(var(--font-size-base) * 0.5);
+              color: var(--color-text);
+              opacity: 0.5;
+            }
+          }
+
+          .btnTitle {
+            font-size: var(--font-size-base);
+            color: var(--color-text);
+            @include common.icon-before(map.get(icons.$icons, "loadoutActivate"));
+          }
+
+          // Rename
+          a.dropdown-link {
+            grid-row: 1;
+          }
+
+          // Delete
+          a.dropdown-link+a.dropdown-link {
+            grid-row: 1;
+            @include common.icon-instead(map.get(icons.$icons, "delete"));
+          }
+
+          a.saveLink {
+            grid-row: 1;
+
+            @include common.icon-instead(map.get(icons.$icons, "saveUpdate"));
+          }
+
+          // Pin
+          a[class=""] {
+            padding: 0 !important;
+
+            grid-row: 1;
+
+            font-size: var(--font-size-base);
+            color: var(--color-text);
+          }
+        }
+      }
+
+      // Delete all & Toggle Defaults
+      >.loadoutHref {
+        float: none !important;
+
+        display: none;
+
+        font-size: var(--font-size-base);
+        color: var(--color-text);
+      }
+
+      // Toggle Defaults
+      > :last-child {
+        @include common.icon-instead(map.get(icons.$icons, "loadoutDefault"));
+      }
+    }
+
+    // Actual Job assignments
+    >.btn.modern {
+      display: contents !important;
+
+      // Woodcutter
+      &[aria-description~="wood"] {
+        @include job(1, map.get(icons.$icons, "woodcutter"));
+      }
+
+      // Farmer
+      &[aria-description~="catnip"] {
+        @include job(2, map.get(icons.$icons, "farmer"));
+      }
+
+      // Scholar
+      &[aria-description~="science"] {
+        @include job(3, map.get(icons.$icons, "scholar"));
+      }
+
+      // Hunter
+      &[aria-description~="catpower"] {
+        @include job(4, map.get(icons.$icons, "hunter"));
+      }
+
+      // Miner
+      &[aria-description~="mineral"] {
+        @include job(5, map.get(icons.$icons, "miner"));
+      }
+
+      // Priest
+      &[aria-description~="faith"] {
+        @include job(6, map.get(icons.$icons, "priest"));
+      }
+
+      // Geologist
+      &[aria-description~="coal"] {
+        @include job(7, map.get(icons.$icons, "geologist"));
+      }
+
+      // Engineer
+      &[aria-description~="automate"] {
+        @include job(8, map.get(icons.$icons, "engineer"));
+      }
+
+      /* Clear job assignments */
+      &[aria-description~="all"] .btnContent {
+        grid-row: 9;
+        @include common.icon-before(map.get(icons.$icons, "clear"));
+      }
+    }
+  }
+}
+
+@mixin panelManagement {
+  grid-column: 1 / 3;
+  display: contents;
+
+  .container {
+    table {
+      display: contents;
+
+      tr {
+        display: contents;
+
+        td:first-child {
+          width: initial !important;
+          text-align: initial !important;
+          cursor: default !important;
+
+          br {
+            display: none;
+          }
+        }
+
+        td+td {
+          display: contents;
+        }
+      }
+    }
+  }
+}
+
+@mixin panelCensus {
+  grid-column: 1 / 3;
+  display: contents;
+
+  .container {
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: auto;
+    position: relative;
+
+    .currentGovernment {
+      padding-bottom: 0 !important;
+
+      display: contents;
+      grid-column: 1 / 7;
+
+      .currentLeader {
+        margin-bottom: 0 !important;
+
+        grid-column: 1 / 7;
+        position: relative;
+        color: var(--color-primary);
+
+        // "Leader:" label
+        >span:first-child {
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          color: pink;
+        }
+
+        >span.name {
+          color: var(--color-primary);
+        }
+      }
+    }
+
+    .censusFilters {
+      height: initial !important;
+
+      grid-column: 1 / 7;
+
+      position: absolute;
+      right: 0;
+
+      select {
+        float: none !important;
+        color: var(--color-text);
+      }
+    }
+
+    // A kitten in the population. 
+    // Has 2 rows:
+    //   1. Kitten information: Title/age/rank
+    //   2. Interaction elements: Favorite/make leader
+    .census-block {
+      display: grid;
+      grid-column: 1 / 7;
+      grid-template-columns: subgrid;
+
+      >div:first-child {
+        /* Inline styles. */
+        display: contents !important;
+
+        .info {
+          grid-column: 1 / 7;
+          grid-row: 1;
+
+          color: var(--color-text-dim);
+
+          .name {
+            color: var(--color-text);
+          }
+        }
+
+        .skill {
+          grid-column: 1 / 4;
+          grid-row: 2;
+
+          font-weight: initial !important;
+
+          font-size: calc(var(--font-size-base) * 0.5);
+          color: var(--color-text);
+        }
+
+        br {
+          display: none;
+        }
+      }
+
+      &.simLeader {
+        >div:first-child {
+          .info {
+            .name {
+              color: var(--color-primary);
+            }
+
+            @include common.icon-before(map.get(icons.$icons, "makeLeader"));
+          }
+        }
+      }
+
+      .links-container {
+        display: contents !important;
+
+        span.btn.modern,
+        a.unassignHref {
+          display: grid !important;
+          width: var(--font-size-base) !important;
+
+          grid-row: 2;
+
+          &.promoteHref {
+            grid-column: 3;
+            @include common.icon-instead(map.get(icons.$icons, "promote"));
+          }
+
+          &.favoriteHref {
+            grid-column: 4;
+            @include common.icon-instead(map.get(icons.$icons, "favorite"));
+          }
+
+          &.leaderHref {
+            grid-column: 5;
+            @include common.icon-instead(map.get(icons.$icons, "makeLeader"));
+          }
+        }
+
+        .unassignHref {
+          grid-column: 6;
+          @include common.icon-instead(map.get(icons.$icons, "unassign"));
+        }
+      }
+    }
+
+    *:last-child {
+      display: initial !important;
+      width: initial !important;
+      text-align: initial !important;
+      margin: 0 !important;
+
+      font-size: var(--font-size-base);
+      color: var(--color-text);
+
+      .lastHref,
+      .nextHref,
+      .firstHref,
+      .previousHref {
+        float: none !important;
+
+        font-size: var(--font-size-base);
+        color: var(--color-text);
+      }
+    }
+  }
+}
+
 @mixin village {
   display: grid;
 
@@ -109,191 +484,8 @@
 
   // Jobs
   .panelContainer:nth-child(1) {
-    grid-column: 1 / 3;
-    display: contents;
-
-    .container {
-      display: contents;
-
-      // Loadouts
-      table {
-        display: contents;
-
-        tr {
-          display: contents;
-
-          td {
-            font-size: 0;
-            grid-row: 11;
-
-            &:last-child {
-              display: contents;
-
-              // Create Loadout
-              >a.loadoutHref {
-                grid-column: 1;
-                grid-row: 11;
-                @include common.icon-instead(map.get(icons.$icons, "loadoutCreate"));
-              }
-            }
-          }
-        }
-      }
-
-      // Actual Job Assignments
-      >.btn.modern {
-        display: contents !important;
-
-        // Woodcutter
-        &[aria-description~="wood"] {
-          @include job(1, map.get(icons.$icons, "woodcutter"));
-        }
-
-        // Farmer
-        &[aria-description~="catnip"] {
-          @include job(2, map.get(icons.$icons, "farmer"));
-        }
-
-        // Scholar
-        &[aria-description~="science"] {
-          @include job(3, map.get(icons.$icons, "scholar"));
-        }
-
-        // Hunter
-        &[aria-description~="catpower"] {
-          @include job(4, map.get(icons.$icons, "hunter"));
-        }
-
-        // Miner
-        &[aria-description~="mineral"] {
-          @include job(5, map.get(icons.$icons, "miner"));
-        }
-
-        // Priest
-        &[aria-description~="faith"] {
-          @include job(6, map.get(icons.$icons, "priest"));
-        }
-
-        // Geologist
-        &[aria-description~="coal"] {
-          @include job(7, map.get(icons.$icons, "geologist"));
-        }
-
-        // Engineer
-        &[aria-description~="automate"] {
-          @include job(8, map.get(icons.$icons, "engineer"));
-        }
-
-        /* Clear job assignments */
-        &[aria-description~="all"] .btnContent {
-          grid-row: 9;
-          @include common.icon-before(map.get(icons.$icons, "clear"));
-        }
-      }
-
-      .loadout {
-        float: none !important;
-        width: initial !important;
-
-        grid-column: 1 / 3;
-        grid-row: 10;
-
-        // Loadouts have only btn.modern and .loadoutHref children.
-        >.btn.modern {
-          .btnContent {
-            display: grid;
-            grid-template-columns: repeat(9, 1fr);
-            align-items: center;
-
-            font-size: var(--font-size-base);
-            color: var(--color-text);
-
-            span.btnTitle {
-              grid-column: 2 / 10;
-              grid-row: 1;
-
-              border: 1px solid pink;
-            }
-
-            // Loadout Actions
-            >div {
-              float: none !important;
-              display: contents !important;
-
-              .linkContent {
-                display: contents !important;
-                position: relative !important;
-                float: none !important;
-                margin: 0 !important;
-                z-index: 0 !important;
-                left: initial !important;
-              }
-
-              .linkContent *,
-              a {
-                float: none !important;
-                padding: 0 !important;
-
-                grid-row: 2;
-
-                font-size: calc(var(--font-size-base) * 0.5);
-                line-height: calc(var(--font-size-base) * 0.5);
-                color: var(--color-text);
-                opacity: 0.5;
-              }
-            }
-
-            .btnTitle {
-              font-size: var(--font-size-base);
-              color: var(--color-text);
-              @include common.icon-before(map.get(icons.$icons, "loadoutActivate"));
-            }
-
-            // Rename
-            a.dropdown-link {
-              grid-row: 1;
-            }
-
-            // Delete
-            a.dropdown-link+a.dropdown-link {
-              grid-row: 1;
-              @include common.icon-instead(map.get(icons.$icons, "delete"));
-            }
-
-            a.saveLink {
-              grid-row: 1;
-
-              @include common.icon-instead(map.get(icons.$icons, "saveUpdate"));
-            }
-
-            // Pin
-            a[class=""] {
-              padding: 0 !important;
-
-              grid-row: 1;
-
-              font-size: var(--font-size-base);
-              color: var(--color-text);
-            }
-          }
-        }
-
-        // Delete all & Toggle Defaults
-        >.loadoutHref {
-          float: none !important;
-
-          display: none;
-
-          font-size: var(--font-size-base);
-          color: var(--color-text);
-        }
-
-        // Toggle Defaults
-        > :last-child {
-          @include common.icon-instead(map.get(icons.$icons, "loadoutDefault"));
-        }
-      }
-    }
+    @include panelJobs();
+    background-color: hotpink;
   }
 
   /* Map */
@@ -305,190 +497,13 @@
 
   /* Management */
   .panelContainer:nth-child(3) {
-    grid-column: 1 / 3;
-    display: contents;
-
-    .container {
-      table {
-        display: contents;
-
-        tr {
-          display: contents;
-
-          td:first-child {
-            width: initial !important;
-            text-align: initial !important;
-            cursor: default !important;
-
-            br {
-              display: none;
-            }
-          }
-
-          td+td {
-            display: contents;
-          }
-        }
-      }
-    }
+    @include panelManagement();
+    background-color: aqua;
   }
 
   /* Census */
   .panelContainer:nth-child(4) {
-    grid-column: 1 / 3;
-    display: contents;
-
-    .container {
-      grid-column: 1 / 3;
-      display: grid;
-      grid-template-columns: auto;
-      position: relative;
-
-      .currentGovernment {
-        padding-bottom: 0 !important;
-
-        display: contents;
-        grid-column: 1 / 7;
-
-        .currentLeader {
-          margin-bottom: 0 !important;
-
-          grid-column: 1 / 7;
-          position: relative;
-          color: var(--color-primary);
-
-          // "Leader:" label
-          >span:first-child {
-            position: absolute;
-            left: 0;
-            top: 0;
-
-            color: pink;
-          }
-
-          >span.name {
-            color: var(--color-primary);
-          }
-        }
-      }
-
-      .censusFilters {
-        height: initial !important;
-
-        grid-column: 1 / 7;
-
-        position: absolute;
-        right: 0;
-
-        select {
-          float: none !important;
-          color: var(--color-text);
-        }
-      }
-
-      // A kitten in the population. 
-      // Has 2 rows:
-      //   1. Kitten information: Title/age/rank
-      //   2. Interaction elements: Favorite/make leader
-      .census-block {
-        display: grid;
-        grid-column: 1 / 7;
-        grid-template-columns: subgrid;
-
-        >div:first-child {
-          /* Inline styles. */
-          display: contents !important;
-
-          .info {
-            grid-column: 1 / 7;
-            grid-row: 1;
-
-            color: var(--color-text-dim);
-
-            .name {
-              color: var(--color-text);
-            }
-          }
-
-          .skill {
-            grid-column: 1 / 4;
-            grid-row: 2;
-
-            font-weight: initial !important;
-
-            font-size: calc(var(--font-size-base) * 0.5);
-            color: var(--color-text);
-          }
-
-          br {
-            display: none;
-          }
-        }
-
-        &.simLeader {
-          >div:first-child {
-            .info {
-              .name {
-                color: var(--color-primary);
-              }
-
-              @include common.icon-before(map.get(icons.$icons, "makeLeader"));
-            }
-          }
-        }
-
-        .links-container {
-          display: contents !important;
-
-          span.btn.modern,
-          a.unassignHref {
-            display: grid !important;
-            width: var(--font-size-base) !important;
-
-            grid-row: 2;
-
-            &.promoteHref {
-              grid-column: 3;
-              @include common.icon-instead(map.get(icons.$icons, "promote"));
-            }
-
-            &.favoriteHref {
-              grid-column: 4;
-              @include common.icon-instead(map.get(icons.$icons, "favorite"));
-            }
-
-            &.leaderHref {
-              grid-column: 5;
-              @include common.icon-instead(map.get(icons.$icons, "makeLeader"));
-            }
-          }
-
-          .unassignHref {
-            grid-column: 6;
-            @include common.icon-instead(map.get(icons.$icons, "unassign"));
-          }
-        }
-      }
-
-      *:last-child {
-        display: initial !important;
-        width: initial !important;
-        text-align: initial !important;
-        margin: 0 !important;
-
-        font-size: var(--font-size-base);
-        color: var(--color-text);
-
-        .lastHref,
-        .nextHref,
-        .firstHref,
-        .previousHref {
-          float: none !important;
-
-          font-size: var(--font-size-base);
-          color: var(--color-text);
-        }
-      }
-    }
+    @include panelCensus();
+    background-color: chartreuse;
   }
 }
