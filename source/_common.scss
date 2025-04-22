@@ -1,7 +1,9 @@
-@mixin icon-before($icon) {
+@mixin icon-before($icon, $column: null, $row: null) {
   &::before {
     content: "";
     @include icon-instead($icon);
+    grid-column: $column;
+    grid-row: $row;
   }
 }
 

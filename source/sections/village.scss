@@ -4,93 +4,78 @@
 
 @mixin job($row, $icon) {
   .btnContent {
-    &::before {
-      content: "";
-      width: var(--font-size-base);
-      height: var(--font-size-base);
-      line-height: var(--font-size-base);
-      font-size: 0;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-image: $icon;
-    }
-
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-column: 1 / 3;
-    grid-row: $row;
-    align-items: center;
-
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-
-    span.btnTitle {
-      grid-column: 2 / 10;
-      grid-row: 1;
-
-      border: 1px solid pink;
-    }
+    display: contents !important;
 
     // Job Actions
     >div {
-      float: none !important;
       display: contents !important;
 
       .linkContent {
         display: contents !important;
-        position: relative !important;
-        float: none !important;
-        margin: 0 !important;
-        z-index: 0 !important;
-        left: initial !important;
-      }
-
-      .linkContent a.dropdown-link,
-      .assignLink,
-      .unassignLink {
-        float: none !important;
-        padding: 0 !important;
-
-        grid-row: 1;
-
-        font-size: calc(var(--font-size-base) * 0.5);
-        line-height: calc(var(--font-size-base) * 0.5);
-        color: var(--color-text);
-        opacity: 0.5;
-      }
-
-      .dropdown-link[title="[-all]"] {
-        grid-column: 2;
-      }
-
-      .dropdown-link[title="[-25]"] {
-        grid-column: 3;
-      }
-
-      .dropdown-link[title="[-5]"] {
-        grid-column: 4;
-      }
-
-      .unassignLink {
-        grid-column: 5;
-      }
-
-      .assignLink {
-        grid-column: 6;
-      }
-
-      .dropdown-link[title="[+5]"] {
-        grid-column: 7;
-      }
-
-      .dropdown-link[title="[+25]"] {
-        grid-column: 8;
-      }
-
-      .dropdown-link[title="[+all]"] {
-        grid-column: 9;
       }
     }
+  }
+
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+
+  @include common.icon-before(map.get(icons.$icons, $icon), 1, $row);
+
+  .btnTitle {
+    grid-column: 2 / 10;
+    grid-row: $row;
+
+    // #pragma debug_marker
+    border: 1px solid pink;
+    border: 1px solid black;
+    outline: 1px solid white;
+  }
+
+  // Job Actions
+  a.dropdown-link,
+  .assignLink,
+  .unassignLink {
+    float: none !important;
+    padding: 0 !important;
+
+    grid-row: $row;
+
+    font-size: calc(var(--font-size-base) * 0.5);
+    line-height: calc(var(--font-size-base) * 0.5);
+    color: var(--color-text);
+    opacity: 0.5;
+  }
+
+  .dropdown-link[title="[-all]"] {
+    grid-column: 2;
+  }
+
+  .dropdown-link[title="[-25]"] {
+    grid-column: 3;
+  }
+
+  .dropdown-link[title="[-5]"] {
+    grid-column: 4;
+  }
+
+  .unassignLink {
+    grid-column: 5;
+  }
+
+  .assignLink {
+    grid-column: 6;
+  }
+
+  .dropdown-link[title="[+5]"] {
+    grid-column: 7;
+  }
+
+  .dropdown-link[title="[+25]"] {
+    grid-column: 8;
+  }
+
+  .dropdown-link[title="[+all]"] {
+    grid-column: 9;
   }
 }
 
@@ -108,8 +93,13 @@
       tr {
         display: contents !important;
 
+        td:first-child {
+          display: none;
+        }
+
         td:last-child {
           display: contents !important;
+          font-size: 0;
         }
       }
     }
@@ -117,7 +107,9 @@
     // Container for actual loadout configurations.
     .loadout {
       // Do not unwrap. Container is required for layout purposes.
-      
+      float: none !important;
+      width: initial !important;
+
       // Loadout
       >.btn.modern {
         display: contents !important;
@@ -134,23 +126,16 @@
     }
   }
 
-  td {
-    // Hide label
-    font-size: 0;
-    grid-row: 11;
-
-    // Create Loadout
-    a.loadoutHref {
-      grid-column: 1;
-      grid-row: 11;
-      @include common.icon-instead(map.get(icons.$icons, "loadoutCreate"));
-    }
-  }
-
   .loadout {
+    grid-column: 1 / 11;
+    grid-row: 1 / 1000;
+
     z-index: 2;
-    grid-column: 3;
-    grid-row: 1/10;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: end;
+    align-self: start;
   }
 
   // An actual Loadout
@@ -240,6 +225,19 @@
   // Toggle Defaults
   .loadout>*:last-child {
     @include common.icon-instead(map.get(icons.$icons, "loadoutDefault"));
+
+    z-index: 3;
+  }
+
+  // Create Loadout
+  td a.loadoutHref {
+    @include common.icon-instead(map.get(icons.$icons, "loadoutCreate"));
+
+    float: none !important;
+
+    position: absolute;
+    right: calc(var(--font-size-base) * 2);
+    z-index: 3;
   }
 
   // Actual Job assignments
@@ -248,48 +246,53 @@
 
     // Woodcutter
     &[aria-description~="wood"] {
-      @include job(2, map.get(icons.$icons, "woodcutter"));
+      @include job(3, "woodcutter");
     }
 
     // Farmer
     &[aria-description~="catnip"] {
-      @include job(3, map.get(icons.$icons, "farmer"));
+      @include job(4, "farmer");
     }
 
     // Scholar
     &[aria-description~="science"] {
-      @include job(4, map.get(icons.$icons, "scholar"));
+      @include job(5, "scholar");
     }
 
     // Hunter
     &[aria-description~="catpower"] {
-      @include job(5, map.get(icons.$icons, "hunter"));
+      @include job(6, "hunter");
     }
 
     // Miner
     &[aria-description~="mineral"] {
-      @include job(6, map.get(icons.$icons, "miner"));
+      @include job(7, "miner");
     }
 
     // Priest
     &[aria-description~="faith"] {
-      @include job(7, map.get(icons.$icons, "priest"));
+      @include job(8, "priest");
     }
 
     // Geologist
     &[aria-description~="coal"] {
-      @include job(8, map.get(icons.$icons, "geologist"));
+      @include job(9, "geologist");
     }
 
     // Engineer
     &[aria-description~="automate"] {
-      @include job(9, map.get(icons.$icons, "engineer"));
+      @include job(10, "engineer");
     }
 
     // Clear job assignments
     &[aria-description~="all"] .btnContent {
-      grid-row: 10;
-      @include common.icon-before(map.get(icons.$icons, "clear"));
+      grid-column: 1 / 12;
+      grid-row: 11;
+      @include common.icon-instead(map.get(icons.$icons, "clear"));
+
+      .btnTitle {
+        display: none;
+      }
     }
   }
 
@@ -305,6 +308,8 @@
   // #pragma debug_marker
   * {
     background-color: aqua;
+    border: 1px solid black;
+    outline: 1px solid white;
   }
 
   // Unwrap contents
@@ -321,6 +326,14 @@
         // which does not need its contents unwrapped.
         td+td {
           display: contents !important;
+
+          .btn.modern {
+            display: contents !important;
+
+            .btnContent {
+              display: contents !important;
+            }
+          }
         }
       }
     }
@@ -330,14 +343,15 @@
 
   // Happiness/Festival Duration
   // Has only text content.
-  // This is the top-most row in the UI.
   td:first-child {
     width: initial !important;
     text-align: initial !important;
     cursor: default !important;
 
-    grid-column: 1 / 3;
-    grid-row: 1;
+    grid-column: 1 / 10;
+    grid-row: 2;
+
+    text-wrap: nowrap;
 
     br {
       display: none;
@@ -345,37 +359,78 @@
   }
 
   // Hunt/Festival/Optimize Jobs/Promote Kittens/Present Box
-  .btn.modern {
-    // #pragma debug_marker
-    border: 1px solid hotpink;
-
-    grid-column: 1 / 3;
-  }
 
   // Send hunters
   .btn.modern[aria-description~="hunters"] {
-    grid-row: 5;
-    grid-column: 2 / 3;
+    .btnTitle {
+      grid-column: 6 / 10;
+      grid-row: 6;
+    }
   }
 
   // Hold Festival
   .btn.modern[aria-description~="festival"] {
-    grid-row: 1;
+    @include common.icon-before(map.get(icons.$icons, "festival"), 1, 1);
+
+    // x1
+    .btnTitle {
+      grid-column: 2 / 8;
+      grid-row: 1;
+    }
+
+    // x100
+    a.rightestLink {
+      grid-column: 7 / 10;
+      grid-row: 1;
+
+      padding: 0 !important;
+      float: none !important;
+      color: var(--color-text);
+    }
+
+    // x10
+    a[class=""] {
+      grid-column: 4 / 7;
+      grid-row: 1;
+
+      padding: 0 !important;
+      float: none !important;
+      color: var(--color-text);
+    }
   }
 
   // Manage Jobs
   .btn.modern[aria-description~="distribution"] {
-    grid-row: 11;
+    .btnTitle {
+      @include common.icon-instead(map.get(icons.$icons, "jobOptimize"));
+
+      grid-column: 8 / 9;
+      grid-row: 12;
+      z-index: 2;
+    }
   }
 
   // Promote kittens
   .btn.modern[aria-description~="promotes"] {
-    grid-row: 11;
+    .btnTitle {
+      @include common.icon-instead(map.get(icons.$icons, "promoteAll"));
+
+      grid-column: 7 / 8;
+      grid-row: 12;
+      z-index: 2;
+    }
   }
 
   // Unwrap present box
   .btn.modern[aria-description=""] {
-    grid-row: 10;
+    .btnTitle {
+      @include common.icon-instead(map.get(icons.$icons, "presentBox"));
+
+      grid-column: 1 / 2;
+      grid-row: 14;
+
+      z-index: 2;
+    }
   }
 }
 
@@ -387,17 +442,23 @@
 
     .currentGovernment {
       display: contents;
+      padding: 0 !important;
     }
   }
 
-  .currentLeader {
+  // Name <span>, Trait (Bonus) [rank 12]
+  .currentLeader:nth-child(1) {
+    // #pragma debug_marker
+    background-color: hotpink;
+    border: 1px solid black;
+    outline: 1px solid white;
+
     margin-bottom: 0 !important;
 
-    grid-column: 1 / 7;
+    grid-column: 2 / 10;
+    grid-row: 12;
     position: relative;
     color: var(--color-primary);
-
-    background-color: hotpink;
 
     // "Leader:" label
     >span:first-child {
@@ -405,31 +466,66 @@
     }
 
     >span.name {
+      padding: 0 !important;
       color: var(--color-primary);
     }
   }
 
-  // Promote Leader
-  .currentLeader + a {
-    grid-column: 1 / 7;
+  // exp: 123.45K (12%)
+  .currentLeader:nth-child(2) {
+    margin: 0 !important;
 
+    grid-column: 2 / 5;
+    grid-row: 13;
+
+    z-index: 2;
+  }
+
+  // Job bonus: x1.2 (Job)
+  .currentLeader:nth-child(3) {
+    grid-column: 5 / 10;
+    grid-row: 13;
+
+    z-index: 2;
+  }
+
+  // Promote Leader
+  .currentLeader+a {
+    // #pragma debug_marker
     background-color: hotpink;
+    border: 1px solid black;
+    outline: 1px solid white;
+
+    grid-column: 2 / 10;
+    grid-row: 12;
+    z-index: 2;
+
     color: var(--color-text);
   }
 
   // Unassign Leader
-  .currentLeader ~ a {
-    grid-column: 1 / 7;
-
+  .currentLeader~a {
+    // #pragma debug_marker
     background-color: hotpink;
+    border: 1px solid black;
+    outline: 1px solid white;
+
+    grid-column: 9 / 10;
+    grid-row: 12;
+    z-index: 2;
+
     color: var(--color-text);
+
+    @include common.icon-instead(map.get(icons.$icons, "leaderUnassign"));
   }
 
   .censusFilters {
     height: initial !important;
 
-    grid-column: 1 / 7;
+    grid-column: 2 / 10;
+    grid-row: 14;
 
+    // #pragma debug_marker
     background-color: chartreuse;
 
     select {
@@ -444,17 +540,18 @@
   //   2. Interaction elements: Favorite/make leader
   .census-block {
     display: grid;
-    grid-column: 1 / 7;
+    grid-column: 1 / 10;
     grid-template-columns: subgrid;
-
-    background-color: chartreuse;
 
     >div:first-child {
       /* Inline styles. */
       display: contents !important;
 
+      // #pragma debug_marker
+      background-color: chartreuse;
+
       .info {
-        grid-column: 1 / 7;
+        grid-column: 2 / 10;
         grid-row: 1;
 
         color: var(--color-text-dim);
@@ -465,7 +562,7 @@
       }
 
       .skill {
-        grid-column: 1 / 4;
+        grid-column: 2 / 10;
         grid-row: 2;
 
         font-weight: initial !important;
@@ -479,20 +576,6 @@
       }
     }
 
-    &.simLeader {
-      background-color: hotpink;
-
-      >div:first-child {
-        .info {
-          .name {
-            color: var(--color-primary);
-          }
-
-          @include common.icon-before(map.get(icons.$icons, "makeLeader"));
-        }
-      }
-    }
-
     .links-container {
       display: contents !important;
 
@@ -503,25 +586,84 @@
 
         grid-row: 2;
 
+        // #pragma debug_marker
+        background-color: chartreuse;
+
         &.promoteHref {
-          grid-column: 3;
+          grid-column: 6 / 7;
           @include common.icon-instead(map.get(icons.$icons, "promote"));
         }
 
         &.favoriteHref {
-          grid-column: 4;
+          grid-column: 7 / 8;
           @include common.icon-instead(map.get(icons.$icons, "favorite"));
         }
 
         &.leaderHref {
-          grid-column: 5;
-          @include common.icon-instead(map.get(icons.$icons, "makeLeader"));
+          grid-column: 8 / 9;
+          @include common.icon-instead(map.get(icons.$icons, "leaderMake"));
         }
       }
 
       .unassignHref {
-        grid-column: 6;
+        grid-column: 9 / 10;
         @include common.icon-instead(map.get(icons.$icons, "unassign"));
+      }
+    }
+
+    &.simLeader {
+      @include common.icon-before(map.get(icons.$icons, "leaderMake"), 1, 12);
+
+      display: contents;
+
+      >div:first-child {
+        // #pragma debug_marker
+        background-color: chartreuse;
+        border: 1px solid black;
+        outline: 1px solid white;
+
+        grid-column: 2 / 10;
+        grid-row: 13;
+
+        div.info {
+          // #pragma debug_marker
+          background-color: chartreuse;
+          border: 1px solid black;
+          outline: 1px solid white;
+
+          grid-column: 2 / 10;
+          grid-row: 12 / 14;
+
+          display: grid;
+
+          .name {
+            // #pragma debug_marker
+            background-color: chartreuse;
+            border: 1px solid black;
+            outline: 1px solid white;
+
+            color: var(--color-primary);
+
+            grid-column: 1 / 10;
+            grid-row: 1;
+            z-index: 2;
+            justify-self: start;
+          }
+        }
+
+        .skill {
+          grid-row: 13;
+        }
+      }
+
+      span.btn.modern,
+      a.unassignHref {
+        // #pragma debug_marker
+        background-color: chartreuse;
+        border: 1px solid black;
+        outline: 1px solid white;
+
+        grid-row: 13;
       }
     }
   }
@@ -533,8 +675,13 @@
     text-align: initial !important;
     margin: 0 !important;
 
+    grid-column: 1 / 10;
+
     font-size: var(--font-size-base);
     color: var(--color-text);
+
+    // #pragma debug_marker
+    background-color: chartreuse;
 
     .lastHref,
     .nextHref,
@@ -565,6 +712,7 @@
   // Jobs
   .panelContainer:nth-child(1) {
     @include panelJobs();
+    // #pragma debug_marker
     background-color: hotpink;
   }
 
@@ -582,6 +730,7 @@
   // Census
   .panelContainer:nth-child(4) {
     @include panelCensus();
+    // #pragma debug_marker
     background-color: chartreuse;
   }
 }
