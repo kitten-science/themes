@@ -146,14 +146,16 @@
     align-items: center;
     justify-self: end;
 
+    // #pragma debug_marker
+    background-color: hsl(60, 100%, 50%);
+    border: 1px solid black;
+    outline: 1px solid white;
+
     overflow: hidden;
     border-radius: 50%;
-    background-color: var(--color-primary);
     color: var(--color-background);
     height: calc(var(--font-size-base) * 3);
     width: calc(var(--font-size-base) * 3);
-    border: 1px solid black;
-    outline: 1px solid white;
     font-size: var(--font-size-base);
 
     span.btnTitle {
@@ -226,12 +228,22 @@
   .loadout>*:last-child {
     @include common.icon-instead(map.get(icons.$icons, "loadoutDefault"));
 
+    // #pragma debug_marker
+    background-color: hsl(60, 100%, 50%);
+    border: 1px solid black;
+    outline: 1px solid white;
+
     z-index: 3;
   }
 
   // Create Loadout
   td a.loadoutHref {
     @include common.icon-instead(map.get(icons.$icons, "loadoutCreate"));
+
+    // #pragma debug_marker
+    background-color: hsl(60, 100%, 50%);
+    border: 1px solid black;
+    outline: 1px solid white;
 
     float: none !important;
 
@@ -350,8 +362,8 @@
 
     grid-column: 1 / 10;
     grid-row: 2;
-
-    text-wrap: nowrap;
+    max-width: 40vmin;
+    font-size: calc(var(--font-size-base) * 0.5);
 
     br {
       display: none;
@@ -405,7 +417,7 @@
       @include common.icon-instead(map.get(icons.$icons, "jobOptimize"));
 
       grid-column: 8 / 9;
-      grid-row: 12;
+      grid-row: 11;
       z-index: 2;
     }
   }
@@ -416,7 +428,7 @@
       @include common.icon-instead(map.get(icons.$icons, "promoteAll"));
 
       grid-column: 7 / 8;
-      grid-row: 12;
+      grid-row: 11;
       z-index: 2;
     }
   }
@@ -429,6 +441,7 @@
       grid-column: 1 / 2;
       grid-row: 14;
 
+      position: absolute;
       z-index: 2;
     }
   }
@@ -455,38 +468,53 @@
 
     margin-bottom: 0 !important;
 
+    display: grid;
     grid-column: 2 / 10;
-    grid-row: 12;
+    grid-row: 12 / 14;
     position: relative;
     color: var(--color-primary);
+    max-width: 40vmin;
+    font-size: calc(var(--font-size-base) * 0.5);
 
     // "Leader:" label
     >span:first-child {
       display: none;
     }
 
+    // Name of the leader kitten.
     >span.name {
       padding: 0 !important;
+
+      grid-row: 1;
       color: var(--color-primary);
+      font-size: var(--font-size-base);
     }
   }
 
   // exp: 123.45K (12%)
   .currentLeader:nth-child(2) {
+    // #pragma debug_marker
+    background-color: hotpink;
+    border: 1px solid black;
+    outline: 1px solid white;
+
     margin: 0 !important;
 
     grid-column: 2 / 5;
-    grid-row: 13;
-
-    z-index: 2;
+    grid-row: 11;
+    font-size: calc(var(--font-size-base) * 0.5);
   }
 
   // Job bonus: x1.2 (Job)
   .currentLeader:nth-child(3) {
-    grid-column: 5 / 10;
-    grid-row: 13;
+    // #pragma debug_marker
+    background-color: hotpink;
+    border: 1px solid black;
+    outline: 1px solid white;
 
-    z-index: 2;
+    grid-column: 5 / 10;
+    grid-row: 11;
+    font-size: calc(var(--font-size-base) * 0.5);
   }
 
   // Promote Leader
@@ -511,7 +539,7 @@
     outline: 1px solid white;
 
     grid-column: 9 / 10;
-    grid-row: 12;
+    grid-row: 11;
     z-index: 2;
 
     color: var(--color-text);
@@ -523,13 +551,18 @@
     height: initial !important;
 
     grid-column: 2 / 10;
-    grid-row: 14;
+    grid-row: 15;
+    line-height: 0;
 
     // #pragma debug_marker
     background-color: chartreuse;
+    border: 1px solid black;
+    outline: 1px solid white;
 
     select {
       float: none !important;
+
+      font-size: calc(var(--font-size-base) * 0.5);
       color: var(--color-text);
     }
   }
@@ -549,25 +582,41 @@
 
       // #pragma debug_marker
       background-color: chartreuse;
+      border: 1px solid black;
+      outline: 1px solid white;
+
+      font-size: calc(var(--font-size-base) * 0.5);
 
       .info {
+        // #pragma debug_marker
+        background-color: chartreuse;
+        border: 1px solid black;
+        outline: 1px solid white;
+
         grid-column: 2 / 10;
         grid-row: 1;
 
+        font-size: calc(var(--font-size-base) * 0.5);
         color: var(--color-text-dim);
 
         .name {
+          font-size: calc(var(--font-size-base) * 0.5);
           color: var(--color-text);
         }
       }
 
       .skill {
+        // #pragma debug_marker
+        background-color: chartreuse;
+        border: 1px solid black;
+        outline: 1px solid white;
+
         grid-column: 2 / 10;
         grid-row: 2;
 
         font-weight: initial !important;
 
-        font-size: calc(var(--font-size-base) * 0.5);
+        font-size: calc(var(--font-size-base) * 0.4);
         color: var(--color-text);
       }
 
@@ -584,10 +633,12 @@
         display: grid !important;
         width: var(--font-size-base) !important;
 
-        grid-row: 2;
+        grid-row: 1 / 3;
 
         // #pragma debug_marker
         background-color: chartreuse;
+        border: 1px solid black;
+        outline: 1px solid white;
 
         &.promoteHref {
           grid-column: 6 / 7;
@@ -623,36 +674,25 @@
         outline: 1px solid white;
 
         grid-column: 2 / 10;
-        grid-row: 13;
+        grid-row: 14;
 
         div.info {
+          // #pragma ux_loss We no longer see the age of the leader kitten.
+          display: none;
+
+          .name {
+            // We already have the name from the .currentLeader section.
+            display: none;
+          }
+        }
+
+        .skill {
           // #pragma debug_marker
           background-color: chartreuse;
           border: 1px solid black;
           outline: 1px solid white;
 
-          grid-column: 2 / 10;
-          grid-row: 12 / 14;
-
-          display: grid;
-
-          .name {
-            // #pragma debug_marker
-            background-color: chartreuse;
-            border: 1px solid black;
-            outline: 1px solid white;
-
-            color: var(--color-primary);
-
-            grid-column: 1 / 10;
-            grid-row: 1;
-            z-index: 2;
-            justify-self: start;
-          }
-        }
-
-        .skill {
-          grid-row: 13;
+          grid-row: 14;
         }
       }
 
@@ -663,7 +703,8 @@
         border: 1px solid black;
         outline: 1px solid white;
 
-        grid-row: 13;
+        grid-row: 12;
+        z-index: 2;
       }
     }
   }
@@ -675,13 +716,16 @@
     text-align: initial !important;
     margin: 0 !important;
 
-    grid-column: 1 / 10;
+    grid-column: 2 / 10;
+    grid-row: 15 / 16;
 
-    font-size: var(--font-size-base);
+    font-size: calc(var(--font-size-base) * 0.5);
     color: var(--color-text);
 
     // #pragma debug_marker
     background-color: chartreuse;
+    border: 1px solid black;
+    outline: 1px solid white;
 
     .lastHref,
     .nextHref,
@@ -689,7 +733,7 @@
     .previousHref {
       float: none !important;
 
-      font-size: var(--font-size-base);
+      font-size: calc(var(--font-size-base) * 0.5);
       color: var(--color-text);
     }
   }

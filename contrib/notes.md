@@ -40,6 +40,37 @@
 11. Leader
 12. Census
 
+#### Leader
+
+.currentGovernment
+    - .currentLeader:1
+        - span.name: Ruby Silver                            ROW 2
+        - text: , Philosopher (Religion bonus) [rank 12]    ROW 2
+            alt , No trait :<                               HIDE
+    - .currentLeader:2
+        - text: exp: 162.56K (39%)                          ROW 1
+    - .currentLeader:3
+        - text: Job bonus: ×9.3 (Scholar)                   ROW 1
+    - a:1
+        - text: Promote (412.50K exp, 325 gold)             BUTTON
+    - a:2
+        - text: Unassign Leader                             BUTTON
+
+.simLeader (optional)
+    - span.name: Ruby Silver                                HIDE (possibly replace .currentLeader:1)
+    - .info text: , 7 years old, Philosopher (rank 12)      HIDE (possibly replace .currentLeader:1)
+            alt:  , 7 years old, None (rank 6)              HIDE (possibly replace .currentLeader:1)
+    - span.skill: Scholar +1502% (master 100%)              ROW 1
+        repeats
+    - Promote                                               BUTTON
+    - Favorite                                              BUTTON
+    - Make Leader                                           BUTTON
+    - Unassign (from job)                                   BUTTON
+
+- Manage Jobs                                               BUTTON
+- Promote Kittens                                           BUTTON
+
+
 
 ## Kittens Game Color Theory
 
