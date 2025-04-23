@@ -19,6 +19,7 @@ pretty: node_modules
 
 lint: node_modules
 	yarn biome check .
+	yarn stylelint source
 
 test:
 	@echo "This project has no tests."
