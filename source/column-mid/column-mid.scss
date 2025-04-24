@@ -1,0 +1,79 @@
+@use "../bonfire/bonfire";
+@use "../village/village";
+
+@mixin root {
+  z-index: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  max-height: calc(100vh - var(--font-size-base) * 8);
+
+  padding: 0 calc(var(--font-size-base) * 0.2);
+  margin-top: calc(var(--font-size-base) * 2);
+
+  overflow-y: scroll;
+
+  #midColumnViewport {
+    float: none !important;
+
+    padding: 0 !important;
+
+    // We don't need the help.
+    .tooltip-block {
+      display: none;
+    }
+  }
+
+  #gameContainerId {
+    .tabsContainer {
+      position: fixed;
+      top: calc(var(--font-size-base) * 2);
+      left: 0;
+
+      display: flex;
+
+      flex-direction: row;
+
+      gap: calc(var(--font-size-base) * 0.3);
+      align-items: first baseline;
+
+      height: calc(var(--font-size-base) * 1.8);
+
+      a.tab {
+        font-size: calc(var(--font-size-base));
+
+        color: var(--color-text);
+
+        opacity: 0.4;
+
+        &.activeTab {
+          visibility: visible;
+
+          font-size: calc(var(--font-size-base) * 1.5);
+
+          color: var(--color-primary);
+
+          opacity: 1;
+        }
+      }
+
+      span {
+        display: none;
+      }
+    }
+
+    .tabInner {
+      max-width: 50vw;
+
+      &.Bonfire {
+        @include bonfire.bonfire;
+      }
+
+      &.Village {
+        @include village.village;
+      }
+    }
+  }
+}

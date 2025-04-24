@@ -4,8 +4,9 @@ import propertyGroups from "stylelint-config-recess-order/groups";
 export default {
   ignoreFiles: ["node_modules", "source/theme-reset.css"],
   extends: ["stylelint-config-standard-scss", "@stylistic/stylelint-config"],
-  plugins: ["@stylistic/stylelint-plugin", "stylelint-order"],
+  plugins: ["@stylistic/stylelint-plugin", "stylelint-order", "stylelint-use-nesting"],
   rules: {
+    "csstools/use-nesting": "always",
     // Handled through order plugin.
     "declaration-empty-line-before": null,
     "order/properties-order": propertyGroups.map(group => ({

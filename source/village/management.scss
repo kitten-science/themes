@@ -1,0 +1,140 @@
+@use "sass:map";
+@use "../common";
+@use "../icons";
+
+@mixin root {
+  display: contents !important;
+
+  * {
+    @include common.debug-marker(2);
+  }
+
+  // Contents consists of two table columns, which need to be unwrapped.
+
+  // Happiness/Festival Duration
+  // Has only text content.
+  td:first-child {
+    grid-row: 2;
+    grid-column: 1 / 10;
+
+    width: initial !important;
+    max-width: 40vmin;
+
+    font-size: calc(var(--font-size-base) * 0.5);
+
+    text-align: initial !important;
+
+    cursor: default !important;
+
+    br {
+      display: none;
+    }
+  }
+
+  // Unwrap contents
+  .container {
+    display: contents !important;
+
+    table {
+      display: contents !important;
+
+      tr {
+        display: contents !important;
+
+        // The first td is the 'Happiness/Festival Duration' section,
+        // which does not need its contents unwrapped.
+        td + td {
+          display: contents !important;
+
+          .btn.modern {
+            display: contents !important;
+
+            .btnContent {
+              display: contents !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Hunt/Festival/Optimize Jobs/Promote Kittens/Present Box
+
+  // Send hunters
+  .btn.modern[aria-description~="hunters"] {
+    .btnTitle {
+      grid-row: 6;
+      grid-column: 6 / 10;
+    }
+  }
+
+  // Hold Festival
+  .btn.modern[aria-description~="festival"] {
+    @include common.icon-before(map.get(icons.$icons, "festival"), 1, 1);
+
+    // x1
+    .btnTitle {
+      grid-row: 1;
+      grid-column: 2 / 8;
+    }
+
+    // x100
+    a.rightestLink {
+      float: none !important;
+
+      grid-row: 1;
+      grid-column: 7 / 10;
+
+      padding: 0 !important;
+
+      color: var(--color-text);
+    }
+
+    // x10
+    a[class=""] {
+      float: none !important;
+
+      grid-row: 1;
+      grid-column: 4 / 7;
+
+      padding: 0 !important;
+
+      color: var(--color-text);
+    }
+  }
+
+  // Manage Jobs
+  .btn.modern[aria-description~="distribution"] {
+    .btnTitle {
+      @include common.icon-instead(map.get(icons.$icons, "jobOptimize"));
+      z-index: 2;
+
+      grid-row: 11;
+      grid-column: 8 / 9;
+    }
+  }
+
+  // Promote kittens
+  .btn.modern[aria-description~="promotes"] {
+    .btnTitle {
+      @include common.icon-instead(map.get(icons.$icons, "promoteAll"));
+
+      z-index: 2;
+
+      grid-row: 11;
+      grid-column: 7 / 8;
+    }
+  }
+
+  // Unwrap present box
+  .btn.modern[aria-description=""] {
+    .btnTitle {
+      @include common.icon-instead(map.get(icons.$icons, "presentBox"));
+      position: absolute;
+      z-index: 2;
+
+      grid-row: 14;
+      grid-column: 1 / 2;
+    }
+  }
+}

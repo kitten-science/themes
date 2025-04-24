@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "../common";
+@use "../icons";
+@use "census";
+@use "jobs";
+@use "loadout";
+@use "management";
+
+@mixin village {
+  position: relative;
+
+  display: grid;
+
+  .panelContainer {
+    .toggle {
+      display: none;
+    }
+
+    .title {
+      display: none;
+    }
+  }
+
+  // Jobs
+  .panelContainer:nth-child(1) {
+    @include jobs.root;
+  }
+
+  // Map (currently disabled in-game)
+  // .panelContainer:nth-child(2) {}
+
+  // Management
+  .panelContainer:nth-child(3) {
+    @include management.root;
+  }
+
+  // Census
+  .panelContainer:nth-child(4) {
+    @include census.root;
+    @include common.debug-marker(3);
+  }
+}

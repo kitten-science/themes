@@ -1,0 +1,172 @@
+@mixin root {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+  max-width: initial;
+  height: calc(var(--font-size-base) * 4);
+
+  overflow: visible;
+
+  // Current date.
+  > :has(+ .right-tab-header) {
+    position: fixed;
+    top: calc(var(--font-size-base) * 1.1);
+    right: calc(var(--font-size-base) * 0.2);
+    z-index: 3;
+
+    span {
+      font-size: calc(var(--font-size-base) * 0.6);
+
+      color: var(--color-text) !important;
+
+      cursor: default !important;
+    }
+  }
+
+  .right-tab-header {
+    display: none;
+  }
+
+  #rightTabLog {
+    display: flex;
+
+    flex-direction: column;
+
+    > div {
+      position: relative;
+
+      // You are a kitten in a catnip forest.
+      .console-intro {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        align-content: first baseline;
+
+        width: 100vw;
+        height: calc(var(--font-size-base) * 4);
+
+        padding-top: initial !important;
+
+        overflow: hidden;
+
+        font-size: calc(var(--font-size-base) * 4) !important;
+        font-style: italic;
+
+        line-height: calc(var(--font-size-base) * 4) !important;
+
+        color: var(--color-text-dimmest);
+
+        text-wrap: nowrap;
+
+        cursor: default;
+        user-select: none;
+
+        background-color: var(--color-background);
+        border-top: none !important;
+      }
+
+      #clearLog {
+        display: none;
+      }
+
+      #logFiltersBlock {
+        position: absolute;
+        top: calc(var(--font-size-base) * -1);
+        right: 0;
+
+        display: inline-block;
+
+        padding-top: 0 !important;
+
+        #logFiltersBlockText {
+          display: inline-block;
+
+          width: var(--font-size-base);
+          height: var(--font-size-base);
+
+          font-size: 0;
+
+          line-height: var(--font-size-base);
+
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m611-323-43-43 114-113-114-113 43-43 113 114 113-114 43 43-114 113 114 113-43 43-113-114-113 114Zm-491-37v-240h160l200-200v640L280-360H120Zm300-288L307-540H180v120h127l113 109v-337ZM311-481Z'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+
+      #pauseBtn {
+        position: fixed;
+        top: calc(var(--font-size-base) * 0.4);
+        right: 0;
+
+        display: inline-block;
+
+        width: var(--font-size-base);
+        height: var(--font-size-base);
+
+        font-size: 0 !important;
+
+        line-height: var(--font-size-base);
+
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m611-323-43-43 114-113-114-113 43-43 113 114 113-114 43 43-114 113 114 113-43 43-113-114-113 114Zm-491-37v-240h160l200-200v640L280-360H120Zm300-288L307-540H180v120h127l113 109v-337ZM311-481Z'/%3E%3C/svg%3E");
+        background-size: cover;
+      }
+
+      #undoBtn {
+        display: none !important;
+
+        font-size: initial !important;
+      }
+    }
+
+    #gameLog {
+      display: flex;
+
+      flex-flow: row wrap;
+
+      gap: 0 calc(var(--font-size-base) * 0.5);
+
+      height: initial !important;
+      min-height: initial !important;
+
+      padding-top: 0 !important;
+
+      overflow-y: initial !important;
+
+      .msg {
+        color: var(--color-text) !important;
+
+        text-wrap: nowrap;
+
+        &.type_date {
+          width: 100%;
+
+          font-size: var(--font-size-base);
+
+          color: var(--color-text);
+
+          opacity: 0.6;
+        }
+
+        &.type_notice {
+          color: var(--color-p3);
+        }
+
+        &.type_important {
+          color: var(--color-p2);
+        }
+
+        &.type_alert {
+          color: var(--color-p1);
+        }
+
+        &.type_urgent {
+          color: var(--color-p0);
+        }
+      }
+    }
+  }
+}

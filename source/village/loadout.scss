@@ -1,0 +1,141 @@
+@use "sass:map";
+@use "../common";
+@use "../icons";
+
+@mixin root {
+  z-index: 2;
+
+  // Container for actual loadout configurations.
+  // Do not unwrap. Container is required for layout purposes.
+  float: none !important;
+
+  display: flex;
+
+  flex-direction: column-reverse;
+
+  grid-row: 1 / 1000;
+  grid-column: 9 / 11;
+
+  align-items: end;
+  align-self: start;
+
+  width: initial !important;
+
+  // Toggle Defaults
+  > *:last-child {
+    @include common.icon-instead(map.get(icons.$icons, "loadoutDefault"));
+    @include common.debug-marker(4);
+
+    z-index: 3;
+  }
+
+  // Loadout
+  >.btn.modern {
+    display: contents !important;
+
+    // An actual Loadout
+    .btnContent {
+      display: grid;
+
+      grid-template-columns: auto;
+
+      align-items: center;
+      justify-self: end;
+
+      width: calc(var(--font-size-base) * 3);
+      height: calc(var(--font-size-base) * 3);
+
+      overflow: hidden;
+
+      font-size: var(--font-size-base);
+
+      color: var(--color-background);
+
+      border-radius: 50%;
+
+      @include common.debug-marker(4);
+
+      span.btnTitle {
+        grid-row: 1;
+        grid-column: 2 / 10;
+
+        border: 1px solid pink;
+      }
+
+      // Loadout Actions
+      > div {
+        display: contents !important;
+
+        .linkContent {
+          display: contents !important;
+        }
+      }
+
+      .linkContent *,
+      a {
+        float: none !important;
+
+        grid-row: 2;
+
+        padding: 0 !important;
+
+        font-size: calc(var(--font-size-base) * 0.5);
+
+        line-height: calc(var(--font-size-base) * 0.5);
+
+        color: var(--color-text);
+
+        opacity: 0.5;
+      }
+
+      .btnTitle {
+        font-size: var(--font-size-base);
+
+        color: var(--color-text);
+
+        @include common.icon-before(map.get(icons.$icons, "loadoutActivate"));
+      }
+
+      // Rename
+      a.dropdown-link {
+        grid-row: 1;
+      }
+
+      // Delete
+      a.dropdown-link + a.dropdown-link {
+        grid-row: 1;
+
+        @include common.icon-instead(map.get(icons.$icons, "delete"));
+      }
+
+      a.saveLink {
+        grid-row: 1;
+
+        @include common.icon-instead(map.get(icons.$icons, "saveUpdate"));
+      }
+
+      // Pin
+      a[class=""] {
+        grid-row: 1;
+
+        padding: 0 !important;
+
+        font-size: var(--font-size-base);
+
+        color: var(--color-text);
+      }
+    }
+  }
+
+  // Delete all & Toggle Defaults
+  .loadoutHref {
+    float: none !important;
+
+    // #pragma ux_loss
+    display: none;
+
+    font-size: var(--font-size-base);
+
+    color: var(--color-text);
+  }
+}

@@ -196,6 +196,7 @@ __metadata:
     stylelint-config-recess-order: "npm:6.0.0"
     stylelint-config-standard-scss: "npm:14.0.0"
     stylelint-order: "npm:^6.0.4"
+    stylelint-use-nesting: "npm:6.0.0"
   languageName: unknown
   linkType: soft
 
@@ -1427,6 +1428,15 @@ __metadata:
   peerDependencies:
     stylelint: ^16.0.2
   checksum: 10c0/63b6cd02db1e7fa04f0bafe94d3772ab95dfcd60b8d329142d7d82f5247a6ad4a3d4ace6e4983d501a8f996e3dce08117a47db47623d1ee9a58649ca7b81fcd0
+  languageName: node
+  linkType: hard
+
+"stylelint-use-nesting@npm:6.0.0":
+  version: 6.0.0
+  resolution: "stylelint-use-nesting@npm:6.0.0"
+  peerDependencies:
+    stylelint: ">= 16.9.0"
+  checksum: 10c0/41c0fe3780a75adf54080d881d09e39ce8aa64433a3dce96ef9e6aae784d03bca287848917529119763936144b87bbcf7a3b4ecf7f397d2751974cfa13b1afb7
   languageName: node
   linkType: hard
 

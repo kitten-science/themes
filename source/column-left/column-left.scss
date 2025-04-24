@@ -1,0 +1,402 @@
+@mixin root {
+  z-index: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  max-height: calc(100vh - var(--font-size-base) * 8);
+
+  padding: 0 calc(var(--font-size-base) * 0.2);
+  margin-top: calc(var(--font-size-base) * 2);
+
+  overflow-y: scroll;
+
+  font-size: var(--font-size-base) !important;
+
+  vertical-align: initial !important;
+
+  #leftColumnViewport {
+    > div {
+      display: flex;
+
+      flex-direction: row-reverse;
+
+      gap: calc(var(--font-size-base) * 0.2);
+    }
+
+    #fastHuntContainer {
+      display: none !important;
+    }
+
+    #fastPraiseContainer {
+      display: none !important;
+    }
+
+    a.link.collapse {
+      display: none;
+    }
+
+    .res-toolbar.right {
+      // We don't need the help.
+      .link,
+      .tooltip-block {
+        display: none;
+      }
+    }
+  }
+
+  .res-table {
+    display: grid;
+
+    grid-template-columns: auto;
+
+    .res-row {
+      display: grid;
+
+      grid-template-rows: subgrid;
+      grid-template-columns: subgrid;
+      grid-column: 1 / 4;
+
+      border: 1px solid transparent;
+
+      .res-cell {
+        grid-row: 1;
+        grid-column: 3;
+
+        transition: padding-left 0.5s, opacity 0.5s;
+
+        &.resource-value,
+        &.resLimitNotice,
+        &.maxRes,
+        &.resPerTick,
+        &.negative-weather,
+        &.positive-weather {
+          color: var(--color-text);
+        }
+
+        &.resource-name {
+          grid-row: 1;
+          grid-column: 2;
+
+          // Inline styles for resource coloring.
+          color: var(--color-text) !important;
+
+          text-transform: capitalize;
+
+          border-left: calc(var(--font-size-base) * 0.2) solid transparent;
+        }
+
+        &.resAmount {
+          z-index: 1;
+
+          grid-row: 1;
+          grid-column: 1;
+
+          justify-self: end;
+
+          opacity: 0.6;
+        }
+
+        &.maxRes {
+          z-index: 2;
+
+          grid-row: 1;
+          grid-column: 1;
+
+          place-self: end right;
+
+          font-size: calc(var(--font-size-base) * 0.4);
+
+          color: var(--color-text);
+
+          text-shadow:
+            -1px -1px 2px var(--color-background),
+            0 0 calc(1vw * 0.25) var(--color-background),
+            0 0 calc(1vw * 0.5) var(--color-background),
+            0 0 1vw var(--color-background);
+        }
+
+        &.resPerTick {
+          grid-row: 1;
+          grid-column: 2;
+
+          justify-self: end;
+
+          // HACK
+          margin-left: calc(var(--font-size-base) * -2);
+
+          font-size: calc(var(--font-size-base) * 0.4);
+
+          opacity: 0.6;
+
+          &:has(~ .negative-weather) {
+            color: var(--color-negative);
+          }
+
+          &:has(~ .positive-weather) {
+            color: var(--color-positive);
+          }
+        }
+
+        &.negative-weather,
+        &.positive-weather {
+          grid-row: 1;
+          grid-column: 3;
+
+          justify-self: end;
+
+          font-size: 0;
+
+          vertical-align: super;
+
+          opacity: 0.6;
+        }
+
+        &.negative-weather::after {
+          display: inline-block;
+
+          font-size: calc(var(--font-size-base) * 0.5);
+
+          color: var(--color-negative);
+
+          content: "-";
+        }
+
+        &.positive-weather::after {
+          display: inline-block;
+
+          font-size: calc(var(--font-size-base) * 0.5);
+
+          color: var(--color-positive);
+
+          content: "+";
+        }
+      }
+
+      // Highlighting, from mouse-over on buildings.
+      &.highlited {
+        font-weight: initial !important;
+
+        color: var(--color-text) !important;
+
+        border: 1px solid var(--color-text-dimmer);
+
+        .res-cell.resource-name {
+          padding-left: var(--font-size-base);
+
+          border-left: calc(var(--font-size-base) * 0.2) solid var(--color-text);
+        }
+
+        .res-cell.resAmount {
+          opacity: 1;
+        }
+      }
+
+      &.resLeaderBonus {
+        &::after {
+          width: var(--font-size-base);
+          height: var(--font-size-base);
+
+          line-height: var(--font-size-base);
+
+          content: "";
+
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m385-412 36-115-95-74h116l38-119 37 119h117l-95 74 35 115-94-71-95 71ZM244-40v-304q-45-47-64.5-103T160-560q0-136 92-228t228-92q136 0 228 92t92 228q0 57-19.5 113T716-344v304l-236-79-236 79Zm236-260q109 0 184.5-75.5T740-560q0-109-75.5-184.5T480-820q-109 0-184.5 75.5T220-560q0 109 75.5 184.5T480-300ZM304-124l176-55 176 55v-171q-40 29-86 42t-90 13q-44 0-90-13t-86-42v171Zm176-86Z'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+
+      &.resource_antimatter .resource-name,
+      &.resource_antimatter .resource-value {
+        color: var(--color-resource-rare0) !important;
+      }
+
+      &.resource_relic .resource-name,
+      &.resource_relic .resource-value {
+        color: var(--color-resource-rare0) !important;
+      }
+
+      &.resource_void .resource-name,
+      &.resource_void .resource-value {
+        color: var(--color-resource-rare0) !important;
+      }
+
+      &.resource_burnedParagon .resource-name,
+      &.resource_burnedParagon .resource-value {
+        color: var(--color-resource-rare0) !important;
+      }
+
+      &.resource_paragon .resource-name,
+      &.resource_paragon .resource-value {
+        color: var(--color-resource-rare1) !important;
+      }
+
+      &.resource_eludium .resource-name,
+      &.resource_eludium .resource-value {
+        color: var(--color-resource-rare1) !important;
+      }
+
+      &.resource_unobtainium .resource-name,
+      &.resource_unobtainium .resource-value {
+        color: var(--color-resource-rare2) !important;
+      }
+
+      &.resource_starchart .resource-name,
+      &.resource_starchart .resource-value {
+        color: var(--color-resource-rare3) !important;
+      }
+
+      &.resource_kerosene .resource-name,
+      &.resource_kerosene .resource-value {
+        color: var(--color-resource-rare3) !important;
+      }
+
+      &.resource_ship .resource-name,
+      &.resource_ship .resource-value {
+        color: var(--color-resource-rare4) !important;
+      }
+
+      &.resource_culture .resource-name,
+      &.resource_culture .resource-value {
+        color: var(--color-resource-rare4) !important;
+      }
+
+      &.resource_manpower .resource-name,
+      &.resource_manpower .resource-value {
+        color: var(--color-resource-rare5) !important;
+      }
+
+      &.resource_scaffold .resource-name,
+      &.resource_scaffold .resource-value {
+        color: var(--color-resource-rare5) !important;
+      }
+
+      &.resource_elderBox .resource-name,
+      &.resource_elderBox .resource-value {
+        color: var(--color-resource-rare5) !important;
+      }
+
+      &.resource_wrappingPaper .resource-name,
+      &.resource_wrappingPaper .resource-value {
+        color: var(--color-resource-rare5) !important;
+      }
+
+      &.resource_timeCrystal .resource-name,
+      &.resource_timeCrystal .resource-value {
+        color: var(--color-resource-radioactive0) !important;
+
+        text-shadow:
+          1px 1px 1px var(--color-background),
+          2px 2px 1px var(--color-text-dimmer),
+          0 0 calc(var(--font-size-base) * 0.3) var(--color-resource-radioactive0);
+      }
+
+      &.resource_thorium .resource-name,
+      &.resource_thorium .resource-value,
+      &.resource_uranium .resource-name,
+      &.resource_uranium .resource-value {
+        color: var(--color-resource-radioactive1) !important;
+
+        text-shadow:
+          1px 1px 1px var(--color-background),
+          2px 2px 1px var(--color-text-dimmer),
+          0 0 calc(var(--font-size-base) * 0.3) var(--color-resource-radioactive1);
+      }
+
+      &.resource_science .resource-name,
+      &.resource_science .resource-value {
+        color: var(--color-resource-science0) !important;
+      }
+
+      &.resource_faith .resource-name,
+      &.resource_faith .resource-value {
+        color: var(--color-resource-science1) !important;
+      }
+    }
+
+    &.craftTable {
+      .res-row.craft {
+        .res-cell.resource-value {
+          grid-column: 1;
+
+          justify-self: end;
+
+          opacity: 0.6;
+        }
+
+        // Highlighting, from mouse-over on buildings.
+        &.highlited {
+          font-weight: initial !important;
+
+          color: var(--color-text) !important;
+
+          border: 1px solid var(--color-text-dimmer);
+
+          .res-cell.resource-value {
+            opacity: 1;
+          }
+        }
+
+        .res-cell.craft-link {
+          display: none;
+        }
+
+        &.resource_steel .resource-name,
+        &.resource_steel .resource-value,
+        &.resource_gear .resource-name,
+        &.resource_gear .resource-value,
+        &.resource_alloy .resource-name,
+        &.resource_alloy .resource-value {
+          background:
+            repeating-linear-gradient(
+              45deg,
+              var(--color-text),
+              var(--color-text) 0.05vw,
+              var(--color-resource-metallic0) 0.05vw,
+              var(--color-resource-metallic0) 0.2vw
+            );
+          background-clip: text;
+
+          filter: drop-shadow(2px 2px 0 var(--color-text-dimmer));
+          -webkit-text-fill-color: transparent;
+        }
+
+        &.resource_megalith .resource-name,
+        &.resource_megalith .resource-value {
+          background: linear-gradient(var(--color-text), var(--color-resource-metallic0));
+          background-clip: text;
+
+          filter: drop-shadow(0 -1px 1px var(--color-text-dimmer));
+          -webkit-text-fill-color: transparent;
+        }
+
+        &.resource_manuscript .resource-name,
+        &.resource_manuscript .resource-value {
+          color: var(--color-resource-science0) !important;
+        }
+
+        &.resource_compedium .resource-name,
+        &.resource_compedium .resource-value {
+          color: var(--color-resource-science0) !important;
+        }
+
+        &.resource_blueprint .resource-name,
+        &.resource_blueprint .resource-value {
+          color: var(--color-resource-science0) !important;
+        }
+
+        &.resource_parchment .resource-name,
+        &.resource_parchment .resource-value {
+          color: var(--color-resource-rare2) !important;
+        }
+
+        &.resource_thorium .resource-name,
+        &.resource_thorium .resource-value {
+          color: var(--color-resource-radioactive1) !important;
+        }
+      }
+    }
+  }
+}
