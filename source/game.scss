@@ -3,10 +3,11 @@
 
 @mixin root {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+
+  flex-flow: row wrap;
 
   padding: 0 1vmin;
+
   overflow: hidden;
 
   font-family: var(--font-family);
@@ -20,28 +21,36 @@
   }
 
   #leftColumn {
-    vertical-align: initial !important;
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    max-height: calc(100vh - var(--font-size-base) * 8);
+
+    padding: 0 calc(var(--font-size-base) * 0.2);
+    margin-top: calc(var(--font-size-base) * 2);
+
+    overflow-y: scroll;
+
     font-size: var(--font-size-base) !important;
 
-    margin-top: calc(var(--font-size-base) * 2);
-    max-height: calc(100vh - var(--font-size-base) * 8);
-    padding: 0 calc(var(--font-size-base) * 0.2);
-
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
+    vertical-align: initial !important;
 
     #leftColumnViewport {
       > div {
         display: flex;
+
         flex-direction: row-reverse;
+
         gap: calc(var(--font-size-base) * 0.2);
       }
 
       #fastHuntContainer {
         display: none !important;
       }
+
       #fastPraiseContainer {
         display: none !important;
       }
@@ -61,53 +70,25 @@
 
     .res-table {
       display: grid;
+
       grid-template-columns: auto;
 
       .res-row {
         display: grid;
-        grid-column: 1 / 4;
-        grid-template-columns: subgrid;
+
         grid-template-rows: subgrid;
+        grid-template-columns: subgrid;
+        grid-column: 1 / 4;
 
         border: 1px solid transparent;
 
-        // Highlighting, from mouse-over on buildings.
-        &.highlited {
-          color: var(--color-text) !important;
-          font-weight: initial !important;
-
-          border: 1px solid var(--color-text-dimmer);
-
-          .res-cell.resource-name {
-            border-left: calc(var(--font-size-base) * 0.2) solid var(--color-text);
-            padding-left: var(--font-size-base);
-          }
-          .res-cell.resAmount {
-            opacity: 1;
-          }
-        }
-
-        &.resLeaderBonus {
-          &::after {
-            content: "";
-            width: var(--font-size-base);
-            height: var(--font-size-base);
-            line-height: var(--font-size-base);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m385-412 36-115-95-74h116l38-119 37 119h117l-95 74 35 115-94-71-95 71ZM244-40v-304q-45-47-64.5-103T160-560q0-136 92-228t228-92q136 0 228 92t92 228q0 57-19.5 113T716-344v304l-236-79-236 79Zm236-260q109 0 184.5-75.5T740-560q0-109-75.5-184.5T480-820q-109 0-184.5 75.5T220-560q0 109 75.5 184.5T480-300ZM304-124l176-55 176 55v-171q-40 29-86 42t-90 13q-44 0-90-13t-86-42v171Zm176-86Z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-        }
-
         .res-cell {
-          grid-column: 3;
           grid-row: 1;
+          grid-column: 3;
 
           transition: padding-left 0.5s, opacity 0.5s;
 
-          &.resource-name,
           &.resource-value,
-          &.resAmount,
           &.resLimitNotice,
           &.maxRes,
           &.resPerTick,
@@ -117,54 +98,64 @@
           }
 
           &.resource-name {
+            grid-row: 1;
+            grid-column: 2;
+
             // Inline styles for resource coloring.
             color: var(--color-text) !important;
-
-            grid-column: 2;
-            grid-row: 1;
 
             text-transform: capitalize;
 
             border-left: calc(var(--font-size-base) * 0.2) solid transparent;
           }
+
           &.resAmount {
-            grid-column: 1;
-            grid-row: 1;
-            justify-self: end;
             z-index: 1;
+
+            grid-row: 1;
+            grid-column: 1;
+
+            justify-self: end;
 
             opacity: 0.6;
           }
 
           &.maxRes {
-            grid-column: 1;
-            grid-row: 1;
-            justify-self: right;
-            align-self: end;
             z-index: 2;
 
-            color: var(--color-text);
-            text-shadow: -1px -1px 2px var(--color-background), 0 0 calc(1vw * 0.25)
-              var(--color-background), 0 0 calc(1vw * 0.5) var(--color-background), 0 0 1vw
-              var(--color-background);
+            grid-row: 1;
+            grid-column: 1;
+
+            place-self: end right;
 
             font-size: calc(var(--font-size-base) * 0.4);
+
+            color: var(--color-text);
+
+            text-shadow:
+              -1px -1px 2px var(--color-background),
+              0 0 calc(1vw * 0.25) var(--color-background),
+              0 0 calc(1vw * 0.5) var(--color-background),
+              0 0 1vw var(--color-background);
           }
 
           &.resPerTick {
-            grid-column: 2;
             grid-row: 1;
+            grid-column: 2;
+
             justify-self: end;
+
             // HACK
             margin-left: calc(var(--font-size-base) * -2);
 
-            opacity: 0.6;
-
             font-size: calc(var(--font-size-base) * 0.4);
+
+            opacity: 0.6;
 
             &:has(~ .negative-weather) {
               color: var(--color-negative);
             }
+
             &:has(~ .positive-weather) {
               color: var(--color-positive);
             }
@@ -172,26 +163,70 @@
 
           &.negative-weather,
           &.positive-weather {
-            grid-column: 3;
             grid-row: 1;
+            grid-column: 3;
+
+            justify-self: end;
+
             font-size: 0;
 
-            opacity: 0.6;
-
             vertical-align: super;
-            justify-self: end;
+
+            opacity: 0.6;
           }
-          &.negative-weather:after {
-            color: var(--color-negative);
+
+          &.negative-weather::after {
             display: inline-block;
+
             font-size: calc(var(--font-size-base) * 0.5);
+
+            color: var(--color-negative);
+
             content: "-";
           }
-          &.positive-weather:after {
-            color: var(--color-positive);
+
+          &.positive-weather::after {
             display: inline-block;
+
             font-size: calc(var(--font-size-base) * 0.5);
+
+            color: var(--color-positive);
+
             content: "+";
+          }
+        }
+
+        // Highlighting, from mouse-over on buildings.
+        &.highlited {
+          font-weight: initial !important;
+
+          color: var(--color-text) !important;
+
+          border: 1px solid var(--color-text-dimmer);
+
+          .res-cell.resource-name {
+            padding-left: var(--font-size-base);
+
+            border-left: calc(var(--font-size-base) * 0.2) solid var(--color-text);
+          }
+
+          .res-cell.resAmount {
+            opacity: 1;
+          }
+        }
+
+        &.resLeaderBonus {
+          &::after {
+            width: var(--font-size-base);
+            height: var(--font-size-base);
+
+            line-height: var(--font-size-base);
+
+            content: "";
+
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m385-412 36-115-95-74h116l38-119 37 119h117l-95 74 35 115-94-71-95 71ZM244-40v-304q-45-47-64.5-103T160-560q0-136 92-228t228-92q136 0 228 92t92 228q0 57-19.5 113T716-344v304l-236-79-236 79Zm236-260q109 0 184.5-75.5T740-560q0-109-75.5-184.5T480-820q-109 0-184.5 75.5T220-560q0 109 75.5 184.5T480-300ZM304-124l176-55 176 55v-171q-40 29-86 42t-90 13q-44 0-90-13t-86-42v171Zm176-86Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: cover;
           }
         }
 
@@ -199,14 +234,17 @@
         &.resource_antimatter .resource-value {
           color: var(--color-resource-rare0) !important;
         }
+
         &.resource_relic .resource-name,
         &.resource_relic .resource-value {
           color: var(--color-resource-rare0) !important;
         }
+
         &.resource_void .resource-name,
         &.resource_void .resource-value {
           color: var(--color-resource-rare0) !important;
         }
+
         &.resource_burnedParagon .resource-name,
         &.resource_burnedParagon .resource-value {
           color: var(--color-resource-rare0) !important;
@@ -216,6 +254,7 @@
         &.resource_paragon .resource-value {
           color: var(--color-resource-rare1) !important;
         }
+
         &.resource_eludium .resource-name,
         &.resource_eludium .resource-value {
           color: var(--color-resource-rare1) !important;
@@ -230,6 +269,7 @@
         &.resource_starchart .resource-value {
           color: var(--color-resource-rare3) !important;
         }
+
         &.resource_kerosene .resource-name,
         &.resource_kerosene .resource-value {
           color: var(--color-resource-rare3) !important;
@@ -239,6 +279,7 @@
         &.resource_ship .resource-value {
           color: var(--color-resource-rare4) !important;
         }
+
         &.resource_culture .resource-name,
         &.resource_culture .resource-value {
           color: var(--color-resource-rare4) !important;
@@ -248,14 +289,17 @@
         &.resource_manpower .resource-value {
           color: var(--color-resource-rare5) !important;
         }
+
         &.resource_scaffold .resource-name,
         &.resource_scaffold .resource-value {
           color: var(--color-resource-rare5) !important;
         }
+
         &.resource_elderBox .resource-name,
         &.resource_elderBox .resource-value {
           color: var(--color-resource-rare5) !important;
         }
+
         &.resource_wrappingPaper .resource-name,
         &.resource_wrappingPaper .resource-value {
           color: var(--color-resource-rare5) !important;
@@ -264,7 +308,10 @@
         &.resource_timeCrystal .resource-name,
         &.resource_timeCrystal .resource-value {
           color: var(--color-resource-radioactive0) !important;
-          text-shadow: 1px 1px 1px var(--color-background), 2px 2px 1px var(--color-text-dimmer),
+
+          text-shadow:
+            1px 1px 1px var(--color-background),
+            2px 2px 1px var(--color-text-dimmer),
             0 0 calc(var(--font-size-base) * 0.3) var(--color-resource-radioactive0);
         }
 
@@ -273,7 +320,10 @@
         &.resource_uranium .resource-name,
         &.resource_uranium .resource-value {
           color: var(--color-resource-radioactive1) !important;
-          text-shadow: 1px 1px 1px var(--color-background), 2px 2px 1px var(--color-text-dimmer),
+
+          text-shadow:
+            1px 1px 1px var(--color-background),
+            2px 2px 1px var(--color-text-dimmer),
             0 0 calc(var(--font-size-base) * 0.3) var(--color-resource-radioactive1);
         }
 
@@ -281,6 +331,7 @@
         &.resource_science .resource-value {
           color: var(--color-resource-science0) !important;
         }
+
         &.resource_faith .resource-name,
         &.resource_faith .resource-value {
           color: var(--color-resource-science1) !important;
@@ -289,10 +340,20 @@
 
       &.craftTable {
         .res-row.craft {
+          .res-cell.resource-value {
+            grid-column: 1;
+
+            justify-self: end;
+
+            opacity: 0.6;
+          }
+
           // Highlighting, from mouse-over on buildings.
           &.highlited {
-            color: var(--color-text) !important;
             font-weight: initial !important;
+
+            color: var(--color-text) !important;
+
             border: 1px solid var(--color-text-dimmer);
 
             .res-cell.resource-value {
@@ -303,11 +364,6 @@
           .res-cell.craft-link {
             display: none;
           }
-          .res-cell.resource-value {
-            grid-column: 1;
-            justify-self: end;
-            opacity: 0.6;
-          }
 
           &.resource_steel .resource-name,
           &.resource_steel .resource-value,
@@ -315,36 +371,39 @@
           &.resource_gear .resource-value,
           &.resource_alloy .resource-name,
           &.resource_alloy .resource-value {
-            background: repeating-linear-gradient(
-              45deg,
-              var(--color-text),
-              var(--color-text) 0.05vw,
-              var(--color-resource-metallic0) 0.05vw,
-              var(--color-resource-metallic0) 0.2vw
-            );
+            background:
+              repeating-linear-gradient(
+                45deg,
+                var(--color-text),
+                var(--color-text) 0.05vw,
+                var(--color-resource-metallic0) 0.05vw,
+                var(--color-resource-metallic0) 0.2vw
+              );
             background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
             filter: drop-shadow(2px 2px 0 var(--color-text-dimmer));
+            -webkit-text-fill-color: transparent;
           }
 
           &.resource_megalith .resource-name,
           &.resource_megalith .resource-value {
             background: linear-gradient(var(--color-text), var(--color-resource-metallic0));
             background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
             filter: drop-shadow(0 -1px 1px var(--color-text-dimmer));
+            -webkit-text-fill-color: transparent;
           }
 
           &.resource_manuscript .resource-name,
           &.resource_manuscript .resource-value {
             color: var(--color-resource-science0) !important;
           }
+
           &.resource_compedium .resource-name,
           &.resource_compedium .resource-value {
             color: var(--color-resource-science0) !important;
           }
+
           &.resource_blueprint .resource-name,
           &.resource_blueprint .resource-value {
             color: var(--color-resource-science0) !important;
@@ -366,17 +425,21 @@
 
   #midColumn {
     z-index: 1;
+
     display: flex;
+
     flex-direction: column;
 
-    margin-top: calc(var(--font-size-base) * 2);
     max-height: calc(100vh - var(--font-size-base) * 8);
+
     padding: 0 calc(var(--font-size-base) * 0.2);
+    margin-top: calc(var(--font-size-base) * 2);
 
     overflow-y: scroll;
 
     #midColumnViewport {
       float: none !important;
+
       padding: 0 !important;
 
       // We don't need the help.
@@ -387,25 +450,33 @@
 
     #gameContainerId {
       .tabsContainer {
+        position: fixed;
+        top: calc(var(--font-size-base) * 2);
+        left: 0;
+
         display: flex;
+
         flex-direction: row;
+
+        gap: calc(var(--font-size-base) * 0.3);
         align-items: first baseline;
 
-        position: fixed;
-        left: 0;
-        top: calc(var(--font-size-base) * 2);
         height: calc(var(--font-size-base) * 1.8);
-        gap: calc(var(--font-size-base) * 0.3);
 
         a.tab {
           font-size: calc(var(--font-size-base));
+
           color: var(--color-text);
+
           opacity: 0.4;
 
           &.activeTab {
-            font-size: calc(var(--font-size-base) * 1.5);
-            color: var(--color-primary);
             visibility: visible;
+
+            font-size: calc(var(--font-size-base) * 1.5);
+
+            color: var(--color-primary);
+
             opacity: 1;
           }
         }
@@ -431,23 +502,28 @@
 
   #rightColumn {
     display: flex;
+
     flex-direction: column;
-    max-width: initial;
+
     width: 100%;
+    max-width: initial;
     height: calc(var(--font-size-base) * 4);
+
     overflow: visible;
 
     // Current date.
     > :has(+ .right-tab-header) {
       position: fixed;
-      z-index: 3;
       top: calc(var(--font-size-base) * 1.1);
       right: calc(var(--font-size-base) * 0.2);
-      span {
-        color: var(--color-text) !important;
-        cursor: default !important;
+      z-index: 3;
 
+      span {
         font-size: calc(var(--font-size-base) * 0.6);
+
+        color: var(--color-text) !important;
+
+        cursor: default !important;
       }
     }
 
@@ -457,6 +533,7 @@
 
     #rightTabLog {
       display: flex;
+
       flex-direction: column;
 
       > div {
@@ -464,80 +541,102 @@
 
         // You are a kitten in a catnip forest.
         .console-intro {
-          padding-top: initial !important;
-          font-style: italic;
-          border-top: none !important;
-
-          font-size: calc(var(--font-size-base) * 4) !important;
-          line-height: calc(var(--font-size-base) * 4) !important;
-
           position: fixed;
-          left: 0;
           bottom: 0;
+          left: 0;
+
+          align-content: first baseline;
+
           width: 100vw;
           height: calc(var(--font-size-base) * 4);
 
+          padding-top: initial !important;
+
           overflow: hidden;
-          user-select: none;
-          cursor: default;
+
+          font-size: calc(var(--font-size-base) * 4) !important;
+          font-style: italic;
+
+          line-height: calc(var(--font-size-base) * 4) !important;
+
+          color: var(--color-text-dimmest);
+
           text-wrap: nowrap;
-          align-content: first baseline;
+
+          cursor: default;
+          user-select: none;
 
           background-color: var(--color-background);
-          color: var(--color-text-dimmest);
+          border-top: none !important;
         }
+
         #clearLog {
           display: none;
         }
+
         #logFiltersBlock {
-          padding-top: 0 !important;
+          position: absolute;
+          top: calc(var(--font-size-base) * -1);
+          right: 0;
 
           display: inline-block;
-          position: absolute;
-          right: 0;
-          top: calc(var(--font-size-base) * -1);
+
+          padding-top: 0 !important;
 
           #logFiltersBlockText {
             display: inline-block;
+
             width: var(--font-size-base);
             height: var(--font-size-base);
-            line-height: var(--font-size-base);
+
             font-size: 0;
+
+            line-height: var(--font-size-base);
+
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m611-323-43-43 114-113-114-113 43-43 113 114 113-114 43 43-114 113 114 113-43 43-113-114-113 114Zm-491-37v-240h160l200-200v640L280-360H120Zm300-288L307-540H180v120h127l113 109v-337ZM311-481Z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-size: cover;
           }
         }
-        #pauseBtn {
-          font-size: 0 !important;
 
+        #pauseBtn {
           position: fixed;
           top: calc(var(--font-size-base) * 0.4);
           right: 0;
+
           display: inline-block;
+
           width: var(--font-size-base);
           height: var(--font-size-base);
+
+          font-size: 0 !important;
+
           line-height: var(--font-size-base);
-          font-size: 0;
+
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m611-323-43-43 114-113-114-113 43-43 113 114 113-114 43 43-114 113 114 113-43 43-113-114-113 114Zm-491-37v-240h160l200-200v640L280-360H120Zm300-288L307-540H180v120h127l113 109v-337ZM311-481Z'/%3E%3C/svg%3E");
           background-size: cover;
         }
+
         #undoBtn {
-          font-size: initial !important;
           display: none !important;
+
+          font-size: initial !important;
         }
       }
 
       #gameLog {
-        overflow-y: initial !important;
-        padding-top: 0 !important;
+        display: flex;
+
+        flex-flow: row wrap;
+
+        gap: 0 calc(var(--font-size-base) * 0.5);
+
         height: initial !important;
         min-height: initial !important;
 
-        display: flex;
-        flex-direction: row;
-        gap: 0 calc(var(--font-size-base) * 0.5);
-        flex-wrap: wrap;
+        padding-top: 0 !important;
+
+        overflow-y: initial !important;
 
         .msg {
           color: var(--color-text) !important;
@@ -545,10 +644,13 @@
           text-wrap: nowrap;
 
           &.type_date {
-            font-size: var(--font-size-base);
-            color: var(--color-text);
-            opacity: 0.6;
             width: 100%;
+
+            font-size: var(--font-size-base);
+
+            color: var(--color-text);
+
+            opacity: 0.6;
           }
 
           &.type_notice {
@@ -576,67 +678,82 @@
   }
 
   #tooltip {
+    position: fixed !important;
+    top: calc(var(--font-size-base) * 2) !important;
+    right: 0 !important;
+    left: 0 !important;
+    z-index: 2;
+
     // To debug tooltip, set this to !important.
     display: flex;
 
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0 calc(var(--font-size-base) * 0.2);
-    align-items: last baseline;
-    align-content: center;
-    position: fixed !important;
-    right: 0 !important;
-    top: calc(var(--font-size-base) * 2) !important;
-    left: 0 !important;
-    height: calc(var(--font-size-base) * 1.8) !important;
-    z-index: 2;
+    flex-flow: row wrap;
 
-    color: var(--color-text);
-    background-color: var(--color-background);
+    gap: 0 calc(var(--font-size-base) * 0.2);
+    align-content: center;
+    align-items: last baseline;
+
+    height: calc(var(--font-size-base) * 1.8) !important;
 
     font-size: calc(var(--font-size-base) * 0.5);
+
     line-height: calc(var(--font-size-base) * 0.5);
+
+    color: var(--color-text);
+
     text-wrap: nowrap;
+
+    background-color: var(--color-background);
 
     > * {
       font-size: calc(var(--font-size-base) * 0.5);
     }
+
     > span {
       display: none;
     }
+
     > div {
       float: none !important;
 
       font-size: calc(var(--font-size-base) * 0.5);
+
       line-height: calc(var(--font-size-base) * 0.5);
+
       text-wrap: nowrap;
     }
 
     .tooltip-inner {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+
+      flex-flow: row wrap;
+
       gap: 0 calc(var(--font-size-base) * 0.2);
       align-items: last baseline;
+
       margin-left: calc(var(--font-size-base) * 0.7);
 
       font-size: calc(var(--font-size-base) * 0.5);
+
       text-wrap: nowrap;
 
       background-color: var(--color-background);
 
       .desc {
-        padding-bottom: 0 !important;
-        border-bottom: none !important;
-
         position: fixed;
-        left: calc(var(--font-size-base) * 0.5);
         top: calc(100vh - var(--font-size-base) * 4);
+        left: calc(var(--font-size-base) * 0.5);
         z-index: 1;
 
+        padding-bottom: 0 !important;
+
         font-size: var(--font-size-base);
+
         line-height: var(--font-size-base);
+
         color: var(--color-text);
+
+        border-bottom: none !important;
 
         br {
           display: none;
@@ -645,15 +762,19 @@
         &.small:not(&.small + &.small) {
           top: calc(100vh - var(--font-size-base) * 2);
         }
+
         &.small + &.small {
           top: calc(100vh - var(--font-size-base) * 1);
         }
       }
+
       .price-block {
+        position: relative;
+
         overflow: visible !important;
 
-        position: relative;
         font-size: calc(var(--font-size-base) * 0.7);
+
         line-height: calc(var(--font-size-base) * 0.7);
 
         &:not(.price-block ~ .price-block) {
@@ -666,9 +787,11 @@
 
         > span {
           float: none !important;
+
           padding-right: initial !important;
 
           font-size: calc(var(--font-size-base) * 0.7);
+
           line-height: calc(var(--font-size-base) * 0.7);
 
           color: var(--color-text);
@@ -676,9 +799,11 @@
           &.limited {
             color: var(--color-p0) !important;
           }
+
           &.noRes {
             color: var(--color-p0) !important;
           }
+
           // `rawRes` are raw components that pay into a craftable price.
           &.rawRes,
           &.rawRes + span {
@@ -686,26 +811,36 @@
           }
         }
       }
+
       .tooltip-divider.resEffectsTxt {
-        text-align: initial !important;
         width: initial !important;
-        border-bottom: initial !important;
+
         padding-bottom: initial !important;
         margin-bottom: initial !important;
 
         font-size: 0;
+
         line-height: 0;
+
+        text-align: initial !important;
+
+        border-bottom: initial !important;
 
         &::before {
           display: block;
-          content: " ";
+
           width: 100vw;
+
+          content: " ";
         }
       }
+
       .effectName {
-        font-size: calc(var(--font-size-base) * 0.7);
-        line-height: calc(var(--font-size-base) * 0.7);
         z-index: 1;
+
+        font-size: calc(var(--font-size-base) * 0.7);
+
+        line-height: calc(var(--font-size-base) * 0.7);
 
         color: var(--color-text);
 
@@ -717,27 +852,34 @@
           background-size: contain;
         }
       }
+
       .flavor {
-        padding-top: initial !important;
-        font-style: italic !important;
-
-        font-size: calc(var(--font-size-base) * 4) !important;
-        line-height: calc(var(--font-size-base) * 4) !important;
-
         position: fixed;
-        left: 0;
         bottom: 0;
+        left: 0;
+
+        align-content: first baseline;
+
         width: 100vw;
         height: calc(var(--font-size-base) * 4);
 
+        padding-top: initial !important;
+
         overflow: hidden;
-        user-select: none;
-        cursor: default;
+
+        font-size: calc(var(--font-size-base) * 4) !important;
+        font-style: italic !important;
+
+        line-height: calc(var(--font-size-base) * 4) !important;
+
+        color: var(--color-text-dimmest);
+
         text-wrap: nowrap;
-        align-content: first baseline;
+
+        cursor: default;
+        user-select: none;
 
         background-color: var(--color-background);
-        color: var(--color-text-dimmest);
       }
     }
   }

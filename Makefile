@@ -15,6 +15,7 @@ git-hook:
 
 pretty: node_modules
 	yarn biome check --write --no-errors-on-unmatched
+	yarn stylelint --fix source || true
 	npm pkg fix
 
 lint: node_modules
