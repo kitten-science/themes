@@ -13,5 +13,6 @@ export default {
       noEmptyLineBetween: true,
     })),
     "selector-class-pattern": null,
+    "selector-id-pattern": null,
   },
 };
