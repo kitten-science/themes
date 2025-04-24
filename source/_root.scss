@@ -165,11 +165,11 @@ html {
       overflow: hidden;
 
       #topBar {
-        @include top-bar.topBar;
+        @include top-bar.root;
       }
 
       #game {
-        @include game.game;
+        @include game.root;
       }
 
       #footerLinks {

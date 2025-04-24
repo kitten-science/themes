@@ -1,7 +1,7 @@
 @use "sections/bonfire";
 @use "sections/village";
 
-@mixin game {
+@mixin root {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -12,7 +12,7 @@
   font-family: var(--font-family);
   font-size: var(--font-size-base);
 
-  /* Highlighting, from mouse-over on buildings. */
+  // Highlighting, from mouse-over on buildings.
   &:has(.Bonfire:hover) {
     .res-row:not(.highlited) {
       opacity: 0.6;
@@ -20,7 +20,6 @@
   }
 
   #leftColumn {
-    /* Negate inline styles. */
     vertical-align: initial !important;
     font-size: var(--font-size-base) !important;
 
@@ -41,11 +40,9 @@
       }
 
       #fastHuntContainer {
-        /* Negate inline styles. */
         display: none !important;
       }
       #fastPraiseContainer {
-        /* Negate inline styles. */
         display: none !important;
       }
 
@@ -54,7 +51,7 @@
       }
 
       .res-toolbar.right {
-        /* We don't need the help. */
+        // We don't need the help.
         .link,
         .tooltip-block {
           display: none;
@@ -74,7 +71,7 @@
 
         border: 1px solid transparent;
 
-        /* Highlighting, from mouse-over on buildings. */
+        // Highlighting, from mouse-over on buildings.
         &.highlited {
           color: var(--color-text) !important;
           font-weight: initial !important;
@@ -120,7 +117,7 @@
           }
 
           &.resource-name {
-            /* Inline styles for resource coloring. */
+            // Inline styles for resource coloring.
             color: var(--color-text) !important;
 
             grid-column: 2;
@@ -158,7 +155,7 @@
             grid-column: 2;
             grid-row: 1;
             justify-self: end;
-            /* HACK */
+            // HACK
             margin-left: calc(var(--font-size-base) * -2);
 
             opacity: 0.6;
@@ -292,7 +289,7 @@
 
       &.craftTable {
         .res-row.craft {
-          /* Highlighting, from mouse-over on buildings. */
+          // Highlighting, from mouse-over on buildings.
           &.highlited {
             color: var(--color-text) !important;
             font-weight: initial !important;
@@ -379,11 +376,10 @@
     overflow-y: scroll;
 
     #midColumnViewport {
-      /* Negate inline styles. */
       float: none !important;
       padding: 0 !important;
 
-      /* We don't need the help. */
+      // We don't need the help.
       .tooltip-block {
         display: none;
       }
@@ -441,14 +437,13 @@
     height: calc(var(--font-size-base) * 4);
     overflow: visible;
 
-    /* Current date. */
+    // Current date.
     > :has(+ .right-tab-header) {
       position: fixed;
       z-index: 3;
       top: calc(var(--font-size-base) * 1.1);
       right: calc(var(--font-size-base) * 0.2);
       span {
-        /* Inline styles. */
         color: var(--color-text) !important;
         cursor: default !important;
 
@@ -467,9 +462,8 @@
       > div {
         position: relative;
 
-        /* You are a kitten in a catnip forest. */
+        // You are a kitten in a catnip forest.
         .console-intro {
-          /* Inline styles */
           padding-top: initial !important;
           font-style: italic;
           border-top: none !important;
@@ -496,7 +490,6 @@
           display: none;
         }
         #logFiltersBlock {
-          /* Inline styles */
           padding-top: 0 !important;
 
           display: inline-block;
@@ -516,7 +509,6 @@
           }
         }
         #pauseBtn {
-          /* Inline styles */
           font-size: 0 !important;
 
           position: fixed;
@@ -531,14 +523,12 @@
           background-size: cover;
         }
         #undoBtn {
-          /* Inline styles */
           font-size: initial !important;
           display: none !important;
         }
       }
 
       #gameLog {
-        /* Inline styles */
         overflow-y: initial !important;
         padding-top: 0 !important;
         height: initial !important;
@@ -550,7 +540,6 @@
         flex-wrap: wrap;
 
         .msg {
-          /* Inline styles */
           color: var(--color-text) !important;
 
           text-wrap: nowrap;
@@ -587,7 +576,7 @@
   }
 
   #tooltip {
-    /* To debug tooltip, set this to !important. */
+    // To debug tooltip, set this to !important.
     display: flex;
 
     flex-direction: row;
@@ -616,7 +605,6 @@
       display: none;
     }
     > div {
-      /* Inline styles. */
       float: none !important;
 
       font-size: calc(var(--font-size-base) * 0.5);
@@ -638,7 +626,6 @@
       background-color: var(--color-background);
 
       .desc {
-        /* Inline styles */
         padding-bottom: 0 !important;
         border-bottom: none !important;
 
@@ -663,7 +650,6 @@
         }
       }
       .price-block {
-        /* Inline styles */
         overflow: visible !important;
 
         position: relative;
@@ -679,7 +665,6 @@
         }
 
         > span {
-          /* Inline styles */
           float: none !important;
           padding-right: initial !important;
 
@@ -694,7 +679,7 @@
           &.noRes {
             color: var(--color-p0) !important;
           }
-          /* `rawRes` are raw components that pay into a craftable price. */
+          // `rawRes` are raw components that pay into a craftable price.
           &.rawRes,
           &.rawRes + span {
             opacity: 0.6;
@@ -702,7 +687,6 @@
         }
       }
       .tooltip-divider.resEffectsTxt {
-        /* Inline styles */
         text-align: initial !important;
         width: initial !important;
         border-bottom: initial !important;
@@ -734,7 +718,6 @@
         }
       }
       .flavor {
-        /* Inline styles. */
         padding-top: initial !important;
         font-style: italic !important;
 
