@@ -3,13 +3,14 @@
 @use "../icons";
 @use "census";
 @use "jobs";
-@use "loadout";
 @use "management";
 
 @mixin village {
   position: relative;
 
   display: grid;
+
+  align-items: center;
 
   .panelContainer {
     .toggle {

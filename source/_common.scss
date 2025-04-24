@@ -1,10 +1,10 @@
 @use "sass:list";
 
-@mixin icon-before($icon, $column: null, $row: null) {
+@mixin icon-before($icon, $column: null, $row-start: null, $row-end: $row-start + 1) {
   &::before {
     @include icon-instead($icon);
 
-    grid-row: $row;
+    grid-row: list.slash($row-start, $row-end);
     grid-column: $column;
 
     content: "";
@@ -26,11 +26,26 @@
   background-size: contain;
 }
 
-$debug-colors: hsl(300deg 100% 50%), hsl(180deg 100% 50%), hsl(100deg 100% 50%), hsl(60deg 100% 50%);
+$debug-colors:
+  hsl(300deg 100% 50%),
+  hsl(240deg 100% 50%),
+  hsl(180deg 100% 50%),
+  hsl(120deg 100% 50%),
+  hsl(60deg 100% 50%),
+  hsl(0deg 100% 50%);
 
 @mixin debug-marker($index: 1) {
-  outline: 1px solid white;
+  color: black !important;
 
-  background-color: list.nth($debug-colors, $index);
-  border: 1px solid black;
+  outline: 1px solid white !important;
+
+  background-color: list.nth($debug-colors, $index) !important;
+  border: 1px solid black !important;
+
+  &:hover {
+    outline: 1px dashed list.nth($debug-colors, $index) !important;
+
+    background-color: white !important;
+    border: 1px dotted list.nth($debug-colors, $index) !important;
+  }
 }

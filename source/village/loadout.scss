@@ -14,20 +14,12 @@
   flex-direction: column-reverse;
 
   grid-row: 1 / 1000;
-  grid-column: 9 / 11;
+  grid-column: 10 / 11;
 
   align-items: end;
   align-self: start;
 
   width: initial !important;
-
-  // Toggle Defaults
-  > *:last-child {
-    @include common.icon-instead(map.get(icons.$icons, "loadoutDefault"));
-    @include common.debug-marker(4);
-
-    z-index: 3;
-  }
 
   // Loadout
   >.btn.modern {
@@ -137,5 +129,13 @@
     font-size: var(--font-size-base);
 
     color: var(--color-text);
+  }
+
+  // Toggle Defaults
+  > .loadoutHref:last-child {
+    @include common.icon-instead(map.get(icons.$icons, "loadoutDefault"));
+    @include common.debug-marker(4);
+
+    z-index: 3;
   }
 }

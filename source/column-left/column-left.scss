@@ -209,82 +209,82 @@
       }
 
       &.resource_antimatter .resource-name,
-      &.resource_antimatter .resource-value {
+      &.resource_antimatter .res-cell.resAmount {
         color: var(--color-resource-rare0) !important;
       }
 
       &.resource_relic .resource-name,
-      &.resource_relic .resource-value {
+      &.resource_relic .res-cell.resAmount {
         color: var(--color-resource-rare0) !important;
       }
 
       &.resource_void .resource-name,
-      &.resource_void .resource-value {
+      &.resource_void .res-cell.resAmount {
         color: var(--color-resource-rare0) !important;
       }
 
       &.resource_burnedParagon .resource-name,
-      &.resource_burnedParagon .resource-value {
+      &.resource_burnedParagon .res-cell.resAmount {
         color: var(--color-resource-rare0) !important;
       }
 
       &.resource_paragon .resource-name,
-      &.resource_paragon .resource-value {
+      &.resource_paragon .res-cell.resAmount {
         color: var(--color-resource-rare1) !important;
       }
 
       &.resource_eludium .resource-name,
-      &.resource_eludium .resource-value {
+      &.resource_eludium .res-cell.resAmount {
         color: var(--color-resource-rare1) !important;
       }
 
       &.resource_unobtainium .resource-name,
-      &.resource_unobtainium .resource-value {
+      &.resource_unobtainium .res-cell.resAmount {
         color: var(--color-resource-rare2) !important;
       }
 
       &.resource_starchart .resource-name,
-      &.resource_starchart .resource-value {
+      &.resource_starchart .res-cell.resAmount {
         color: var(--color-resource-rare3) !important;
       }
 
       &.resource_kerosene .resource-name,
-      &.resource_kerosene .resource-value {
+      &.resource_kerosene .res-cell.resAmount {
         color: var(--color-resource-rare3) !important;
       }
 
       &.resource_ship .resource-name,
-      &.resource_ship .resource-value {
+      &.resource_ship .res-cell.resAmount {
         color: var(--color-resource-rare4) !important;
       }
 
       &.resource_culture .resource-name,
-      &.resource_culture .resource-value {
+      &.resource_culture .res-cell.resAmount {
         color: var(--color-resource-rare4) !important;
       }
 
       &.resource_manpower .resource-name,
-      &.resource_manpower .resource-value {
+      &.resource_manpower .res-cell.resAmount {
         color: var(--color-resource-rare5) !important;
       }
 
       &.resource_scaffold .resource-name,
-      &.resource_scaffold .resource-value {
+      &.resource_scaffold .res-cell.resAmount {
         color: var(--color-resource-rare5) !important;
       }
 
       &.resource_elderBox .resource-name,
-      &.resource_elderBox .resource-value {
+      &.resource_elderBox .res-cell.resAmount {
         color: var(--color-resource-rare5) !important;
       }
 
       &.resource_wrappingPaper .resource-name,
-      &.resource_wrappingPaper .resource-value {
+      &.resource_wrappingPaper .res-cell.resAmount {
         color: var(--color-resource-rare5) !important;
       }
 
       &.resource_timeCrystal .resource-name,
-      &.resource_timeCrystal .resource-value {
+      &.resource_timeCrystal .res-cell.resAmount {
         color: var(--color-resource-radioactive0) !important;
 
         text-shadow:
@@ -294,9 +294,9 @@
       }
 
       &.resource_thorium .resource-name,
-      &.resource_thorium .resource-value,
+      &.resource_thorium .res-cell.resAmount,
       &.resource_uranium .resource-name,
-      &.resource_uranium .resource-value {
+      &.resource_uranium .res-cell.resAmount {
         color: var(--color-resource-radioactive1) !important;
 
         text-shadow:
@@ -306,12 +306,12 @@
       }
 
       &.resource_science .resource-name,
-      &.resource_science .resource-value {
+      &.resource_science .res-cell.resAmount {
         color: var(--color-resource-science0) !important;
       }
 
       &.resource_faith .resource-name,
-      &.resource_faith .resource-value {
+      &.resource_faith .res-cell.resAmount {
         color: var(--color-resource-science1) !important;
       }
     }

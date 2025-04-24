@@ -46,7 +46,7 @@
 
     color: var(--color-text);
 
-    opacity: 0.5;
+    @include common.debug-marker(5);
   }
 
   .dropdown-link[title="[-all]"] {
@@ -171,7 +171,7 @@
     // Clear job assignments
     &[aria-description~="all"] .btnContent {
       grid-row: 11;
-      grid-column: 1 / 12;
+      grid-column: 1 / 2;
 
       @include common.icon-instead(map.get(icons.$icons, "clear"));
 
