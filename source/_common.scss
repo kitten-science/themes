@@ -1,9 +1,12 @@
+@use 'sass:list';
+
 @mixin icon-before($icon, $column: null, $row: null) {
   &::before {
-    content: "";
     @include icon-instead($icon);
-    grid-column: $column;
+
     grid-row: $row;
+    grid-column: $column;
+    content: "";
   }
 }
 
@@ -11,9 +14,17 @@
   display: inline-block;
   width: var(--font-size-base);
   height: var(--font-size-base);
-  line-height: var(--font-size-base);
   font-size: 0 !important;
+  line-height: var(--font-size-base);
+  background-image: $icon;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: $icon;
+}
+
+$debug-colors: hsl(300deg 100% 50%), hsl(180deg 100% 50%), hsl(100deg 100% 50%), hsl(60deg 100% 50%);
+
+@mixin debug-marker($index: 0) {
+  outline: 1px solid white;
+  background-color: list.nth($debug-colors, $index);
+  border: 1px solid black;
 }
