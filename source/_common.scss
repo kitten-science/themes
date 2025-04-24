@@ -1,4 +1,4 @@
-@use 'sass:list';
+@use "sass:list";
 
 @mixin icon-before($icon, $column: null, $row: null) {
   &::before {

@@ -61,34 +61,75 @@
   --color-resource-science0-light: darkblue;
   --color-resource-science1-dark: hsl(194deg 100% 75%);
   --color-resource-science1-light: lightblue;
-  --color-resource-rare0: light-dark(var(--color-resource-rare0-light),
-      var(--color-resource-rare0-dark));
-  --color-resource-rare1: light-dark(var(--color-resource-rare1-light),
-      var(--color-resource-rare1-dark));
-  --color-resource-rare2: light-dark(var(--color-resource-rare2-light),
-      var(--color-resource-rare2-dark));
-  --color-resource-rare3: light-dark(var(--color-resource-rare3-light),
-      var(--color-resource-rare3-dark));
-  --color-resource-rare4: light-dark(var(--color-resource-rare4-light),
-      var(--color-resource-rare4-dark));
-  --color-resource-rare5: light-dark(var(--color-resource-rare5-light),
-      var(--color-resource-rare5-dark));
+  --color-resource-rare0:
+    light-dark(
+      var(--color-resource-rare0-light),
+      var(--color-resource-rare0-dark)
+    );
+  --color-resource-rare1:
+    light-dark(
+      var(--color-resource-rare1-light),
+      var(--color-resource-rare1-dark)
+    );
+  --color-resource-rare2:
+    light-dark(
+      var(--color-resource-rare2-light),
+      var(--color-resource-rare2-dark)
+    );
+  --color-resource-rare3:
+    light-dark(
+      var(--color-resource-rare3-light),
+      var(--color-resource-rare3-dark)
+    );
+  --color-resource-rare4:
+    light-dark(
+      var(--color-resource-rare4-light),
+      var(--color-resource-rare4-dark)
+    );
+  --color-resource-rare5:
+    light-dark(
+      var(--color-resource-rare5-light),
+      var(--color-resource-rare5-dark)
+    );
   --color-p0: var(--color-resource-rare0);
   --color-p1: var(--color-resource-rare1);
   --color-p2: var(--color-resource-rare2);
   --color-p3: var(--color-resource-rare3);
-  --color-resource-metallic0: light-dark(var(--color-resource-metallic0-light),
-      var(--color-resource-metallic0-dark));
-  --color-resource-radioactive0: light-dark(var(--color-resource-radioactive0-light),
-      var(--color-resource-radioactive0-dark));
-  --color-resource-radioactive1: light-dark(var(--color-resource-radioactive1-light),
-      var(--color-resource-radioactive1-dark));
-  --color-resource-science0: light-dark(var(--color-resource-science0-light),
-      var(--color-resource-science0-dark));
-  --color-resource-science1: light-dark(var(--color-resource-science1-light),
-      var(--color-resource-science1-dark));
-  --font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu,
-    cantarell, "Helvetica Neue", sans-serif;
+  --color-resource-metallic0:
+    light-dark(
+      var(--color-resource-metallic0-light),
+      var(--color-resource-metallic0-dark)
+    );
+  --color-resource-radioactive0:
+    light-dark(
+      var(--color-resource-radioactive0-light),
+      var(--color-resource-radioactive0-dark)
+    );
+  --color-resource-radioactive1:
+    light-dark(
+      var(--color-resource-radioactive1-light),
+      var(--color-resource-radioactive1-dark)
+    );
+  --color-resource-science0:
+    light-dark(
+      var(--color-resource-science0-light),
+      var(--color-resource-science0-dark)
+    );
+  --color-resource-science1:
+    light-dark(
+      var(--color-resource-science1-light),
+      var(--color-resource-science1-dark)
+    );
+  --font-family:
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    roboto,
+    oxygen-sans,
+    ubuntu,
+    cantarell,
+    "Helvetica Neue",
+    sans-serif;
   --font-size-base: 2vw;
 }
 
