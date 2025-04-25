@@ -5,7 +5,12 @@
 
 @mixin job($row, $icon) {
   .btnContent {
-    display: contents !important;
+    display: grid !important;
+
+    grid-template-rows: subgrid;
+    grid-template-columns: subgrid;
+    grid-row: $row;
+    grid-column: 2 / 10;
 
     // Job Actions
     >div {
@@ -24,10 +29,11 @@
   @include common.icon-before(map.get(icons.$icons, $icon), 1, $row);
 
   .btnTitle {
-    grid-row: $row;
-    grid-column: 2 / 10;
-
     @include common.debug-marker(1);
+
+    grid-column: 1 / 9;
+
+    user-select: none;
   }
 
   // Job Actions
@@ -35,6 +41,8 @@
   .assignLink,
   .unassignLink {
     float: none !important;
+
+    display: none !important;
 
     grid-row: $row;
 
@@ -46,39 +54,50 @@
 
     color: var(--color-text);
 
+    cursor: pointer;
+    user-select: none;
+
     @include common.debug-marker(5);
   }
 
   .dropdown-link[title="[-all]"] {
-    grid-column: 2;
+    grid-column: 1;
   }
 
   .dropdown-link[title="[-25]"] {
-    grid-column: 3;
+    grid-column: 2;
   }
 
   .dropdown-link[title="[-5]"] {
-    grid-column: 4;
+    grid-column: 3;
   }
 
   .unassignLink {
-    grid-column: 5;
+    grid-column: 4;
   }
 
   .assignLink {
-    grid-column: 6;
+    grid-column: 5;
   }
 
   .dropdown-link[title="[+5]"] {
-    grid-column: 7;
+    grid-column: 6;
   }
 
   .dropdown-link[title="[+25]"] {
-    grid-column: 8;
+    grid-column: 7;
   }
 
   .dropdown-link[title="[+all]"] {
-    grid-column: 9;
+    grid-column: 8;
+  }
+
+  &:hover {
+    a.dropdown-link,
+    .assignLink,
+    .unassignLink {
+      display: block !important;
+    }
   }
 }
 
@@ -119,6 +138,7 @@
     @include common.debug-marker(4);
 
     position: absolute;
+    top: 0;
     right: calc(var(--font-size-base) * 2);
     z-index: 3;
     float: none !important;
@@ -130,50 +150,54 @@
 
     // Woodcutter
     &[aria-description~="wood"] {
-      @include job(3, "woodcutter");
+      @include job(2, "woodcutter");
     }
 
     // Farmer
     &[aria-description~="catnip"] {
-      @include job(4, "farmer");
+      @include job(3, "farmer");
     }
 
     // Scholar
     &[aria-description~="science"] {
-      @include job(5, "scholar");
+      @include job(4, "scholar");
     }
 
     // Hunter
     &[aria-description~="catpower"] {
-      @include job(6, "hunter");
+      @include job(5, "hunter");
     }
 
     // Miner
     &[aria-description~="mineral"] {
-      @include job(7, "miner");
+      @include job(6, "miner");
     }
 
     // Priest
     &[aria-description~="faith"] {
-      @include job(8, "priest");
+      @include job(7, "priest");
     }
 
     // Geologist
     &[aria-description~="coal"] {
-      @include job(9, "geologist");
+      @include job(8, "geologist");
     }
 
     // Engineer
     &[aria-description~="automate"] {
-      @include job(10, "engineer");
+      @include job(9, "engineer");
     }
 
     // Clear job assignments
     &[aria-description~="all"] .btnContent {
-      grid-row: 11;
+      grid-row: 10 / 11;
       grid-column: 1 / 2;
 
       @include common.icon-instead(map.get(icons.$icons, "clear"));
+      @include common.debug-marker(1);
+
+      cursor: pointer;
+      user-select: none;
 
       .btnTitle {
         display: none;

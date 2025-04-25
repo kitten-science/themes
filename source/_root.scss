@@ -131,6 +131,9 @@
     "Helvetica Neue",
     sans-serif;
   --font-size-base: 2vw;
+  --padding-base: calc(var(--font-size-base) * 0.1);
+  --padding-more: calc(var(--font-size-base) * 0.2);
+  --padding-most: calc(var(--font-size-base) * 0.3);
 }
 
 * {

@@ -14,19 +14,21 @@
   // Happiness/Festival Duration
   // Has only text content.
   td:first-child {
-    grid-row: 2;
-    grid-column: 1 / 10;
+    grid-row: 1 / 2;
+    grid-column: 2 / 10;
 
     width: initial !important;
-    max-width: 40vmin;
 
     font-size: calc(var(--font-size-base) * 0.5);
 
-    text-align: initial !important;
+    line-height: calc(var(--font-size-base) * 0.5);
+
+    text-align: right !important;
 
     cursor: default !important;
+    user-select: none;
 
-    br {
+    br + br {
       display: none;
     }
   }
@@ -63,43 +65,57 @@
   // Send hunters
   .btn.modern[aria-description~="hunters"] {
     .btnTitle {
-      grid-row: 6;
-      grid-column: 6 / 10;
+      @include common.icon-instead(map.get(icons.$icons, "hunt"));
+
+      grid-row: 5 / 6;
+      grid-column: 1 / 2;
+
+      cursor: pointer;
+      user-select: none;
     }
   }
 
   // Hold Festival
   .btn.modern[aria-description~="festival"] {
-    @include common.icon-before(map.get(icons.$icons, "festival"), 1, 1);
-
     // x1
     .btnTitle {
-      grid-row: 1;
-      grid-column: 2 / 8;
+      @include common.icon-instead(map.get(icons.$icons, "festival"));
+
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+
+      cursor: pointer;
+      user-select: none;
     }
 
     // x100
     a.rightestLink {
       float: none !important;
 
-      grid-row: 1;
-      grid-column: 7 / 10;
+      grid-row: 1 / 2;
+      grid-column: 3 / 4;
 
       padding: 0 !important;
 
       color: var(--color-text);
+
+      cursor: pointer;
+      user-select: none;
     }
 
     // x10
     a[class=""] {
       float: none !important;
 
-      grid-row: 1;
-      grid-column: 4 / 7;
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
 
       padding: 0 !important;
 
       color: var(--color-text);
+
+      cursor: pointer;
+      user-select: none;
     }
   }
 
@@ -107,10 +123,14 @@
   .btn.modern[aria-description~="distribution"] {
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "jobOptimize"));
-      z-index: 2;
 
-      grid-row: 11;
+      z-index: 3;
+
+      grid-row: 10 / 11;
       grid-column: 8 / 9;
+
+      cursor: pointer;
+      user-select: none;
     }
   }
 
@@ -119,10 +139,13 @@
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "promoteAll"));
 
-      z-index: 2;
+      z-index: 3;
 
-      grid-row: 11;
+      grid-row: 10 / 11;
       grid-column: 7 / 8;
+
+      cursor: pointer;
+      user-select: none;
     }
   }
 
@@ -133,8 +156,11 @@
       position: absolute;
       z-index: 2;
 
-      grid-row: 14;
+      grid-row: 5;
       grid-column: 1 / 2;
+
+      cursor: pointer;
+      user-select: none;
     }
   }
 }

@@ -1,6 +1,5 @@
 @use "sass:map";
 @use "../common";
-@use "../icons";
 @use "census";
 @use "jobs";
 @use "management";
@@ -9,6 +8,8 @@
   position: relative;
 
   display: grid;
+
+  grid-template-columns: repeat(9, calc(var(--font-size-base) + var(--padding-most)));
 
   align-items: center;
 
