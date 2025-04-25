@@ -1,3 +1,5 @@
+@use "../common";
+
 @mixin root {
   position: fixed !important;
   top: calc(var(--font-size-base) * 2) !important;
@@ -61,12 +63,28 @@
     background-color: var(--color-background);
 
     .desc {
+      &:not(.desc ~ .desc) {
+        &::after {
+          display: inline-block;
+
+          width: 100vw;
+          height: calc(var(--font-size-base) * 4);
+
+          margin-left: calc(var(--font-size-base) * -0.5);
+
+          content: "";
+
+          @include common.debug-marker(6);
+        }
+      }
+
       position: fixed;
       top: calc(100vh - var(--font-size-base) * 4);
-      left: calc(var(--font-size-base) * 0.5);
-      z-index: 1;
+      left: 0;
+      z-index: 2;
 
       padding-bottom: 0 !important;
+      padding-left: calc(var(--font-size-base) * 0.5);
 
       font-size: var(--font-size-base);
 
@@ -80,13 +98,23 @@
         display: none;
       }
 
-      &.small + &.small {
-        top: calc(100vh - var(--font-size-base) * 1);
+      &.small {
+        top: calc(100vh - var(--font-size-base) * 2);
+
+        & + &.small {
+          top: calc(100vh - var(--font-size-base) * 1);
+        }
+
+        &.pollution {
+          top: calc(100vh - var(--font-size-base) * 2);
+        }
+
+        &.auto-on {
+          top: calc(100vh - var(--font-size-base) * 1);
+        }
       }
 
-      &.small:not(&.small + &.small) {
-        top: calc(100vh - var(--font-size-base) * 2);
-      }
+      @include common.debug-marker(5);
     }
 
     .price-block {

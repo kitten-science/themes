@@ -12,12 +12,16 @@
 }
 
 @mixin icon-instead($icon) {
+  @include icon($icon);
+
+  font-size: 0 !important;
+}
+
+@mixin icon($icon) {
   display: inline-block;
 
   width: var(--font-size-base);
   height: var(--font-size-base);
-
-  font-size: 0 !important;
 
   line-height: var(--font-size-base);
 

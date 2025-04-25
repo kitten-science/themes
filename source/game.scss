@@ -22,6 +22,74 @@
     }
   }
 
+  @each $mod in "-all", "-25", "-5" {
+    &:has(#midColumn .dropdown-link[title="[#{$mod}]"]:hover) {
+      #tooltip .tooltip-inner .tooltip-divider {
+        color: var(--color-negative);
+
+        &::after {
+          display: inline-block;
+
+          margin-left: var(--font-size-base);
+
+          color: var(--color-negative);
+
+          content: $mod;
+        }
+      }
+    }
+  }
+
+  &:has(#midColumn .unassignLink:hover) {
+    #tooltip .tooltip-inner .tooltip-divider {
+      color: var(--color-negative);
+
+      &::after {
+        display: inline-block;
+
+        margin-left: var(--font-size-base);
+
+        color: var(--color-negative);
+
+        content: "-1";
+      }
+    }
+  }
+
+  @each $mod in "+all", "+25", "+5" {
+    &:has(#midColumn .dropdown-link[title="[#{$mod}]"]:hover) {
+      #tooltip .tooltip-inner .tooltip-divider {
+        color: var(--color-positive);
+
+        &::after {
+          display: inline-block;
+
+          margin-left: var(--font-size-base);
+
+          color: var(--color-positive);
+
+          content: $mod;
+        }
+      }
+    }
+  }
+
+  &:has(#midColumn .assignLink:hover) {
+    #tooltip .tooltip-inner .tooltip-divider {
+      color: var(--color-positive);
+
+      &::after {
+        display: inline-block;
+
+        margin-left: var(--font-size-base);
+
+        color: var(--color-positive);
+
+        content: "+1";
+      }
+    }
+  }
+
   #leftColumn {
     @include column-left.root;
   }

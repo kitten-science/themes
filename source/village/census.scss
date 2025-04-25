@@ -257,8 +257,12 @@
       >div:first-child {
         display: flex !important;
 
+        flex-wrap: wrap;
+
         grid-row: 13 / 14;
         grid-column: 2 / 10;
+
+        justify-content: space-evenly;
 
         div.info {
           // #pragma ux_loss We no longer see the age of the leader kitten.
@@ -281,10 +285,20 @@
       a.unassignHref {
         z-index: 2;
 
-        grid-row: 11 / 12;
+        grid-row: 11 / 13;
         grid-column: 9 / 10;
 
+        align-self: end;
+
+        transform: translateY(calc(var(--font-size-base) * 1.2));
+
+        transition: transform 1s;
+
         @include common.debug-marker(3);
+
+        &:hover {
+          transform: translateY(0);
+        }
       }
     }
   }

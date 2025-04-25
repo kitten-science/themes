@@ -34,8 +34,8 @@
       align-items: center;
       justify-self: end;
 
-      width: calc(var(--font-size-base) * 3);
-      height: calc(var(--font-size-base) * 3);
+      width: calc(var(--font-size-base) * 1);
+      height: calc(var(--font-size-base) * 1);
 
       overflow: hidden;
 
@@ -43,7 +43,16 @@
 
       color: var(--color-background);
 
-      border-radius: 50%;
+      border-radius: var(--font-size-base);
+
+      transition: width 1s, height 1s, border-radius 1s;
+
+      &:hover {
+        width: calc(var(--font-size-base) * 10);
+        height: calc(var(--font-size-base) * 3);
+
+        border-radius: 0;
+      }
 
       @include common.debug-marker(4);
 

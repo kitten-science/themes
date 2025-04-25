@@ -9,7 +9,7 @@
 
   display: grid;
 
-  grid-template-columns: repeat(9, calc(var(--font-size-base) + var(--padding-most)));
+  grid-template-columns: repeat(10, calc(var(--font-size-base) + var(--padding-most)));
 
   align-items: center;
 
@@ -40,5 +40,14 @@
   .panelContainer:nth-child(4) {
     @include census.root;
     @include common.debug-marker(3);
+  }
+
+  &:has(.currentLeader:hover) {
+    .simLeader {
+      span.btn.modern,
+      a.unassignHref {
+        transform: translateY(0) !important;
+      }
+    }
   }
 }
