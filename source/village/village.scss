@@ -9,7 +9,7 @@
 
   display: grid;
 
-  grid-template-columns: repeat(10, calc(var(--font-size-base) + var(--padding-most)));
+  grid-template-columns: repeat(10, calc(var(--font-size-base) + var(--spacing-most)));
 
   align-items: center;
 

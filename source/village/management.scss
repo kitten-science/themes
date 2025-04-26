@@ -1,13 +1,10 @@
 @use "sass:map";
+@use "../behaviors";
 @use "../common";
 @use "../icons";
 
 @mixin root {
   display: contents !important;
-
-  * {
-    @include common.debug-marker(2);
-  }
 
   // Contents consists of two table columns, which need to be unwrapped.
 
@@ -19,9 +16,9 @@
 
     width: initial !important;
 
-    font-size: calc(var(--font-size-base) * 0.5);
+    font-size: var(--font-size-smaller);
 
-    line-height: calc(var(--font-size-base) * 0.5);
+    line-height: var(--font-size-smaller);
 
     text-align: right !important;
 
@@ -66,12 +63,10 @@
   .btn.modern[aria-description~="hunters"] {
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "hunt"));
+      @include behaviors.icon-button;
 
       grid-row: 5 / 6;
       grid-column: 1 / 2;
-
-      cursor: pointer;
-      user-select: none;
     }
   }
 
@@ -80,17 +75,16 @@
     // x1
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "festival"));
+      @include behaviors.icon-button;
 
       grid-row: 1 / 2;
       grid-column: 1 / 2;
-
-      cursor: pointer;
-      user-select: none;
     }
 
     // x10
     a[class=""] {
       @include common.icon(map.get(icons.$icons, "festival"));
+      @include common.debug-marker(2);
 
       float: none !important;
 
@@ -108,6 +102,7 @@
     // x100
     a.rightestLink {
       @include common.icon(map.get(icons.$icons, "festival"));
+      @include common.debug-marker(2);
 
       float: none !important;
 
@@ -127,14 +122,12 @@
   .btn.modern[aria-description~="distribution"] {
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "jobOptimize"));
+      @include behaviors.icon-button;
 
       z-index: 2;
 
       grid-row: 10 / 11;
       grid-column: 8 / 9;
-
-      cursor: pointer;
-      user-select: none;
     }
   }
 
@@ -142,14 +135,12 @@
   .btn.modern[aria-description~="promotes"] {
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "promoteAll"));
+      @include behaviors.icon-button;
 
       z-index: 2;
 
       grid-row: 10 / 11;
       grid-column: 9 / 10;
-
-      cursor: pointer;
-      user-select: none;
     }
   }
 
@@ -157,14 +148,13 @@
   .btn.modern[aria-description=""] {
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "presentBox"));
+      @include behaviors.icon-button;
+
       position: absolute;
       z-index: 2;
 
       grid-row: 4;
       grid-column: 1 / 2;
-
-      cursor: pointer;
-      user-select: none;
     }
   }
 }

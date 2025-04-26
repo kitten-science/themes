@@ -1,0 +1,12 @@
+@mixin icon-button($opacity-base: 0.6) {
+  cursor: pointer;
+  user-select: none;
+
+  opacity: $opacity-base;
+
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "../behaviors";
 @use "../common";
 @use "../icons";
 @use "loadout";
@@ -22,16 +23,14 @@
     }
   }
 
-  font-size: var(--font-size-base);
-
-  color: var(--color-text);
-
-  @include common.icon-before(map.get(icons.$icons, $icon), 1, $row);
+  // @include common.icon-before(map.get(icons.$icons, $icon), 1, $row);
 
   .btnTitle {
-    @include common.debug-marker(1);
-
     grid-column: 1 / 9;
+
+    font-size: var(--font-size-small);
+
+    color: var(--color-text);
 
     user-select: none;
   }
@@ -48,9 +47,9 @@
 
     padding: 0 !important;
 
-    font-size: calc(var(--font-size-base) * 0.5);
+    font-size: var(--font-size-smaller);
 
-    line-height: calc(var(--font-size-base) * 0.5);
+    line-height: var(--font-size-smaller);
 
     color: var(--color-text);
 
@@ -189,14 +188,11 @@
 
     // Clear job assignments
     &[aria-description~="all"] .btnContent {
+      @include common.icon-instead(map.get(icons.$icons, "clear"));
+      @include behaviors.icon-button;
+
       grid-row: 10 / 11;
       grid-column: 1 / 2;
-
-      @include common.icon-instead(map.get(icons.$icons, "clear"));
-      @include common.debug-marker(1);
-
-      cursor: pointer;
-      user-select: none;
 
       .btnTitle {
         display: none;
