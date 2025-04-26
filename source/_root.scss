@@ -7,7 +7,9 @@
 
   --hue: 33;
   --color-primary-dark: hsl(var(--hue) 64% 67%);
+  --color-primary-dim-dark: hsl(var(--hue) 50% 50%);
   --color-primary-light: darkslategray;
+  --color-primary-dim-light: darkslategray;
   --color-primary-a128-dark: hsl(var(--hue) 64% 67% / 50%);
   --color-primary-a128-light: hsl(204deg 64% 67% / 50%);
   --color-positive-dark: hsl(128deg 64% 67%);
@@ -15,6 +17,7 @@
   --color-negative-dark: hsl(4deg 64% 67%);
   --color-negative-light: darkslategray;
   --color-primary: light-dark(var(--color-primary-light), var(--color-primary-dark));
+  --color-primary-dim: light-dark(var(--color-primary-dim-light), var(--color-primary-dim-dark));
   --color-primary-a128: light-dark(var(--color-primary-a128-light), var(--color-primary-a128-dark));
   --color-positive: light-dark(var(--color-positive-light), var(--color-positive-dark));
   --color-negative: light-dark(var(--color-negative-light), var(--color-negative-dark));

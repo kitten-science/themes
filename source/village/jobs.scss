@@ -133,13 +133,13 @@
 
   // Create Loadout
   td a.loadoutHref {
-    @include common.icon-instead(map.get(icons.$icons, "loadoutCreate"));
-    @include common.debug-marker(4);
-
     position: absolute;
     top: 0;
     right: 0;
     float: none !important;
+
+    @include common.icon-instead(map.get(icons.$icons, "loadoutCreate"));
+    @include behaviors.icon-button;
   }
 
   // Actual Job assignments
