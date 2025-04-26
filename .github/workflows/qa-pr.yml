@@ -1,0 +1,11 @@
+name: QA
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  qa:
+    name: 🔹 QA
+    uses: oliversalzburg/workflows/.github/workflows/qa-npm-package.yml@main
