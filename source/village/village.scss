@@ -11,7 +11,7 @@
 
   grid-template-columns: repeat(10, calc(var(--font-size-base) + var(--spacing-most)));
 
-  align-items: center;
+  place-items: center center;
 
   .panelContainer {
     .toggle {
@@ -43,15 +43,19 @@
   }
 
   &:has(.currentLeader:hover) {
+    .currentGovernment::before {
+      opacity: 0;
+    }
+
     .currentGovernment .currentLeader ~ a {
-      opacity: 1;
+      opacity: 0.6;
     }
 
     .census-block.simLeader {
       span.btn.modern,
       span.btn.modern.favoriteHref,
       a.unassignHref {
-        opacity: 1;
+        opacity: 0.6;
       }
     }
   }

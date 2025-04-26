@@ -77,22 +77,27 @@
 
     cursor: default;
     user-select: none;
+
+    transform: translateY(var(--spacing-most));
   }
 
   // Job bonus: x1.2 (Job)
   .currentLeader:nth-child(3) {
     grid-row: 10 / 11;
-    grid-column: 2 / 10;
+    grid-column: 3 / 10;
 
-    align-content: end;
-    align-self: stretch;
+    place-self: end end;
 
-    font-size: var(--font-size-smaller);
+    font-size: var(--font-size-smallest);
 
     color: var(--color-text-dim);
 
+    text-align: right;
+
     cursor: default;
     user-select: none;
+
+    transform: translateY(var(--spacing-most));
   }
 
   // Promote Leader
@@ -128,6 +133,8 @@
   }
 
   .censusFilters {
+    display: flex;
+
     grid-row: 13 / 14;
     grid-column: 2 / 10;
 
@@ -144,7 +151,7 @@
 
       font-size: var(--font-size-smallest);
 
-      color: var(--color-text-dim);
+      color: var(--color-text-dimmer);
 
       text-align: center;
 
@@ -164,6 +171,8 @@
 
     grid-template-columns: subgrid;
     grid-column: 1 / 10;
+
+    place-items: center center;
 
     margin-top: var(--spacing-base);
 
@@ -233,7 +242,7 @@
           grid-column: 9 / 10;
 
           @include common.icon-instead(map.get(icons.$icons, "promote"));
-          @include behaviors.icon-button;
+          @include behaviors.icon-button-pulse;
         }
 
         // Favorite kitten
@@ -323,13 +332,15 @@
     grid-row: 14/15;
     grid-column: 2 / 10;
 
+    justify-self: normal;
+
     width: initial !important;
 
     margin: 0 0 var(--spacing-base) 0 !important;
 
     font-size: var(--font-size-smallest);
 
-    color: var(--color-text-dim);
+    color: var(--color-text-dimmer);
 
     text-align: initial !important;
 
@@ -346,7 +357,7 @@
 
       font-size: var(--font-size-smallest);
 
-      color: var(--color-text-dimmer);
+      color: var(--color-text-dimmest);
 
       text-decoration: none;
 
