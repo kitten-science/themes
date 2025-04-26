@@ -195,7 +195,7 @@ __metadata:
     stylelint: "npm:16.19.0"
     stylelint-config-recess-order: "npm:6.0.0"
     stylelint-config-standard-scss: "npm:14.0.0"
-    stylelint-order: "npm:^6.0.4"
+    stylelint-order: "npm:6.0.4"
     stylelint-use-nesting: "npm:6.0.0"
   languageName: unknown
   linkType: soft
@@ -1401,7 +1401,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-order@npm:^6.0.4":
+"stylelint-order@npm:6.0.4, stylelint-order@npm:^6.0.4":
   version: 6.0.4
   resolution: "stylelint-order@npm:6.0.4"
   dependencies:
