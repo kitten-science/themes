@@ -11,7 +11,7 @@
     "@stylistic/stylelint-plugin": "3.1.2",
     "@types/node": "22.14.1",
     "postcss": "8.5.3",
-    "sass-embedded": "1.86.3",
+    "sass-embedded": "1.87.0",
     "stylelint": "16.19.0",
     "stylelint-config-recess-order": "6.0.0",
     "stylelint-config-standard-scss": "14.0.0",
