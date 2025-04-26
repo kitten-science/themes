@@ -38,4 +38,4 @@ icons: node_modules
 output: node_modules icons
 	mkdir -p output
 	node build.js > output/theme_neon.css
-	cp output/theme_neon.css ~/projects/kitten-science/kitten-scientists/devcontainer/res/theme_sleek.css
+	echo cp output/theme_neon.css ~/projects/kitten-science/kitten-scientists/devcontainer/res/theme_sleek.css
