@@ -3,7 +3,7 @@
 @use "../icons";
 
 @mixin root {
-  z-index: 2;
+  z-index: 3;
 
   // Container for actual loadout configurations.
   // Do not unwrap. Container is required for layout purposes.
@@ -13,7 +13,7 @@
 
   flex-direction: column-reverse;
 
-  grid-row: 1 / 11;
+  grid-row: 2 / 50;
   grid-column: 10 / 11;
 
   align-items: end;

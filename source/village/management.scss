@@ -123,12 +123,12 @@
     }
   }
 
-  // Manage Jobs
+  // Manage Jobs (Optimize)
   .btn.modern[aria-description~="distribution"] {
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "jobOptimize"));
 
-      z-index: 3;
+      z-index: 2;
 
       grid-row: 10 / 11;
       grid-column: 8 / 9;
@@ -143,10 +143,10 @@
     .btnTitle {
       @include common.icon-instead(map.get(icons.$icons, "promoteAll"));
 
-      z-index: 3;
+      z-index: 2;
 
       grid-row: 10 / 11;
-      grid-column: 7 / 8;
+      grid-column: 9 / 10;
 
       cursor: pointer;
       user-select: none;
@@ -160,7 +160,7 @@
       position: absolute;
       z-index: 2;
 
-      grid-row: 5;
+      grid-row: 4;
       grid-column: 1 / 2;
 
       cursor: pointer;

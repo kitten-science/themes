@@ -43,10 +43,15 @@
   }
 
   &:has(.currentLeader:hover) {
-    .simLeader {
+    .currentGovernment .currentLeader ~ a {
+      opacity: 1;
+    }
+
+    .census-block.simLeader {
       span.btn.modern,
+      span.btn.modern.favoriteHref,
       a.unassignHref {
-        transform: translateY(0) !important;
+        opacity: 1;
       }
     }
   }
