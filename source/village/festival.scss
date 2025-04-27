@@ -1,0 +1,133 @@
+@use "sass:map";
+@use "../behaviors";
+@use "../common";
+@use "../icons";
+
+// Hold Festival
+@mixin root {
+  // x1
+  .btnTitle {
+    @include common.icon-instead(map.get(icons.$icons, "festival"));
+    @include behaviors.icon-button;
+
+    position: relative;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    &::before {
+      @include common.number-marker(1);
+
+      font-size: var(--font-size-base);
+      opacity: 0;
+      transition: opacity 1s;
+    }
+  }
+
+  // x10
+  a[class=""] {
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+
+    float: none !important;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+
+    padding: 0 !important;
+
+    font-size: 0;
+    color: var(--color-text);
+
+    opacity: 0;
+
+    transition: opacity 1s;
+    transition-delay: 1s;
+
+    &::before {
+      @include common.number-marker(0);
+
+      font-size: var(--font-size-base);
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    @include common.icon(map.get(icons.$icons, "add"));
+  }
+
+  // x100
+  a.rightestLink {
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+
+    float: none !important;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+
+    padding: 0 !important;
+
+    font-size: 0;
+    color: var(--color-text);
+
+    opacity: 0;
+
+    transition: opacity 1s;
+    transition-delay: 1s;
+
+    &::before {
+      @include common.number-marker(0);
+
+      font-size: var(--font-size-base);
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    @include common.icon(map.get(icons.$icons, "add"));
+  }
+
+  @at-root
+  &:has(.btnTitle:hover) {
+    .btnTitle::before {
+      opacity: 1;
+    }
+
+    a[class=""] {
+      opacity: 1;
+    }
+  }
+
+  @at-root
+  &:has(a[class=""]:hover) {
+    .btnTitle::before {
+      opacity: 1;
+    }
+
+    a[class=""],
+    a[class=""]::before {
+      opacity: 1;
+    }
+
+    a.rightestLink {
+      opacity: 1;
+    }
+  }
+
+  @at-root
+  &:has(a.rightestLink:hover) {
+    .btnTitle::before {
+      opacity: 1;
+    }
+
+    a[class=""],
+    a[class=""]::before {
+      opacity: 1;
+    }
+
+    a.rightestLink,
+    a.rightestLink::before {
+      opacity: 1;
+    }
+  }
+}

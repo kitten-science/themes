@@ -138,23 +138,7 @@
 
     @for $i from 3 through 22 {
       &:nth-last-child(#{$i}) .btnContent::before {
-        pointer-events: none;
-        content: "#{$i - 2}";
-
-        position: absolute;
-        z-index: 2;
-        top: -3px;
-        right: 0;
-
-        display: inline-block;
-
-        width: var(--font-size-base);
-        height: var(--font-size-base);
-
-        color: var(--color-text-dim);
-        text-align: center;
-
-        background-color: var(--color-background);
+        @include common.number-marker($i - 2);
 
         transition: opacity 1s;
       }

@@ -2,6 +2,7 @@
 @use "../behaviors";
 @use "../common";
 @use "../icons";
+@use "festival";
 
 @mixin root {
   display: contents !important;
@@ -72,48 +73,7 @@
 
   // Hold Festival
   .btn.modern[aria-description~="festival"] {
-    // x1
-    .btnTitle {
-      @include common.icon-instead(map.get(icons.$icons, "festival"));
-      @include behaviors.icon-button;
-
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
-    }
-
-    // x10
-    a[class=""] {
-      @include common.icon(map.get(icons.$icons, "festival"));
-      @include common.debug-marker(2);
-
-      cursor: pointer;
-      user-select: none;
-
-      float: none !important;
-      grid-column: 2 / 3;
-      grid-row: 1 / 2;
-
-      padding: 0 !important;
-
-      color: var(--color-text);
-    }
-
-    // x100
-    a.rightestLink {
-      @include common.icon(map.get(icons.$icons, "festival"));
-      @include common.debug-marker(2);
-
-      cursor: pointer;
-      user-select: none;
-
-      float: none !important;
-      grid-column: 3 / 4;
-      grid-row: 1 / 2;
-
-      padding: 0 !important;
-
-      color: var(--color-text);
-    }
+    @include festival.root;
   }
 
   // Manage Jobs (Optimize)

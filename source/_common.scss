@@ -49,3 +49,22 @@ $debug-colors:
     outline: 1px dashed list.nth($debug-colors, $index) !important;
   }
 }
+
+@mixin number-marker($index: 1) {
+  pointer-events: none;
+  content: "#{$index}";
+
+  position: absolute;
+  z-index: 2;
+  right: 0;
+
+  display: inline-block;
+
+  width: var(--font-size-base);
+  height: var(--font-size-base);
+
+  color: var(--color-text-dim);
+  text-align: center;
+
+  background-color: var(--color-background);
+}

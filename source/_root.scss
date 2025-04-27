@@ -170,13 +170,13 @@ html {
     padding: 0;
 
     background-color: var(--color-background);
-
-    #gamePageContainer {
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
   }
+}
+
+#gamePageContainer {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 #topBar {
