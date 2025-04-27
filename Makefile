@@ -1,4 +1,4 @@
-.PHONY: default build clean docs git-hook pretty lint test run
+.PHONY: default build clean docs git-hook pretty lint test run install
 
 default: build
 
@@ -38,4 +38,6 @@ icons: node_modules
 output: node_modules icons
 	mkdir -p output
 	node build.js > output/theme_neon.css
-	echo cp output/theme_neon.css ~/projects/kitten-science/kitten-scientists/devcontainer/res/theme_sleek.css
+
+install:
+	cp output/theme_neon.css ~/projects/kitten-science/kitten-scientists/devcontainer/res/theme_sleek.css
