@@ -10,14 +10,10 @@
   // Container for actual loadout configurations.
   // Do not unwrap. Container is required for layout purposes.
   float: none !important;
-
   display: flex;
-
-  flex-direction: column-reverse;
-
-  grid-row: 2 / 50;
   grid-column: 1 / 11;
-
+  grid-row: 2 / 50;
+  flex-direction: column-reverse;
   place-items: end;
   place-self: start end;
 
@@ -31,29 +27,25 @@
     .btnContent {
       position: relative;
 
+      overflow: hidden;
       display: grid;
-
       grid-template-columns: repeat(2, var(--font-size-base)) auto repeat(3, var(--font-size-base));
-
       justify-self: end;
 
       max-width: calc(var(--font-size-base) * 1);
       max-height: calc(var(--font-size-base) * 1);
-
-      overflow: hidden;
+      border: 1px solid var(--color-primary-dim);
+      border-radius: var(--font-size-base);
 
       font-size: var(--font-size-base);
 
       background-color: var(--color-background);
-      border: 1px solid var(--color-primary-dim);
-      border-radius: var(--font-size-base);
 
       transition: max-width 1s, max-height 1s, border-radius 1s;
 
       &:hover {
         max-width: calc(var(--font-size-base) * 10);
         max-height: calc(var(--font-size-base) * 3);
-
         border-radius: 0;
 
         &::before {
@@ -73,15 +65,12 @@
       .linkContent *,
       a {
         float: none !important;
-
         grid-row: 2;
 
         padding: 0 !important;
 
         font-size: calc(var(--font-size-base) * 0.5);
-
         line-height: calc(var(--font-size-base) * 0.5);
-
         color: var(--color-text);
 
         opacity: 0.5;
@@ -90,17 +79,13 @@
       // Actual title of the loadout, activate button
       span.btnTitle {
         display: flex;
-
-        flex-direction: row-reverse;
-
-        grid-row: 1;
         grid-column: 3/7;
-
+        grid-row: 1;
+        flex-direction: row-reverse;
         place-items: start;
         justify-content: space-between;
 
         font-size: var(--font-size-small);
-
         color: var(--color-text);
 
         @include common.icon-before(map.get(icons.$icons, "loadoutActivate"),6);
@@ -113,8 +98,8 @@
 
       // Rename
       a.dropdown-link {
-        grid-row: 1;
         grid-column: 2/3;
+        grid-row: 1;
 
         @include common.icon-instead(map.get(icons.$icons, "__missing"));
         @include behaviors.icon-button;
@@ -122,8 +107,8 @@
 
       // Delete
       a.dropdown-link + a.dropdown-link {
-        grid-row: 1;
         grid-column: 1/2;
+        grid-row: 1;
 
         @include common.icon-instead(map.get(icons.$icons, "delete"));
         @include behaviors.icon-button;
@@ -132,9 +117,8 @@
       // Save/update loadout
       a.saveLink {
         z-index: 2;
-
-        grid-row: 1;
         grid-column: 4/5;
+        grid-row: 1;
 
         @include common.icon-instead(map.get(icons.$icons, "saveUpdate"));
         @include behaviors.icon-button;
@@ -143,10 +127,8 @@
       // Pin
       a[class=""] {
         z-index: 2;
-
-        grid-row: 1;
         grid-column: 5/6;
-
+        grid-row: 1;
         padding: 0 !important;
 
         @include common.icon-instead(map.get(icons.$icons, "pin"));
@@ -156,10 +138,13 @@
 
     @for $i from 3 through 22 {
       &:nth-last-child(#{$i}) .btnContent::before {
+        pointer-events: none;
+        content: "#{$i - 2}";
+
         position: absolute;
+        z-index: 2;
         top: -3px;
         right: 0;
-        z-index: 2;
 
         display: inline-block;
 
@@ -167,12 +152,7 @@
         height: var(--font-size-base);
 
         color: var(--color-text-dim);
-
         text-align: center;
-
-        pointer-events: none;
-
-        content: "#{$i - 2}";
 
         background-color: var(--color-background);
 
@@ -187,9 +167,7 @@
 
     // #pragma ux_loss
     display: none;
-
     font-size: var(--font-size-base);
-
     color: var(--color-text);
   }
 

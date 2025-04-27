@@ -3,8 +3,6 @@
 @use "top-bar";
 
 :root {
-  color-scheme: light dark;
-
   --hue: 33;
   --color-primary-dark: hsl(var(--hue) 64% 67%);
   --color-primary-dim-dark: hsl(var(--hue) 50% 50%);
@@ -148,38 +146,35 @@
   --spacing-base: calc(var(--font-size-base) * 0.1);
   --spacing-more: calc(var(--font-size-base) * 0.2);
   --spacing-most: calc(var(--font-size-base) * 0.3);
+
+  color-scheme: light dark;
 }
 
 * {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
-
   color: var(--color-text);
-
   background: transparent;
 }
 
 html {
-  padding: 0;
   margin: 0;
+  padding: 0;
 
   body {
     display: flex;
 
     width: 100%;
     height: 100%;
-
-    padding: 0;
     margin: 0;
+    padding: 0;
 
     background-color: var(--color-background);
 
     #gamePageContainer {
-      display: flex;
-
-      flex-direction: column;
-
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
   }
 }
@@ -202,8 +197,8 @@ html {
   right: 0;
   bottom: calc(100vh - var(--font-size-base) * 4);
 
-  padding: 0;
-  margin: 0;
-
   overflow-y: scroll;
+
+  margin: 0;
+  padding: 0;
 }

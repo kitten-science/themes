@@ -6,11 +6,8 @@
 
 @mixin village {
   position: relative;
-
   display: grid;
-
   grid-template-columns: repeat(10, calc(var(--font-size-base) + var(--spacing-most)));
-
   place-items: center center;
 
   .panelContainer {

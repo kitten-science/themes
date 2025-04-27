@@ -2,7 +2,6 @@
 
 @mixin root {
   display: flex;
-
   flex-direction: row;
 
   max-width: 98vw;
@@ -19,25 +18,21 @@
   }
 
   > div:first-child {
+    overflow: visible !important;
     display: flex;
-
     flex-direction: column;
 
     width: 9em;
     min-width: initial !important;
     max-width: initial !important;
-
     padding-left: 0 !important;
 
-    overflow: visible !important;
     text-overflow: initial !important;
 
     > span {
       font-size: calc(var(--font-size-base) / 1.6) !important;
       font-style: italic;
-
       line-height: calc(var(--font-size-base) / 1.6 / 2) !important;
-
       text-align: left;
       text-wrap: nowrap;
 
@@ -46,11 +41,8 @@
       &.gameTitle {
         font-size: calc(var(--font-size-base) * 1.5) !important;
         font-style: normal;
-
         line-height: calc(var(--font-size-base) * 1.5) !important;
-
         color: var(--color-primary);
-
         text-align: left;
 
         opacity: 1;
@@ -58,7 +50,6 @@
 
       a.copyright {
         font-size: calc(var(--font-size-base) / 1.6);
-
         color: var(--color-text);
       }
     }
@@ -79,18 +70,14 @@
 
   #devPanel {
     display: none !important;
-
     padding-left: 0 !important;
-
     font-size: initial !important;
   }
 
   #headerLinks {
     display: flex;
-
     flex: 1;
     flex-direction: column;
-
     justify-content: space-around;
 
     #autosaveTooltip {
@@ -103,11 +90,8 @@
 
     #headerToolbar {
       display: flex;
-
       flex-direction: column;
-
       padding-top: 0 !important;
-
       font-size: initial !important;
 
       > :first-child::before {
@@ -116,10 +100,8 @@
 
       .icons-container {
         display: flex;
-
         flex: 1;
         flex-direction: row;
-
         justify-content: space-between;
 
         .toolbarIcon {
@@ -137,7 +119,6 @@
         // KGNet Login button
         .toolbarIcon.undefined span.kgnet-login-link {
           color: var(--color-text);
-
           animation: none;
         }
 
@@ -146,9 +127,7 @@
         .toolbarIcon.energy,
         .toolbarIcon.sorrow {
           display: flex;
-
           padding-left: var(--font-size-base);
-
           background-repeat: no-repeat;
           background-size: contain;
         }
@@ -196,9 +175,7 @@
 
   .links-block {
     display: flex !important;
-
     align-items: center;
-
     padding-top: 0 !important;
 
     // Hide separators.
@@ -209,7 +186,6 @@
       height: var(--font-size-base);
 
       line-height: var(--font-size-base);
-
       color: transparent;
 
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m611-323-43-43 114-113-114-113 43-43 113 114 113-114 43 43-114 113 114 113-43 43-113-114-113 114Zm-491-37v-240h160l200-200v640L280-360H120Zm300-288L307-540H180v120h127l113 109v-337ZM311-481Z'/%3E%3C/svg%3E");
@@ -228,7 +204,6 @@
       height: var(--font-size-base);
 
       font-size: 0;
-
       line-height: var(--font-size-base);
 
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m611-323-43-43 114-113-114-113 43-43 113 114 113-114 43 43-114 113 114 113-43 43-113-114-113 114Zm-491-37v-240h160l200-200v640L280-360H120Zm300-288L307-540H180v120h127l113 109v-337ZM311-481Z'/%3E%3C/svg%3E");
@@ -248,20 +223,17 @@
       left: calc(var(--font-size-base) * 7);
 
       padding: 0 calc(var(--font-size-base) * 0.2);
-
-      font-size: 0;
-
-      color: transparent;
-
-      outline: 1px solid var(--color-background);
-
-      background-color: var(--color-background);
       border: 1px solid var(--color-primary);
       border-radius: calc(var(--font-size-base) * 0.5);
 
+      font-size: 0;
+      color: transparent;
+
+      background-color: var(--color-background);
+      outline: 1px solid var(--color-background);
+
       #versionLink {
         font-size: calc(var(--font-size-base) / 2);
-
         color: var(--color-text);
       }
     }

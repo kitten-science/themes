@@ -4,13 +4,11 @@
 @use "tooltip/tooltip";
 
 @mixin root {
+  overflow: hidden;
   display: flex;
-
   flex-flow: row wrap;
 
   padding: 0 1vmin;
-
-  overflow: hidden;
 
   font-family: var(--font-family);
   font-size: var(--font-size-base);
@@ -28,13 +26,10 @@
         color: var(--color-negative);
 
         &::after {
-          display: inline-block;
-
-          margin-left: var(--font-size-base);
-
-          color: var(--color-negative);
-
           content: $mod;
+          display: inline-block;
+          margin-left: var(--font-size-base);
+          color: var(--color-negative);
         }
       }
     }
@@ -45,13 +40,10 @@
       color: var(--color-negative);
 
       &::after {
-        display: inline-block;
-
-        margin-left: var(--font-size-base);
-
-        color: var(--color-negative);
-
         content: "-1";
+        display: inline-block;
+        margin-left: var(--font-size-base);
+        color: var(--color-negative);
       }
     }
   }
@@ -62,13 +54,10 @@
         color: var(--color-positive);
 
         &::after {
-          display: inline-block;
-
-          margin-left: var(--font-size-base);
-
-          color: var(--color-positive);
-
           content: $mod;
+          display: inline-block;
+          margin-left: var(--font-size-base);
+          color: var(--color-positive);
         }
       }
     }
@@ -79,13 +68,10 @@
       color: var(--color-positive);
 
       &::after {
-        display: inline-block;
-
-        margin-left: var(--font-size-base);
-
-        color: var(--color-positive);
-
         content: "+1";
+        display: inline-block;
+        margin-left: var(--font-size-base);
+        color: var(--color-positive);
       }
     }
   }

@@ -7,11 +7,10 @@
 @mixin job($row, $icon) {
   .btnContent {
     display: grid !important;
-
-    grid-template-rows: subgrid;
-    grid-template-columns: subgrid;
-    grid-row: $row;
     grid-column: 2 / 10;
+    grid-row: $row;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
 
     // Job Actions
     >div {
@@ -26,35 +25,28 @@
   // @include common.icon-before(map.get(icons.$icons, $icon), 1, $row);
 
   .btnTitle {
-    grid-column: 1 / 9;
-
-    font-size: var(--font-size-small);
-
-    color: var(--color-text);
-
     user-select: none;
+    grid-column: 1 / 9;
+    font-size: var(--font-size-small);
+    color: var(--color-text);
   }
 
   // Job Actions
   a.dropdown-link,
   .assignLink,
   .unassignLink {
+    cursor: pointer;
+    user-select: none;
+
     float: none !important;
-
     display: none !important;
-
     grid-row: $row;
 
     padding: 0 !important;
 
     font-size: var(--font-size-smaller);
-
     line-height: var(--font-size-smaller);
-
     color: var(--color-text);
-
-    cursor: pointer;
-    user-select: none;
 
     @include common.debug-marker(5);
   }
@@ -120,7 +112,6 @@
 
         td:last-child {
           display: contents !important;
-
           font-size: 0;
         }
       }
@@ -191,8 +182,8 @@
       @include common.icon-instead(map.get(icons.$icons, "clear"));
       @include behaviors.icon-button;
 
-      grid-row: 10 / 11;
       grid-column: 1 / 2;
+      grid-row: 10 / 11;
 
       .btnTitle {
         display: none;

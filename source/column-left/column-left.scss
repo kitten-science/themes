@@ -1,27 +1,21 @@
 @mixin root {
   z-index: 1;
 
+  overflow-y: scroll;
   display: flex;
-
   flex-direction: column;
 
   max-height: calc(100vh - var(--font-size-base) * 8);
-
-  padding: 0 calc(var(--font-size-base) * 0.2);
   margin-top: calc(var(--font-size-base) * 2);
-
-  overflow-y: scroll;
+  padding: 0 calc(var(--font-size-base) * 0.2);
 
   font-size: var(--font-size-base) !important;
-
   vertical-align: initial !important;
 
   #leftColumnViewport {
     > div {
       display: flex;
-
       flex-direction: row-reverse;
-
       gap: calc(var(--font-size-base) * 0.2);
     }
 
@@ -48,22 +42,19 @@
 
   .res-table {
     display: grid;
-
     grid-template-columns: auto;
 
     .res-row {
       display: grid;
-
-      grid-template-rows: subgrid;
-      grid-template-columns: subgrid;
       grid-column: 1 / 4;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
 
       border: 1px solid transparent;
 
       .res-cell {
-        grid-row: 1;
         grid-column: 3;
-
+        grid-row: 1;
         transition: padding-left 0.5s, opacity 0.5s;
 
         &.resource-value,
@@ -76,23 +67,21 @@
         }
 
         &.resource-name {
-          grid-row: 1;
           grid-column: 2;
+          grid-row: 1;
+
+          border-left: calc(var(--font-size-base) * 0.2) solid transparent;
 
           // Inline styles for resource coloring.
           color: var(--color-text) !important;
-
           text-transform: capitalize;
-
-          border-left: calc(var(--font-size-base) * 0.2) solid transparent;
         }
 
         &.resAmount {
           z-index: 1;
 
-          grid-row: 1;
           grid-column: 1;
-
+          grid-row: 1;
           justify-self: end;
 
           opacity: 0.6;
@@ -101,15 +90,12 @@
         &.maxRes {
           z-index: 2;
 
-          grid-row: 1;
           grid-column: 1;
-
+          grid-row: 1;
           place-self: end right;
 
           font-size: calc(var(--font-size-base) * 0.4);
-
           color: var(--color-text);
-
           text-shadow:
             -1px -1px 2px var(--color-background),
             0 0 calc(1vw * 0.25) var(--color-background),
@@ -118,9 +104,8 @@
         }
 
         &.resPerTick {
-          grid-row: 1;
           grid-column: 2;
-
+          grid-row: 1;
           justify-self: end;
 
           // HACK
@@ -141,50 +126,39 @@
 
         &.negative-weather,
         &.positive-weather {
-          grid-row: 1;
           grid-column: 3;
-
+          grid-row: 1;
           justify-self: end;
 
           font-size: 0;
-
           vertical-align: super;
 
           opacity: 0.6;
         }
 
         &.negative-weather::after {
-          display: inline-block;
-
-          font-size: calc(var(--font-size-base) * 0.5);
-
-          color: var(--color-negative);
-
           content: "-";
+          display: inline-block;
+          font-size: calc(var(--font-size-base) * 0.5);
+          color: var(--color-negative);
         }
 
         &.positive-weather::after {
-          display: inline-block;
-
-          font-size: calc(var(--font-size-base) * 0.5);
-
-          color: var(--color-positive);
-
           content: "+";
+          display: inline-block;
+          font-size: calc(var(--font-size-base) * 0.5);
+          color: var(--color-positive);
         }
       }
 
       // Highlighting, from mouse-over on buildings.
       &.highlited {
-        font-weight: initial !important;
-
-        color: var(--color-text) !important;
-
         border: 1px solid var(--color-text-dimmer);
+        font-weight: initial !important;
+        color: var(--color-text) !important;
 
         .res-cell.resource-name {
           padding-left: var(--font-size-base);
-
           border-left: calc(var(--font-size-base) * 0.2) solid var(--color-text);
         }
 
@@ -195,12 +169,12 @@
 
       &.resLeaderBonus {
         &::after {
+          content: "";
+
           width: var(--font-size-base);
           height: var(--font-size-base);
 
           line-height: var(--font-size-base);
-
-          content: "";
 
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m385-412 36-115-95-74h116l38-119 37 119h117l-95 74 35 115-94-71-95 71ZM244-40v-304q-45-47-64.5-103T160-560q0-136 92-228t228-92q136 0 228 92t92 228q0 57-19.5 113T716-344v304l-236-79-236 79Zm236-260q109 0 184.5-75.5T740-560q0-109-75.5-184.5T480-820q-109 0-184.5 75.5T220-560q0 109 75.5 184.5T480-300ZM304-124l176-55 176 55v-171q-40 29-86 42t-90 13q-44 0-90-13t-86-42v171Zm176-86Z'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
@@ -286,7 +260,6 @@
       &.resource_timeCrystal .resource-name,
       &.resource_timeCrystal .res-cell.resAmount {
         color: var(--color-resource-radioactive0) !important;
-
         text-shadow:
           1px 1px 1px var(--color-background),
           2px 2px 1px var(--color-text-dimmer),
@@ -298,7 +271,6 @@
       &.resource_uranium .resource-name,
       &.resource_uranium .res-cell.resAmount {
         color: var(--color-resource-radioactive1) !important;
-
         text-shadow:
           1px 1px 1px var(--color-background),
           2px 2px 1px var(--color-text-dimmer),
@@ -320,19 +292,15 @@
       .res-row.craft {
         .res-cell.resource-value {
           grid-column: 1;
-
           justify-self: end;
-
           opacity: 0.6;
         }
 
         // Highlighting, from mouse-over on buildings.
         &.highlited {
-          font-weight: initial !important;
-
-          color: var(--color-text) !important;
-
           border: 1px solid var(--color-text-dimmer);
+          font-weight: initial !important;
+          color: var(--color-text) !important;
 
           .res-cell.resource-value {
             opacity: 1;
@@ -358,8 +326,8 @@
               var(--color-resource-metallic0) 0.2vw
             );
           background-clip: text;
-
           filter: drop-shadow(2px 2px 0 var(--color-text-dimmer));
+
           -webkit-text-fill-color: transparent;
         }
 
@@ -367,8 +335,8 @@
         &.resource_megalith .resource-value {
           background: linear-gradient(var(--color-text), var(--color-resource-metallic0));
           background-clip: text;
-
           filter: drop-shadow(0 -1px 1px var(--color-text-dimmer));
+
           -webkit-text-fill-color: transparent;
         }
 

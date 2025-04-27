@@ -193,7 +193,7 @@ __metadata:
     postcss: "npm:8.5.3"
     sass-embedded: "npm:1.87.0"
     stylelint: "npm:16.19.1"
-    stylelint-config-recess-order: "npm:6.0.0"
+    stylelint-config-clean-order: "npm:7.0.0"
     stylelint-config-standard-scss: "npm:14.0.0"
     stylelint-order: "npm:6.0.4"
     stylelint-use-nesting: "npm:6.0.0"
@@ -1337,14 +1337,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-recess-order@npm:6.0.0":
-  version: 6.0.0
-  resolution: "stylelint-config-recess-order@npm:6.0.0"
+"stylelint-config-clean-order@npm:7.0.0":
+  version: 7.0.0
+  resolution: "stylelint-config-clean-order@npm:7.0.0"
   dependencies:
     stylelint-order: "npm:^6.0.4"
   peerDependencies:
-    stylelint: ">=16"
-  checksum: 10c0/1c8af42219d769a3ec5c195ac296c62d51dc583c6144a729ea802f69c249fd2d4b1aa44cb31ff2121cfbe4597c7f4c36c8d82c15789cf657f2f7493b0c8c2841
+    stylelint: ">=14"
+  checksum: 10c0/8f7d98e8c80190cf993f8f6a7a1ff7412f04e9857a41a9c5aa65adf9b72ec133a0b0a392673d8107c43f38b585ced3c899b2bcde34f9ac6379a6b4b289fee1eb
   languageName: node
   linkType: hard
 
