@@ -26,6 +26,24 @@ export const library = {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M132-160v-60h123l-14-14q-60-60-86.5-121.5T128-476q0-109 62.5-195T355-790v62q-76 30-121.5 99T188-476q0 52 17.5 98.5T265-293l30 27v-117h60v223H132Zm699-334h-60q-2-51-20-94.5T695-667l-30-27v117h-60v-223h223v60H704l15 14q58 55 84 115t28 117ZM696-40l-5-48q-20-6-41-17.5T616-131l-42 20-35-54 38-30q-5-23-5-41.5t5-41.5l-38-30 35-55 42 20q13-12 34-24t41-18l5-49h60l6 49q20 6 41 18t34 24l42-20 35 55-38 30q5 23 5 41.5t-5 41.5l38 30-35 54-42-20q-13 14-34 25.5T762-88l-6 48h-60Zm30-95q44 0 73-29t29-73q0-44-29-73t-73-29q-44 0-73 29t-29 73q0 44 29 73t73 29Z"/></svg>',
     usages: ["Bonfire > Building (Automation)"],
   },
+  checkboxDisabled: {
+    filled:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Z"/></svg>',
+    id: "check_box_outline_blank",
+    origin: "https://fonts.google.com/icons",
+    outline:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Z"/></svg>',
+    usages: [],
+  },
+  checkboxEnabled: {
+    filled:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m419-321 289-290-43-43-246 247-119-119-43 43 162 162ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Z"/></svg>',
+    id: "check_box",
+    origin: "https://fonts.google.com/icons",
+    outline:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m419-321 289-289-43-43-246 246-119-119-43 43 162 162ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z"/></svg>',
+    usages: [],
+  },
   clear: {
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M480-344v-60h180v60H480Zm80 224v-54h-80v-60h80v-54h60v168h-60Zm100-54v-60h180v60H660Zm40-115v-169h60v54h80v60h-80v55h-60Zm135-251h-62q-23-102-104-171t-189-69q-125.36 0-212.68 87.32Q180-605.36 180-480q0 81 38.5 147.5T320-226v-114h60v220H160v-60h121q-73-48-117-127t-44-173q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q134 0 233.5 86T835-540Z"/></svg>',
