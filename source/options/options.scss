@@ -1,0 +1,30 @@
+@use "../common";
+
+@mixin root {
+  position: fixed;
+  z-index: 3;
+  inset: 0;
+
+  overflow-y: scroll;
+
+  background-color: var(--color-background);
+
+  &,
+  a,
+  i,
+  label,
+  select {
+    color: var(--color-text);
+  }
+
+  br + br,
+  div.optsExtra + br,
+  #booleanOptionsNormal + br,
+  #optionMore {
+    display: none;
+  }
+
+  .optsExtra {
+    display: block !important;
+  }
+}

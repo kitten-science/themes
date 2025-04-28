@@ -1,7 +1,8 @@
 @use "theme-reset";
+@use "constants/colors";
+@use "options/options";
 @use "game";
 @use "top-bar";
-@use "constants/colors";
 
 :root {
 
@@ -70,6 +71,10 @@ html {
 
 #game {
   @include game.root;
+}
+
+#optionsDiv {
+  @include options.root;
 }
 
 #footerLinks {

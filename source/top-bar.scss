@@ -182,8 +182,6 @@
     font-size: 0;
 
     #save-link {
-      z-index: 2;
-
       width: var(--font-size-base);
       height: var(--font-size-base);
 
@@ -197,6 +195,7 @@
 
     #options-link {
       position: fixed;
+      z-index: 2;
       right: 0;
       bottom: 0;
 
