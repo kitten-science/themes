@@ -5,7 +5,7 @@ default: build
 build: output
 
 clean:
-	rm --force --recursive node_modules output tsconfig.tsbuildinfo
+	rm --force --recursive _site node_modules output tsconfig.tsbuildinfo
 
 docs:
 	@echo "This project has no documentation."
@@ -15,12 +15,12 @@ git-hook:
 
 pretty: node_modules
 	yarn biome check --write --no-errors-on-unmatched
-	yarn stylelint --fix source || true
+	yarn stylelint --fix source/**/*.{css,scss} || true
 	npm pkg fix
 
 lint: node_modules
 	yarn biome check .
-	yarn stylelint source
+	yarn stylelint source/**/*.{css,scss}
 
 test:
 	@echo "This project has no tests."
@@ -38,6 +38,8 @@ icons: node_modules
 output: node_modules icons
 	mkdir -p output
 	node build.js > output/theme_neon.css
+	yarn vite build --config source/colors/vite.config.js
+	yarn vite build --config source/icons/vite.config.js
 
 install:
 	cp output/theme_neon.css ~/projects/kitten-science/kitten-scientists/devcontainer/res/theme_sleek.css

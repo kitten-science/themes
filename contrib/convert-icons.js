@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { library } from "./icons.js";
+import { library } from "../source/icons/icons.js";
 
 const encodeSVG = subject =>
   subject
