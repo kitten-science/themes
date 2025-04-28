@@ -1,9 +1,11 @@
-name: QA
+name: QA PR
 
 on:
+  pull_request:
   push:
     branches:
-      - "main"
+      - "**"
+      - "!main"
 
 jobs:
   qa:
