@@ -26,13 +26,15 @@ for (const [icon, metadata] of Object.entries(library)) {
   entryInfo.appendChild(id);
 
   const materialId = document.createElement("a");
-  materialId.textContent = metadata.id;
+  materialId.textContent = icon;
   materialId.classList.add("material-id");
-  materialId.setAttribute(
-    "href",
-    `https://fonts.google.com/icons?selected=Material+Symbols+Outlined:${metadata.id}:FILL@0;wght@400;GRAD@0;opsz@48icon.size=48&icon.color=%23e3e3e3&icon.style=Outlined`,
-  );
-  materialId.setAttribute("target", "_blank");
+  if (metadata.origin === "https://fonts.google.com/icons") {
+    materialId.setAttribute(
+      "href",
+      `https://fonts.google.com/icons?selected=Material+Symbols+Outlined:${metadata.id}:FILL@0;wght@400;GRAD@0;opsz@48icon.size=48&icon.color=%23e3e3e3&icon.style=Outlined`,
+    );
+    materialId.setAttribute("target", "_blank");
+  }
   entryInfo.appendChild(materialId);
 
   for (const entry of metadata.usages) {
