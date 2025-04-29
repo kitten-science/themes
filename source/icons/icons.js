@@ -233,6 +233,15 @@ export const library = {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M80-80h800L640-400l-200-80-120-160H80v560Zm60-60v-101l100 32 375-124 145 193H140Zm100-131-100-34v-96l100 32 173-56 122 55-295 99Zm500-129 180-80v-160l-180-40-100 80v120l100 80Zm-500-31-100-34v-115h150l82 105-132 44Zm508-27-58-45v-73l63-50 117 26v87l-122 55ZM480-640l200-80v-200l-200-40-120 80v160l120 80Zm5-56-75-51v-106l81-54 139 28v125l-145 58Z"/></svg>',
     usages: [],
   },
+  pause: {
+    filled:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M555-200v-560h175v560H555Zm-325 0v-560h175v560H230Z"/></svg>',
+    id: "pause",
+    origin: "https://fonts.google.com/icons",
+    outline:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M525-200v-560h235v560H525Zm-325 0v-560h235v560H200Zm385-60h115v-440H585v440Zm-325 0h115v-440H260v440Zm0-440v440-440Zm325 0v440-440Z"/></svg>',
+    usages: ["Pause Game"],
+  },
   pin: {
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m634-448 86 77v60H510v241l-30 30-30-30v-241H240v-60l80-77v-333h-50v-60h414v60h-50v333Z"/></svg>',
@@ -305,6 +314,15 @@ export const library = {
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M450-332h60v-182l74 74 42-42-146-146-146 146 42 42 74-74v182Zm30 252q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-156t86-127Q252-817 325-848.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Zm0-60q142 0 241-99.5T820-480q0-142-99-241t-241-99q-141 0-240.5 99T140-480q0 141 99.5 240.5T480-140Zm0-340Z"/></svg>',
     usages: ["Village > Management > Promote Kittens"],
   },
+  saveCloud: {
+    filled:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M167-160v-60h130q-64-48-100.5-108.5T160-477q0-100 59-186.5T387-784v62q-71 26-119 93t-48 152q0 64 27.5 117.5T337-266v-124h60v230H167Zm433 0q-50 0-85-35t-35-85q0-48 33-83t81-37q17-36 50.5-58t75.5-22q53 0 91.5 34.5T858-360h2q42 0 71 30t29 69q0 42-29 71.5T860-160H600Zm136-360q-11-51-38-93.5T626-694v124h-60v-230h230v60H665q49 41 86.5 100.5T797-520h-61Z"/></svg>',
+    id: "cloud_sync",
+    origin: "https://fonts.google.com/icons",
+    outline:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M167-160v-60h130q-64-48-100.5-108.5T160-477q0-100 59-186.5T387-784v62q-71 26-119 93t-48 152q0 64 27.5 117.5T337-266v-124h60v230H167Zm433 0q-50 0-85-35t-35-85q0-48 33-83t81-37q17-36 50.5-58t75.5-22q53 0 91.5 34.5T858-360h2q42 0 71 30t29 69q0 42-29 71.5T860-160H600Zm136-360q-11-51-38-93.5T626-694v124h-60v-230h230v60H665q49 41 86.5 100.5T797-520h-61ZM600-220h260q17 0 28.5-11.5T900-260q0-17-11.5-28.5T860-300h-50v-30q0-38-26-64t-64-26q-38 0-64 24.5T630-340h-30q-25 0-42.5 17.5T540-280q0 25 17.5 42.5T600-220Zm120-100Z"/></svg>',
+    usages: ["Cloud Save"],
+  },
   saveUpdate: {
     filled:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M167-160v-60h130l-15-12q-64-51-93-111t-29-134q0-106 62.5-190.5T387-784v62q-75 29-121 96.5T220-477q0 63 23.5 109.5T307-287l30 21v-124h60v230H167Zm407-15v-63q76-29 121-96.5T740-483q0-48-23.5-97.5T655-668l-29-26v124h-61v-230h230v60H665l15 14q60 56 90 120t30 123q0 106-62 191T574-175Z"/></svg>',
@@ -312,7 +330,7 @@ export const library = {
     origin: "https://fonts.google.com/icons",
     outline:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M167-160v-60h130l-15-12q-64-51-93-111t-29-134q0-106 62.5-190.5T387-784v62q-75 29-121 96.5T220-477q0 63 23.5 109.5T307-287l30 21v-124h60v230H167Zm407-15v-63q76-29 121-96.5T740-483q0-48-23.5-97.5T655-668l-29-26v124h-60v-230h230v60H665l15 14q60 56 90 120t30 123q0 106-62 191T574-175Z"/></svg>',
-    usages: ["Village > Loadouts > Loadout > Save/Update Loadout"],
+    usages: ["Village > Loadouts > Loadout > Save/Update Loadout", "Save Game"],
   },
   scholar: {
     filled:
@@ -331,6 +349,15 @@ export const library = {
     outline:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M780-365v-322L570-834 360-687v129h-60v-159l270-193 270 193v352h-60ZM570-834Zm20 204h40v-40h-40v40Zm-80 0h40v-40h-40v40Zm80 80h40v-40h-40v40Zm-80 0h40v-40h-40v40ZM255-200l307 90 248-78q0-20-15.5-33.5T758-235H549q-16 0-31.5-2.5T487-245l-96-29 19-61 94 32q11 4 22.5 6t22.5 2h56q0-21-14-36.5T557-355l-218-83h-84v238ZM40-80v-418h298q5.33 0 10.67 1 5.33 1 10.33 3l218 82q38 14 64.5 45t26.5 72h90q50.83 0 86.42 37Q880-221 880-170v26L567-48l-312-89v57H40Zm60-60h94v-298h-94v298Z"/></svg>',
     usages: ["Bonfire > Building > Sell Building"],
+  },
+  settings: {
+    filled:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m388-80-20-126q-19-7-40-19t-37-25l-118 54-93-164 108-79q-2-9-2.5-20.5T185-480q0-9 .5-20.5T188-521L80-600l93-164 118 54q16-13 37-25t40-18l20-127h184l20 126q19 7 40.5 18.5T669-710l118-54 93 164-108 77q2 10 2.5 21.5t.5 21.5q0 10-.5 21t-2.5 21l108 78-93 164-118-54q-16 13-36.5 25.5T592-206L572-80H388Zm92-270q54 0 92-38t38-92q0-54-38-92t-92-38q-54 0-92 38t-38 92q0 54 38 92t92 38Z"/></svg>',
+    id: "settings",
+    origin: "https://fonts.google.com/icons",
+    outline:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m388-80-20-126q-19-7-40-19t-37-25l-118 54-93-164 108-79q-2-9-2.5-20.5T185-480q0-9 .5-20.5T188-521L80-600l93-164 118 54q16-13 37-25t40-18l20-127h184l20 126q19 7 40.5 18.5T669-710l118-54 93 164-108 77q2 10 2.5 21.5t.5 21.5q0 10-.5 21t-2.5 21l108 78-93 164-118-54q-16 13-36.5 25.5T592-206L572-80H388Zm48-60h88l14-112q33-8 62.5-25t53.5-41l106 46 40-72-94-69q4-17 6.5-33.5T715-480q0-17-2-33.5t-7-33.5l94-69-40-72-106 46q-23-26-52-43.5T538-708l-14-112h-88l-14 112q-34 7-63.5 24T306-642l-106-46-40 72 94 69q-4 17-6.5 33.5T245-480q0 17 2.5 33.5T254-413l-94 69 40 72 106-46q24 24 53.5 41t62.5 25l14 112Zm44-210q54 0 92-38t38-92q0-54-38-92t-92-38q-54 0-92 38t-38 92q0 54 38 92t92 38Zm0-130Z"/></svg>',
+    usages: ["Settings"],
   },
   sorrow: {
     filled:

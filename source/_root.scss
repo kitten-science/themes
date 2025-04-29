@@ -88,6 +88,7 @@ html {
   bottom: calc(100vh - var(--font-size-base) * 4);
 
   overflow-y: scroll;
+  display: none;
 
   margin: 0;
   padding: 0;

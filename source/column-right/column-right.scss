@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "../behaviors";
+@use "../common";
+@use "../icons";
+
 @mixin root {
   overflow: visible;
   display: flex;
@@ -91,16 +96,8 @@
         top: calc(var(--font-size-base) * 0.4);
         right: 0;
 
-        display: inline-block;
-
-        width: var(--font-size-base);
-        height: var(--font-size-base);
-
-        font-size: 0 !important;
-        line-height: var(--font-size-base);
-
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48px' viewBox='0 -960 960 960' width='48px' fill='%23e3e3e3'%3E%3Cpath d='m611-323-43-43 114-113-114-113 43-43 113 114 113-114 43 43-114 113 114 113-43 43-113-114-113 114Zm-491-37v-240h160l200-200v640L280-360H120Zm300-288L307-540H180v120h127l113 109v-337ZM311-481Z'/%3E%3C/svg%3E");
-        background-size: cover;
+        @include common.icon-instead(map.get(icons.$icons, "pause"));
+        @include behaviors.icon-button;
       }
 
       #undoBtn {
