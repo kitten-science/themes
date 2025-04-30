@@ -33,7 +33,7 @@ export const library = {
     origin: "https://fonts.google.com/icons",
     outline:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Z"/></svg>',
-    usages: [],
+    usages: ["HTML Input Element: Checkbox"],
   },
   checkboxEnabled: {
     filled:
@@ -42,16 +42,25 @@ export const library = {
     origin: "https://fonts.google.com/icons",
     outline:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m419-321 289-289-43-43-246 246-119-119-43 43 162 162ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z"/></svg>',
-    usages: [],
+    usages: ["HTML Input Element: Checkbox"],
   },
   clear: {
     filled:
-      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M480-344v-60h180v60H480Zm80 224v-54h-80v-60h80v-54h60v168h-60Zm100-54v-60h180v60H660Zm40-115v-169h60v54h80v60h-80v55h-60Zm135-251h-62q-23-102-104-171t-189-69q-125.36 0-212.68 87.32Q180-605.36 180-480q0 81 38.5 147.5T320-226v-114h60v220H160v-60h121q-73-48-117-127t-44-173q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q134 0 233.5 86T835-540Z"/></svg>',
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>',
     id: "reset_settings",
     origin: "https://fonts.google.com/icons",
     outline:
       '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M480-344v-60h180v60H480Zm80 224v-54h-80v-60h80v-54h60v168h-60Zm100-54v-60h180v60H660Zm40-115v-169h60v54h80v60h-80v55h-60Zm135-251h-62q-23-102-104-171t-189-69q-125.36 0-212.68 87.32Q180-605.36 180-480q0 81 38.5 147.5T320-226v-114h60v220H160v-60h121q-73-48-117-127t-44-173q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q134 0 233.5 86T835-540Z"/></svg>',
     usages: ["Village > Clear Job Assignments"],
+  },
+  close: {
+    filled:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="M480-344v-60h180v60H480Zm80 224v-54h-80v-60h80v-54h60v168h-60Zm100-54v-60h180v60H660Zm40-115v-169h60v54h80v60h-80v55h-60Zm135-251h-62q-23-102-104-171t-189-69q-125.36 0-212.68 87.32Q180-605.36 180-480q0 81 38.5 147.5T320-226v-114h60v220H160v-60h121q-73-48-117-127t-44-173q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q134 0 233.5 86T835-540Z"/></svg>',
+    id: "close",
+    origin: "https://fonts.google.com/icons",
+    outline:
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e3e3e3"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>',
+    usages: ["Options > Close Dialog"],
   },
   delete: {
     filled:

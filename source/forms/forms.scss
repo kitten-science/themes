@@ -3,13 +3,32 @@
 @use "../common";
 @use "../icons";
 
+@mixin button {
+  margin: 0 !important;
+  border: 1px solid var(--color-background-step) !important;
+  border-radius: 0 !important;
+
+  font-size: var(--font-size-base);
+  line-height: var(--font-size-base);
+  color: var(--color-text) !important;
+  vertical-align: middle !important;
+
+  background-color: var(--color-background-step) !important;
+  box-shadow: none !important;
+
+  &:hover {
+    border: 1px solid var(--color-background) !important;
+  }
+
+  @include behaviors.text-button;
+}
+
 @mixin checkbox {
   margin: 0;
   vertical-align: middle;
   appearance: none;
 
   @include common.icon-instead(map.get(icons.$icons, "checkboxDisabled"));
-  @include behaviors.icon-button;
 
   &:checked {
     @include common.icon-instead(map.get(icons.$icons, "checkboxEnabled"));
@@ -17,27 +36,74 @@
 }
 
 @mixin checkbox-label {
+  @include label;
+  @include behaviors.text-button;
+}
+
+@mixin label {
+  font-size: var(--font-size-base);
+  line-height: var(--font-size-base);
   color: var(--color-text);
   vertical-align: middle;
 
-  @include behaviors.text-button;
+  i {
+    font-size: var(--font-size-small);
+    line-height: var(--font-size-small);
+    color: var(--color-text-dim);
+  }
 }
 
 @mixin select {
   margin: 0;
-  border: 1px solid var(--color-background);
+  padding: 0;
+  border: 1px solid var(--color-background-step);
 
+  font-size: var(--font-size-base);
+  line-height: var(--font-size-base);
   color: var(--color-text);
   vertical-align: middle;
 
   background-color: var(--color-background-step);
+
+  &:hover {
+    border: 1px solid var(--color-background);
+  }
+
+  @include behaviors.text-button;
+}
+
+@mixin spinner {
+  margin: 0;
+  border: 1px solid var(--color-background-step);
+
+  font-size: var(--font-size-base);
+  line-height: var(--font-size-base);
+  color: var(--color-text);
+  vertical-align: middle;
+
+  background-color: var(--color-background-step);
+
+  &:hover {
+    border: 1px solid var(--color-background);
+  }
+
+  @include behaviors.text-button;
 }
 
 @mixin dialog {
   overflow-y: scroll;
   padding: 2vw 4vw;
   background-color: var(--color-background-step);
-  filter: drop-shadow(0 0 10vw rgb(0 0 0));
+  box-shadow: 0 0 10vw rgb(0 0 0);
+
+  a.close {
+    @include common.icon-instead(map.get(icons.$icons, "close"));
+    @include behaviors.icon-button;
+  }
+
+  input[type="button"] {
+    @include button;
+  }
 
   input[type="checkbox"] {
     @include checkbox;
@@ -45,6 +111,14 @@
     & + label {
       @include checkbox-label;
     }
+  }
+
+  input[type="number"] {
+    @include spinner;
+  }
+
+  label {
+    @include label;
   }
 
   select {
