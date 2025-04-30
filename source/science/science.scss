@@ -1,0 +1,63 @@
+@use "sass:map";
+@use "../behaviors";
+@use "../common";
+@use "../icons";
+@use "../forms/forms";
+
+@mixin root {
+  input[type="checkbox"] {
+    @include forms.checkbox;
+
+    & + label {
+      @include forms.checkbox-label;
+    }
+  }
+
+  // Hide researched techs
+  >div:first-child {
+    float: none !important;
+  }
+
+  // Techs
+  >table {
+    tr + tr {
+      display: contents;
+    }
+
+    // Seems to just be empty.
+    tr:first-child {
+      display: none;
+    }
+
+    td {
+      display: none;
+    }
+
+    // div.btn.modern[style="display: none;"] {}
+  }
+
+  // Policies
+  >div.panelContainer {
+    .toggle {
+      display: none;
+    }
+
+    .container {
+      display: contents;
+
+      // Policies with the same numerical cost are mutually exclusive
+      >span:first-child {
+        display: none !important;
+
+        & + div {
+          float: none !important;
+        }
+      }
+    }
+  }
+
+  // Metapyhsics
+  >div.panelContainer + div.panelContainer {
+
+  }
+}

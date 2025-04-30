@@ -4,7 +4,7 @@
 @use "jobs";
 @use "management";
 
-@mixin village {
+@mixin root {
   position: relative;
   display: grid;
   grid-template-columns: repeat(10, calc(var(--font-size-base) + var(--spacing-most)));

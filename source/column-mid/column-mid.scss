@@ -1,5 +1,6 @@
 @use "../bonfire/bonfire";
 @use "../village/village";
+@use "../science/science";
 
 @mixin root {
   z-index: 1;
@@ -57,11 +58,15 @@
       max-width: 50vw;
 
       &.Bonfire {
-        @include bonfire.bonfire;
+        @include bonfire.root;
       }
 
       &.Village {
-        @include village.village;
+        @include village.root;
+      }
+
+      &.Science {
+        @include science.root;
       }
     }
   }
