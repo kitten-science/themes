@@ -3,6 +3,9 @@
   --color-background-dark: hsl(45deg 0% 0%);
   --color-background-light: hsl(45deg 53% 88%);
   --color-background: light-dark(var(--color-background-light), var(--color-background-dark));
+  --color-background-step-dark: hsl(45deg 0% 10%);
+  --color-background-step-light: hsl(45deg 53% 78%);
+  --color-background-step: light-dark(var(--color-background-step-light), var(--color-background-step-dark));
 
   // Primary color
   --color-primary-dark: hsl(33deg 64% 67%);

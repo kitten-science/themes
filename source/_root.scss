@@ -67,23 +67,7 @@ html {
   flex-direction: column;
 
   .dialog {
-    input[type="checkbox"] {
-      @include forms.checkbox;
-
-      & + label {
-        @include forms.checkbox-label;
-      }
-    }
-
-    select {
-      @include forms.select;
-
-      & + a {
-        vertical-align: middle;
-
-        @include behaviors.icon-button;
-      }
-    }
+    @include forms.dialog;
   }
 }
 

@@ -25,10 +25,35 @@
 
 @mixin select {
   margin: 0;
-  border: none;
+  border: 1px solid var(--color-background);
 
   color: var(--color-text);
   vertical-align: middle;
 
-  background-color: var(--color-background);
+  background-color: var(--color-background-step);
+}
+
+@mixin dialog {
+  overflow-y: scroll;
+  padding: 2vw 4vw;
+  background-color: var(--color-background-step);
+  filter: drop-shadow(0 0 10vw rgb(0 0 0));
+
+  input[type="checkbox"] {
+    @include checkbox;
+
+    & + label {
+      @include checkbox-label;
+    }
+  }
+
+  select {
+    @include select;
+
+    & + a {
+      vertical-align: middle;
+
+      @include behaviors.icon-button;
+    }
+  }
 }

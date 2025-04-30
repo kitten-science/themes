@@ -3,11 +3,7 @@
 @mixin root {
   position: fixed;
   z-index: 3;
-  inset: 0;
-
-  overflow-y: scroll;
-
-  background-color: var(--color-background);
+  inset: 2vw 17.5vw;
 
   &,
   a,
@@ -26,5 +22,21 @@
 
   .optsExtra {
     display: block !important;
+  }
+
+  #booleanOptionsNormal,
+  #booleanOptionsExtra {
+    display: grid;
+    grid-template-columns: calc(var(--font-size-base) + var(--spacing-base)) auto 1fr 1fr;
+    align-items: start;
+
+    input[type="checkbox"] {
+      grid-column: 1 / 2;
+      margin-top: calc(var(--font-size-base) * 0.05);
+
+      & + label {
+        grid-column: 2 / 3;
+      }
+    }
   }
 }
