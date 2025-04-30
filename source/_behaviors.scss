@@ -9,6 +9,11 @@
   }
 }
 
+@mixin text-button {
+  cursor: pointer;
+  user-select: none;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0.6;

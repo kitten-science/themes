@@ -1,0 +1,34 @@
+@use "sass:map";
+@use "../behaviors";
+@use "../common";
+@use "../icons";
+
+@mixin checkbox {
+  margin: 0;
+  vertical-align: middle;
+  appearance: none;
+
+  @include common.icon-instead(map.get(icons.$icons, "checkboxDisabled"));
+  @include behaviors.icon-button;
+
+  &:checked {
+    @include common.icon-instead(map.get(icons.$icons, "checkboxEnabled"));
+  }
+}
+
+@mixin checkbox-label {
+  color: var(--color-text);
+  vertical-align: middle;
+
+  @include behaviors.text-button;
+}
+
+@mixin select {
+  margin: 0;
+  border: none;
+
+  color: var(--color-text);
+  vertical-align: middle;
+
+  background-color: var(--color-background);
+}

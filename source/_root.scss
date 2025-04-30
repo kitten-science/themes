@@ -1,7 +1,9 @@
-@use "theme-reset";
+@use "behaviors";
 @use "constants/colors";
-@use "options/options";
+@use "forms/forms";
 @use "game";
+@use "options/options";
+@use "theme-reset";
 @use "top-bar";
 
 :root {
@@ -63,6 +65,26 @@ html {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
+  .dialog {
+    input[type="checkbox"] {
+      @include forms.checkbox;
+
+      & + label {
+        @include forms.checkbox-label;
+      }
+    }
+
+    select {
+      @include forms.select;
+
+      & + a {
+        vertical-align: middle;
+
+        @include behaviors.icon-button;
+      }
+    }
+  }
 }
 
 #topBar {
