@@ -40,6 +40,7 @@ output: node_modules icons
 	node build.js > output/theme_neon.css
 	yarn vite build --config source/colors/vite.config.js
 	yarn vite build --config source/icons/vite.config.js
+	yarn vite build --config source/science/vite.config.js
 
 install:
 	cp output/theme_neon.css ~/projects/kitten-science/kitten-scientists/devcontainer/res/theme_sleek.css

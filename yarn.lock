@@ -432,14 +432,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kitten-science/game-data@npm:0.0.11":
+  version: 0.0.11
+  resolution: "@kitten-science/game-data@npm:0.0.11"
+  checksum: 10c0/9d671c82d32deed733a82eab97617ec7e3570c2f6e49217e9ed463af46ad579b1859ff48c668e7863967e92d70037b261a6adf893927f785087d2ee32be371f6
+  languageName: node
+  linkType: hard
+
 "@kitten-science/themes@workspace:.":
   version: 0.0.0-use.local
   resolution: "@kitten-science/themes@workspace:."
   dependencies:
     "@biomejs/biome": "npm:2.0.0-beta.2"
+    "@kitten-science/game-data": "npm:0.0.11"
+    "@oliversalzburg/js-utils": "npm:0.3.0"
     "@stylistic/stylelint-config": "npm:2.0.0"
     "@stylistic/stylelint-plugin": "npm:3.1.2"
     "@types/node": "npm:22.15.3"
+    "@viz-js/viz": "npm:3.12.0"
     postcss: "npm:8.5.3"
     rollup: "npm:4.40.1"
     sass-embedded: "npm:1.87.0"
@@ -500,6 +510,13 @@ __metadata:
   dependencies:
     semver: "npm:^7.3.5"
   checksum: 10c0/c90935d5ce670c87b6b14fab04a965a3b8137e585f8b2a6257263bd7f97756dd736cb165bb470e5156a9e718ecd99413dccc54b1138c1a46d6ec7cf325982fe5
+  languageName: node
+  linkType: hard
+
+"@oliversalzburg/js-utils@npm:0.3.0":
+  version: 0.3.0
+  resolution: "@oliversalzburg/js-utils@npm:0.3.0"
+  checksum: 10c0/f15341f43af573e605c0e213fdc12ed10513657e19f469d6c106d02733eea8e89b3d177b1e4cf0b291175cc2072179b7e6e29d23168601a559eed18030ce68a3
   languageName: node
   linkType: hard
 
@@ -702,6 +719,13 @@ __metadata:
   dependencies:
     undici-types: "npm:~6.21.0"
   checksum: 10c0/2879f012d1aeba0bfdb5fed80d165f4f2cb3d1f2e1f98a24b18d4a211b4ace7d64bf2622784c78355982ffc1081ba79d0934efc2fb8353913e5871a63609661f
+  languageName: node
+  linkType: hard
+
+"@viz-js/viz@npm:3.12.0":
+  version: 3.12.0
+  resolution: "@viz-js/viz@npm:3.12.0"
+  checksum: 10c0/79b8a38b6923ff97e73005a5e9396f969d47d50dfeeeed12271910b07b213f40e40d1efe7f07ea824813f0d3f057ed00a3eb57ae5ae5ddfe38b85b25f0dfef59
   languageName: node
   linkType: hard
 
