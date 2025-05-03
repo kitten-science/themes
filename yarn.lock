@@ -432,10 +432,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kitten-science/game-data@npm:0.0.11":
-  version: 0.0.11
-  resolution: "@kitten-science/game-data@npm:0.0.11"
-  checksum: 10c0/9d671c82d32deed733a82eab97617ec7e3570c2f6e49217e9ed463af46ad579b1859ff48c668e7863967e92d70037b261a6adf893927f785087d2ee32be371f6
+"@kitten-science/game-data@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@kitten-science/game-data@npm:1.1.1"
+  checksum: 10c0/82761d5dc06f55f5ea6552d685fb2ccb9f25cbe4168bd5697ce99ae6a81263882c425a0d30c310fce1f991e1ea1088e77253be02c2d0a089dc40430d0c4514c7
   languageName: node
   linkType: hard
 
@@ -444,7 +444,7 @@ __metadata:
   resolution: "@kitten-science/themes@workspace:."
   dependencies:
     "@biomejs/biome": "npm:2.0.0-beta.2"
-    "@kitten-science/game-data": "npm:0.0.11"
+    "@kitten-science/game-data": "npm:1.1.1"
     "@oliversalzburg/js-utils": "npm:0.3.0"
     "@stylistic/stylelint-config": "npm:2.0.0"
     "@stylistic/stylelint-plugin": "npm:3.1.2"
