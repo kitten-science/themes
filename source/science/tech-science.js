@@ -142,7 +142,7 @@ for (const _ of Object.values(planets)) {
 for (const _ of [
   ...Object.values(buildings),
   ...Object.values(chronoforgeUpgrades),
-  ...Object.values(planets),
+  ...Object.values(planets).flatMap(p => p.buildings),
   ...Object.values(programs),
   ...Object.values(religionUpgrades),
   ...Object.values(techs),
@@ -156,6 +156,7 @@ for (const _ of [
     ...(_.unlocks?.chronoforge ?? []),
     ...(_.unlocks?.planet ?? []),
     ...(_.unlocks?.spaceMission ?? []),
+    ...(_.unlocks?.spaceBuilding ?? []),
     ...(_.unlocks?.tech ?? []),
     ...(_.unlocks?.transcendenceUpgrades ?? []),
     ...(_.unlocks?.upgrades ?? []),
@@ -195,20 +196,11 @@ render("workshop -> reinforcedBarns;");
 // Makes sense, right?
 renderImplied("cryochambers", "usedCryochambers");
 render("unicornPasture -> unicornTomb;");
-// Ziggurat unlocks Ziggurats stuff.
-render("ziggurat -> unicornTomb;");
-render("unicornPasture -> unicornGraveyard;");
-render("ziggurat -> unicornGraveyard;");
 // No sorrow, no pyramid.
 renderImplied("unicornPasture", "blackPyramid");
-// No unicorn tears, no marker.
-renderImplied("unicornPasture", "marker");
 // No unobtainium, no pyramid/marker.
 renderImplied("moonOutpost", "blackPyramid");
 renderImplied("moonOutpost", "marker");
-// No religion tab, no unicorn stuff.
-render("theology -> blackPyramid;");
-render("theology -> marker;");
 // ?
 render("dimensionalPhysics -> artificialGravity;");
 // No rockets, no launch.
@@ -221,15 +213,17 @@ renderImplied("marker", "mausoleum");
 renderImplied("chronosphere", "darkNova");
 renderImplied("chronosphere", "mausoleum");
 renderImplied("chronosphere", "holyGenocide");
-// Need gold, so Smelter.
-renderImplied("smelter", "goldenSpire");
-renderImplied("smelter", "sunAltar");
-renderImplied("smelter", "stainedGlass");
-renderImplied("smelter", "solarRevolution");
-renderImplied("smelter", "basilica");
-renderImplied("smelter", "templars");
-renderImplied("smelter", "apocripha");
-renderImplied("smelter", "transcendence");
+// Theology chain.
+render("theology -> solarchant;");
+renderImplied("solarchant", "scholasticism");
+renderImplied("scholasticism", "goldenSpire");
+renderImplied("goldenSpire", "sunAltar");
+renderImplied("sunAltar", "stainedGlass");
+renderImplied("stainedGlass", "solarRevolution");
+renderImplied("solarRevolution", "basilica");
+renderImplied("basilica", "templars");
+renderImplied("templars", "apocripha");
+renderImplied("apocripha", "transcendence");
 // No unobtainium, no crazy space stuff.
 renderImplied("moonOutpost", "spaceElevator");
 renderImplied("moonOutpost", "moonBase");
@@ -241,14 +235,14 @@ renderImplied("blackPyramid", "cryptotheology");
 // No pyramid, no elders, no TCs.
 renderImplied("blackPyramid", "temporalImpedance");
 
-for (const _ of Object.values(transcendenceUpgrades).sort((a, b) => a.tier - b.tier)) {
-  renderImplied("transcendence", _.name);
-  // No pyramid, no elders, no relics.
-  renderImplied("blackPyramid", _.name);
-}
+let previous = undefined;
 
-for (const _ of Object.values(religionUpgrades).sort((a, b) => a.faith - b.faith)) {
-  render(`theology -> ${_.name};`);
+renderImplied("transcendence", "blackObelisk");
+for (const _ of Object.values(transcendenceUpgrades).sort((a, b) => a.tier - b.tier)) {
+  if (previous) {
+    renderImplied(previous.name, _.name);
+  }
+  previous = _;
 }
 
 render("}");
