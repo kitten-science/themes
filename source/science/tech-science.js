@@ -21,7 +21,8 @@ const buffer = [];
 let indentation = 0;
 
 const render = _ => buffer.push(indent(_, indentation));
-const renderImplied = (a, b) => render(`${a} -> ${b} [style="dotted";];`);
+const renderImplied = (a, b) => render(`${a} -> ${b} [style="invis";];`);
+const renderRelated = (a, b) => render(`${a} -> ${b} [style="dashed";];`);
 const renderAll = subject => {
   for (const _ of Object.values(subject)) {
     if (OrphanedItems.includes(_.name)) {
@@ -29,7 +30,7 @@ const renderAll = subject => {
     }
 
     render(
-      `${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices ?? [])}";];`,
+      `${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}\\n${renderPrices(_.prices ?? [])}";];`,
     );
   }
 };
@@ -52,15 +53,17 @@ for (const _ of Object.values(buildings)) {
 
   if (_.stages) {
     render(
-      `${_.name} [label="${_.stages[0].label}"; tooltip="ID: ${_.name}:0\\n${renderPrices(_.stages[0].prices)}";];`,
+      `${_.name} [label="   ${_.stages[0].label}   "; tooltip="ID: ${_.name}:0\\n${renderPrices(_.stages[0].prices)}";];`,
     );
     render(
-      `${_.name}1 [label="${_.stages[1].label}"; tooltip="ID: ${_.name}:1\\n${renderPrices(_.stages[1].prices)}";];`,
+      `${_.name}1 [label="   ${_.stages[1].label}   "; tooltip="ID: ${_.name}:1\\n${renderPrices(_.stages[1].prices)}";];`,
     );
     continue;
   }
 
-  render(`${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`);
+  render(
+    `${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`,
+  );
 }
 
 // Void Space Upgrades
@@ -74,6 +77,18 @@ render(
   `node [fillcolor="#eb9de4"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 );
 renderAll(chronoforgeUpgrades);
+
+// Space Programs
+render(
+  `node [fillcolor="#29472c"; fontcolor="#ffffff"; fontname="sans-serif"; shape="box"; style="filled";];`,
+);
+renderAll(programs);
+
+// Techs
+render(
+  `node [fillcolor="#465666"; fontcolor="#ffffff"; fontname="sans-serif"; shape="box"; style="filled";];`,
+);
+renderAll(techs);
 
 // Ziggurat Upgrades
 render(
@@ -93,23 +108,11 @@ render(
 );
 renderAll(religionUpgrades);
 
-// Space Programs
-render(
-  `node [fillcolor="#9ef0a5"; fontcolor="#000000"; fontname="sans-serif"; shape="box"; style="filled";];`,
-);
-renderAll(programs);
-
 // Upgrades
 render(
   `node [fillcolor="#93ccc6"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 );
 renderAll(upgrades);
-
-// Techs
-render(
-  `node [fillcolor="#465666"; fontcolor="#ffffff"; fontname="sans-serif"; shape="box"; style="filled";];`,
-);
-renderAll(techs);
 
 // Planets
 for (const _ of Object.values(planets)) {
@@ -118,7 +121,7 @@ for (const _ of Object.values(planets)) {
   }
 
   render(
-    `${_.name} [label="${_.label}"; tooltip="ID: ${_.name}"; fillcolor="#ffffff"; fontcolor="#000000"; fontname="sans-serif"; shape="circle"; style="filled";];`,
+    `${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}"; fillcolor="#ffffff"; fontcolor="#000000"; fontname="sans-serif"; shape="circle"; style="filled";];`,
   );
 
   buffer.push(
@@ -128,17 +131,19 @@ for (const _ of Object.values(planets)) {
     ),
   );
   for (const building of _.buildings) {
+    const name = building.name === "hydroponics" ? "hydroponicsBuilding" : building.name;
     render(
-      `${building.name} [label="${building.label}"; tooltip="ID: ${building.name}\\n${renderPrices(building.prices)}";];`,
+      `${name} [label="   ${building.label}   "; tooltip="ID: ${building.name}\\n${renderPrices(building.prices)}";];`,
     );
-    render(`${_.name} -> ${building.name};`);
+    renderRelated(_.name, name);
 
     for (const tech of Array.isArray(building.requiredTech) ? building.requiredTech : []) {
-      render(`${tech} -> ${building.name};`);
+      renderRelated(tech, name);
     }
   }
 }
 
+// Render unlocks
 for (const _ of [
   ...Object.values(buildings),
   ...Object.values(chronoforgeUpgrades),
@@ -163,6 +168,10 @@ for (const _ of [
     ...(_.unlocks?.voidSpace ?? []),
     ...(_.unlocks?.zigguratUpgrades ?? []),
   ]) {
+    // Some stuff unlocks itself. Bug in game metadata.
+    if (_.name === unlock) {
+      continue;
+    }
     render(`${_.name} -> ${unlock};`);
   }
   for (const unlock of [...(_.unlocks?.stages ?? [])]) {
@@ -182,32 +191,32 @@ render(
 render("anachronomancy -> chronophysics;");
 
 // Fill implicit unlocks.
-render("library -> calendar;");
-render("chronoforge -> blastFurnace;");
-render("chronoforge -> temporalBattery;");
-render("chronoforge -> temporalAccelerator;");
+renderRelated("library", "calendar");
+renderImplied("chronoforge", "blastFurnace");
+renderImplied("chronoforge", "temporalBattery");
+renderImplied("chronoforge", "temporalAccelerator");
 // Some stuff is pre-unlocked in workshop.
-render("workshop -> mineralHoes;");
-render("workshop -> ironHoes;");
-render("workshop -> mineralAxes;");
-render("workshop -> ironAxes;");
-render("workshop -> stoneBarns;");
-render("workshop -> reinforcedBarns;");
+renderRelated("workshop", "mineralHoes");
+renderRelated("workshop", "ironHoes");
+renderRelated("workshop", "mineralAxes");
+renderRelated("workshop", "ironAxes");
+renderRelated("workshop", "stoneBarns");
+renderRelated("workshop", "reinforcedBarns");
 // Makes sense, right?
 renderImplied("cryochambers", "usedCryochambers");
-render("unicornPasture -> unicornTomb;");
+renderRelated("unicornPasture", "unicornTomb");
 // No sorrow, no pyramid.
-renderImplied("unicornPasture", "blackPyramid");
+//renderImplied("unicornPasture", "blackPyramid");
 // No unobtainium, no pyramid/marker.
 renderImplied("moonOutpost", "blackPyramid");
 renderImplied("moonOutpost", "marker");
 // ?
 render("dimensionalPhysics -> artificialGravity;");
 // No rockets, no launch.
-render("rocketry -> orbitalLaunch;");
+renderRelated("rocketry", "orbitalLaunch");
 // Need necrocorns, thus marker.
-renderImplied("marker", "unicornGraveyard");
-renderImplied("marker", "unicornNecropolis");
+renderRelated("marker", "unicornGraveyard");
+renderRelated("marker", "unicornNecropolis");
 renderImplied("marker", "mausoleum");
 // Needs void, thus Chronosphere.
 renderImplied("chronosphere", "darkNova");
@@ -215,32 +224,32 @@ renderImplied("chronosphere", "mausoleum");
 renderImplied("chronosphere", "holyGenocide");
 // Theology chain.
 render("theology -> solarchant;");
-renderImplied("solarchant", "scholasticism");
-renderImplied("scholasticism", "goldenSpire");
-renderImplied("goldenSpire", "sunAltar");
-renderImplied("sunAltar", "stainedGlass");
-renderImplied("stainedGlass", "solarRevolution");
-renderImplied("solarRevolution", "basilica");
-renderImplied("basilica", "templars");
-renderImplied("templars", "apocripha");
-renderImplied("apocripha", "transcendence");
+renderRelated("solarchant", "scholasticism");
+renderRelated("scholasticism", "goldenSpire");
+renderRelated("goldenSpire", "sunAltar");
+renderRelated("sunAltar", "stainedGlass");
+renderRelated("stainedGlass", "solarRevolution");
+renderRelated("solarRevolution", "basilica");
+renderRelated("basilica", "templars");
+renderRelated("templars", "apocripha");
+renderRelated("apocripha", "transcendence");
 // No unobtainium, no crazy space stuff.
 renderImplied("moonOutpost", "spaceElevator");
 renderImplied("moonOutpost", "moonBase");
 renderImplied("moonOutpost", "hydroponics");
 // Probably need to register all upgrades...
-renderImplied("spaceBeacon", "relicStation");
+//renderImplied("spaceBeacon", "relicStation");
 // No pyramid, no elders, no relics.
-renderImplied("blackPyramid", "cryptotheology");
+renderRelated("blackPyramid", "cryptotheology");
 // No pyramid, no elders, no TCs.
-renderImplied("blackPyramid", "temporalImpedance");
+renderRelated("blackPyramid", "temporalImpedance");
 
 let previous = undefined;
 
-renderImplied("transcendence", "blackObelisk");
+renderRelated("transcendence", "blackObelisk");
 for (const _ of Object.values(transcendenceUpgrades).sort((a, b) => a.tier - b.tier)) {
   if (previous) {
-    renderImplied(previous.name, _.name);
+    renderRelated(previous.name, _.name);
   }
   previous = _;
 }
