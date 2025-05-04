@@ -22,6 +22,17 @@ let indentation = 0;
 
 const render = _ => buffer.push(indent(_, indentation));
 const renderImplied = (a, b) => render(`${a} -> ${b} [style="dotted";];`);
+const renderAll = subject => {
+  for (const _ of Object.values(subject)) {
+    if (OrphanedItems.includes(_.name)) {
+      continue;
+    }
+
+    render(
+      `${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices ?? [])}";];`,
+    );
+  }
+};
 
 render("digraph kittens {");
 ++indentation;
@@ -56,102 +67,49 @@ for (const _ of Object.values(buildings)) {
 render(
   `node [fillcolor="#eb9de4"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 );
-for (const _ of Object.values(voidspaceUpgrades)) {
-  if (OrphanedItems.includes(_.name)) {
-    continue;
-  }
-
-  render(`${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`);
-}
+renderAll(voidspaceUpgrades);
 
 // Chronoforge Upgrades
 render(
   `node [fillcolor="#eb9de4"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 );
-for (const _ of Object.values(chronoforgeUpgrades)) {
-  if (OrphanedItems.includes(_.name)) {
-    continue;
-  }
-
-  render(`${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`);
-}
+renderAll(chronoforgeUpgrades);
 
 // Ziggurat Upgrades
 render(
   `node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 );
-for (const _ of Object.values(zigguratUpgrades)) {
-  if (OrphanedItems.includes(_.name)) {
-    continue;
-  }
-
-  render(`${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`);
-}
+renderAll(zigguratUpgrades);
 
 // Transcendence Upgrades
 render(
   `node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 );
-for (const _ of Object.values(transcendenceUpgrades)) {
-  if (OrphanedItems.includes(_.name)) {
-    continue;
-  }
-
-  render(`${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`);
-}
+renderAll(transcendenceUpgrades);
 
 // Religion Upgrades
 render(
   `node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 );
-for (const _ of Object.values(religionUpgrades)) {
-  if (OrphanedItems.includes(_.name)) {
-    continue;
-  }
-
-  render(`${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`);
-}
+renderAll(religionUpgrades);
 
 // Space Programs
 render(
   `node [fillcolor="#9ef0a5"; fontcolor="#000000"; fontname="sans-serif"; shape="box"; style="filled";];`,
 );
-for (const _ of Object.values(programs)) {
-  if (OrphanedItems.includes(_.name)) {
-    continue;
-  }
-
-  render(
-    `${_.name} [label="  ${_.label}  "; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`,
-  );
-}
+renderAll(programs);
 
 // Upgrades
 render(
   `node [fillcolor="#93ccc6"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 );
-for (const _ of Object.values(upgrades)) {
-  if (OrphanedItems.includes(_.name)) {
-    continue;
-  }
-
-  render(`${_.name} [label="${_.label}"; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`);
-}
+renderAll(upgrades);
 
 // Techs
 render(
   `node [fillcolor="#465666"; fontcolor="#ffffff"; fontname="sans-serif"; shape="box"; style="filled";];`,
 );
-for (const _ of Object.values(techs)) {
-  if (OrphanedItems.includes(_.name)) {
-    continue;
-  }
-
-  // HACK: Add some spaces around the label to aid with padding/readability.
-  render(
-    `${_.name} [label="   ${_.label}  "; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`,
-  );
-}
+renderAll(techs);
 
 // Planets
 for (const _ of Object.values(planets)) {
