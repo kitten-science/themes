@@ -35,7 +35,7 @@ const renderAll = subject => {
   }
 };
 
-render("digraph kittens {");
+render("digraph {");
 ++indentation;
 
 render(`fontname="sans-serif";`);
