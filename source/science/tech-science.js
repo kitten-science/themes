@@ -175,6 +175,10 @@ render(
 );
 render("megalomenia -> marker;");
 render("megalomenia -> blackPyramid;");
+render(
+  `anachronomancy [label="   Anachronomancy   "; tooltip="ID: anachronomancy"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
+);
+render("anachronomancy -> chronophysics;");
 
 // Fill implicit unlocks.
 render("library -> calendar;");
