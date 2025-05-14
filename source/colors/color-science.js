@@ -14,7 +14,7 @@ for (const [color, entries] of Object.entries(palette)) {
   entryInfo.classList.add("info");
   for (const entry of entries) {
     const info = document.createElement("div");
-    info.textContent = entry.usageNote.replace(/`([a-zA-Z0-9-]+)`/g, (match, css) => css);
+    info.textContent = entry.usageNote.replace(/`([a-zA-Z0-9-]+)`/g, (_match, css) => css);
     entryInfo.appendChild(info);
 
     const css = document.createElement("div");
@@ -22,7 +22,7 @@ for (const [color, entries] of Object.entries(palette)) {
       const unwrappedCssNote = entry.cssNote
         .replace(/^\(/, "")
         .replace(/\)$/, "")
-        .replace(/`([a-zA-Z0-9-]+)`/g, (match, css) => css);
+        .replace(/`([a-zA-Z0-9-]+)`/g, (_match, css) => css);
       css.textContent = unwrappedCssNote;
     }
     entryInfo.appendChild(css);

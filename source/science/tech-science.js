@@ -286,7 +286,7 @@ renderDependency("blackPyramid", "temporalImpedance");
 renderDependency("ziggurat", "unicornTomb");
 renderImplied("theology", "unicornTomb");
 
-let previous = undefined;
+let previous;
 
 renderDependency("transcendence", "blackObelisk");
 for (const _ of Object.values(transcendenceUpgrades).sort((a, b) => a.tier - b.tier)) {
