@@ -40,9 +40,9 @@
   --color-text-dim: light-dark(var(--color-text-dim-light), var(--color-text-dim-dark));
   --color-text-dimmer: light-dark(var(--color-text-dimmer-light), var(--color-text-dimmer-dark));
   --color-text-dimmest: light-dark(var(--color-text-dimmest-light), var(--color-text-dimmest-dark));
-  --color-text-a128: hsla(var(--color-text), 50%);
-  --color-text-a64: hsla(var(--color-text), 25%);
-  --color-text-a32: hsla(var(--color-text), 12.5%);
+  --color-text-a128: hsl(var(--color-text), 50%);
+  --color-text-a64: hsl(var(--color-text), 25%);
+  --color-text-a32: hsl(var(--color-text), 12.5%);
 
   // Resource colors
   --hue-resource-rarity: 33deg;
