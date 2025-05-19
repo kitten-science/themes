@@ -6,7 +6,7 @@
   "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
   "type": "module",
   "devDependencies": {
-    "@biomejs/biome": "2.0.0-beta.4",
+    "@biomejs/biome": "2.0.0-beta.5",
     "@kitten-science/game-data": "1.1.1",
     "@oliversalzburg/js-utils": "0.3.0",
     "@stylistic/stylelint-config": "2.0.0",
