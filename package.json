@@ -14,7 +14,7 @@
     "@types/node": "22.15.19",
     "@viz-js/viz": "3.12.0",
     "postcss": "8.5.3",
-    "rollup": "4.40.2",
+    "rollup": "4.41.0",
     "sass-embedded": "1.89.0",
     "stylelint": "16.19.1",
     "stylelint-config-clean-order": "7.0.0",
