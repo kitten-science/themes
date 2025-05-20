@@ -1,6 +1,7 @@
 _site/
 build/
 coverage/
+lib/
 node_modules/
 output/
 tsconfig.tsbuildinfo

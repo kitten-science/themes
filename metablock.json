@@ -1,0 +1,15 @@
+{
+  "name": "Neon Theme",
+  "namespace": "https://kitten-science.com/",
+  "icon64URL": "https://kitten-science.com/assets/images/organization-logo64.png",
+  "match": [
+    "https://kittensgame.com/web/",
+    "https://kittensgame.com/beta/",
+    "https://kittensgame.com/alpha/",
+    "https://*.localhost/",
+    "https://*.labnet/",
+    "http://*.localhost/",
+    "http://*.labnet/",
+    "http://localhost/"
+  ]
+}
