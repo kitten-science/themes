@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@kitten-science/themes",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Kitten Game - Neon Theme",
   "license": "MIT",
   "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
