@@ -14,13 +14,13 @@ git-hook:
 	echo "make pretty" > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 
 pretty: node_modules
-	yarn biome check --write --no-errors-on-unmatched
-	yarn stylelint --fix source/**/*.{css,scss} || true
+	npm exec -- biome check --write --no-errors-on-unmatched
+	npm exec -- stylelint --fix source/**/*.{css,scss} || true
 	npm pkg fix
 
 lint: node_modules
-	yarn biome check .
-	yarn stylelint source/**/*.{css,scss}
+	npm exec -- biome check .
+	npm exec -- stylelint source/**/*.{css,scss}
 
 test:
 	@echo "This project has no tests."
@@ -30,7 +30,7 @@ run: build
 
 
 node_modules:
-	yarn install
+	npm install
 
 icons: node_modules
 	node contrib/convert-icons.js > source/_icons.scss
@@ -38,9 +38,9 @@ icons: node_modules
 output: node_modules icons
 	mkdir -p output
 	node build.js > output/theme_neon.css
-	yarn vite build --config source/colors/vite.config.js
-	yarn vite build --config source/icons/vite.config.js
-	yarn vite build --config source/science/vite.config.js
+	npm exec -- vite build --config source/colors/vite.config.js
+	npm exec -- vite build --config source/icons/vite.config.js
+	npm exec -- vite build --config source/science/vite.config.js
 
 install:
 	cp output/theme_neon.css ~/projects/kitten-science/kitten-scientists/devcontainer/res/theme_sleek.css
