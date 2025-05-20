@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/kitten-science/themes.git"
   },
+  "scripts": {
+    "preversion": "make lint test",
+    "postversion": "git push"
+  },
   "bugs": {
     "url": "https://github.com/kitten-science/themes/issues"
   },
