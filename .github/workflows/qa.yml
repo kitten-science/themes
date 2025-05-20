@@ -2,6 +2,9 @@ name: QA
 
 on:
   pull_request:
+  pull_request_review:
+    types:
+      - submitted
   push:
     branches:
       - "**"
