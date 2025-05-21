@@ -99,7 +99,7 @@ jobs:
     name: 🔹 QA
     needs:
       - changelog
-    uses: ./.github/workflows/qa-main.yml
+    uses: ./.github/workflows/qa.yml
 
   nightly:
     if: |
