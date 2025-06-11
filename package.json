@@ -29,7 +29,7 @@
     "@types/web": "0.0.241",
     "@viz-js/viz": "3.13.0",
     "postcss": "8.5.4",
-    "rollup": "4.42.0",
+    "rollup": "4.43.0",
     "rollup-plugin-cleanup": "3.2.1",
     "sass-embedded": "1.89.2",
     "stylelint": "16.20.0",
