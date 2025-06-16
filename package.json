@@ -25,7 +25,7 @@
     "@oliversalzburg/js-utils": "0.3.0",
     "@stylistic/stylelint-config": "2.0.0",
     "@stylistic/stylelint-plugin": "3.1.2",
-    "@types/node": "22.15.31",
+    "@types/node": "22.15.32",
     "@types/web": "0.0.241",
     "@viz-js/viz": "3.13.0",
     "postcss": "8.5.5",
