@@ -22,7 +22,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.0.5",
     "@kitten-science/game-data": "1.1.2",
-    "@oliversalzburg/js-utils": "0.3.0",
+    "@oliversalzburg/js-utils": "0.4.3",
     "@stylistic/stylelint-config": "2.0.0",
     "@stylistic/stylelint-plugin": "3.1.2",
     "@types/node": "22.15.32",
