@@ -23,7 +23,7 @@
     "@biomejs/biome": "2.1.2",
     "@kitten-science/game-data": "1.1.2",
     "@oliversalzburg/js-utils": "0.4.3",
-    "@stylistic/stylelint-config": "3.0.0",
+    "@stylistic/stylelint-config": "3.0.1",
     "@stylistic/stylelint-plugin": "4.0.0",
     "@types/node": "22.16.5",
     "@types/web": "0.0.253",
