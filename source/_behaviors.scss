@@ -27,15 +27,13 @@
 @mixin icon-button-pulse($opacity-base: 0.6) {
   @include icon-button($opacity-base);
 
-  & {
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 
-    &:hover {
-      opacity: 1;
-      animation-play-state: paused;
-    }
+  &:hover {
+    opacity: 1;
+    animation-play-state: paused;
   }
 }
