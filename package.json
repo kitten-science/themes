@@ -20,7 +20,7 @@
   },
   "type": "module",
   "devDependencies": {
-    "@biomejs/biome": "2.2.4",
+    "@biomejs/biome": "2.2.5",
     "@kitten-science/game-data": "1.1.2",
     "@oliversalzburg/js-utils": "0.5.0",
     "@stylistic/stylelint-config": "3.0.1",
