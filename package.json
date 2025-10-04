@@ -38,7 +38,7 @@
     "stylelint-order": "7.0.0",
     "stylelint-use-nesting": "6.0.0",
     "tslib": "2.8.1",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "vite": "7.1.7",
     "vite-plugin-css-injected-by-js": "3.5.2",
     "vite-plugin-html": "3.2.2",
