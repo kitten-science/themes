@@ -1,6 +1,5 @@
 import { join } from "node:path";
 import { cwd } from "node:process";
-import { createHtmlPlugin } from "vite-plugin-html";
 import { viteSingleFile } from "vite-plugin-singlefile";
 
 /**
@@ -19,6 +18,6 @@ export default {
       },
     },
   },
-  plugins: [createHtmlPlugin(), viteSingleFile()],
+  plugins: [viteSingleFile()],
   root: import.meta.dirname,
 };
