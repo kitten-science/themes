@@ -13,16 +13,38 @@ import {
 import { indent } from "@oliversalzburg/js-utils/data/string.js";
 import { instance } from "@viz-js/viz";
 
+/**
+ * @param {Array<{name:string, val:number}>} price -
+*/
 const renderPrices = price => price.map(_ => `${_.name}: ${_.val}`).join("\\n");
 // Metadata entries not in active use in game.
 const OrphanedItems = ["unobtainiumAxe", "unobtainiumSaw"];
+/** @type {Array<string>} */
 const buffer = [];
 let indentation = 0;
 
+/**
+ * @param {string} _ -
+*/
 const render = _ => buffer.push(indent(_, indentation));
+/**
+ * @param {string} a -
+ * @param {string} b -
+*/
 const renderLink = (a, b) => render(`${a} -> ${b};`);
+/**
+ * @param {string} a -
+ * @param {string} b -
+*/
 const renderImplied = (a, b) => render(`${a} -> ${b} [style="invis";];`);
+/**
+ * @param {string} a -
+ * @param {string} b -
+*/
 const renderDependency = (a, b) => render(`${a} -> ${b} [style="dashed";];`);
+/**
+ * @param {Record<string, {name:string, label:string, prices?:Array<{name:string, val:number}>}>} subject -
+*/
 const renderAll = subject => {
   for (const _ of Object.values(subject)) {
     if (OrphanedItems.includes(_.name)) {
@@ -178,8 +200,8 @@ const DeclarationMap = {
   zigguratUpgrades: renderNodesZigguratUpgrades,
 };
 
-for (const declaration of DeclarationOrder) {
-  DeclarationMap[declaration].call(this);
+for (const declaration of Object.keys(DeclarationOrder)) {
+  DeclarationMap[/** @type {keyof DeclarationMap} */(declaration)].call(this);
 }
 
 // Render unlocks

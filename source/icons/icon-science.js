@@ -1,5 +1,8 @@
 import { library } from "./icons.js";
 
+/**
+ * @param {string} subject -
+*/
 const encodeSVG = subject =>
   subject
     .replace(/"/g, `'`)
