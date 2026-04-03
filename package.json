@@ -24,7 +24,7 @@
     "@kitten-science/game-data": "1.1.2",
     "@oliversalzburg/js-utils": "0.6.0",
     "@stylistic/stylelint-config": "4.0.0",
-    "@stylistic/stylelint-plugin": "5.0.1",
+    "@stylistic/stylelint-plugin": "5.1.0",
     "@types/node": "25.5.0",
     "@types/web": "0.0.344",
     "@viz-js/viz": "3.25.0",
