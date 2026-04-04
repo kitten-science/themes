@@ -1,32 +1,30 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig.json",
-  "compilerOptions": {
-    "checkJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "importHelpers": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "lib": [
-      "ESNext"
-    ],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "noUncheckedIndexedAccess": true,
-    "outDir": "lib",
-    "resolveJsonModule": true,
-    "rootDir": ".",
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "types": [
-      "node",
-      "web"
-    ],
-    "useDefineForClassFields": true
-  },
-  "include": [
-    "./@types",
-    "./source",
-    "stylelint.config.js",
-    "vite.config.*.js"
-  ]
+	"$schema": "https://json.schemastore.org/tsconfig.json",
+	"compilerOptions": {
+		"checkJs": true,
+		"declaration": true,
+		"declarationMap": true,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"incremental": true,
+		"isolatedModules": true,
+		"lib": ["ESNext"],
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+		"outDir": "lib",
+		"resolveJsonModule": true,
+		"rootDir": ".",
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"target": "esnext",
+		"types": ["node", "web"],
+		"useDefineForClassFields": true
+	},
+	"include": [
+		"./@types",
+		"./contrib",
+		"./source",
+		"stylelint.config.js",
+		"vite.config.*.js"
+	]
 }

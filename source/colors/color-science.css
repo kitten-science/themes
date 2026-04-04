@@ -6,19 +6,12 @@ body {
   padding: 0;
 
   font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen-Sans,
-    Ubuntu,
-    Cantarell,
-    "Helvetica Neue",
-    sans-serif;
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
 
   .color {
     display: grid;
-    grid-column: 1/4;
+    grid-column: 1 / 4;
     grid-template-columns: subgrid;
     gap: 1vmin;
 
@@ -40,12 +33,14 @@ body {
       line-height: 1vmin;
       color: transparent;
       text-align: center;
-      text-shadow: 0 1vmin 0 white, 0 -1vmin 0 black;
+      text-shadow:
+        0 1vmin 0 white,
+        0 -1vmin 0 black;
     }
 
     .info {
       display: grid;
-      grid-column: 2/4;
+      grid-column: 2 / 4;
       grid-template-columns: subgrid;
 
       font-size: 1vmin;

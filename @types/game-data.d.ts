@@ -1,1 +1,1 @@
-declare module '@kitten-science/game-data';
+declare module "@kitten-science/game-data";

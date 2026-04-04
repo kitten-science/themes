@@ -1,22 +1,23 @@
 import {
-  buildings,
-  chronoforgeUpgrades,
-  planets,
-  programs,
-  religionUpgrades,
-  techs,
-  transcendenceUpgrades,
-  upgrades,
-  voidspaceUpgrades,
-  zigguratUpgrades,
+	buildings,
+	chronoforgeUpgrades,
+	planets,
+	programs,
+	religionUpgrades,
+	techs,
+	transcendenceUpgrades,
+	upgrades,
+	voidspaceUpgrades,
+	zigguratUpgrades,
 } from "@kitten-science/game-data";
 import { indent } from "@oliversalzburg/js-utils/data/string.js";
 import { instance } from "@viz-js/viz";
 
 /**
  * @param {Array<{name:string, val:number}>} price -
-*/
-const renderPrices = price => price.map(_ => `${_.name}: ${_.val}`).join("\\n");
+ */
+const renderPrices = (price) =>
+	price.map((_) => `${_.name}: ${_.val}`).join("\\n");
 // Metadata entries not in active use in game.
 const OrphanedItems = ["unobtainiumAxe", "unobtainiumSaw"];
 /** @type {Array<string>} */
@@ -25,147 +26,150 @@ let indentation = 0;
 
 /**
  * @param {string} _ -
-*/
-const render = _ => buffer.push(indent(_, indentation));
+ */
+const render = (_) => buffer.push(indent(_, indentation));
 /**
  * @param {string} a -
  * @param {string} b -
-*/
+ */
 const renderLink = (a, b) => render(`${a} -> ${b};`);
 /**
  * @param {string} a -
  * @param {string} b -
-*/
+ */
 const renderImplied = (a, b) => render(`${a} -> ${b} [style="invis";];`);
 /**
  * @param {string} a -
  * @param {string} b -
-*/
+ */
 const renderDependency = (a, b) => render(`${a} -> ${b} [style="dashed";];`);
 /**
  * @param {Record<string, {name:string, label:string, prices?:Array<{name:string, val:number}>}>} subject -
-*/
-const renderAll = subject => {
-  for (const _ of Object.values(subject)) {
-    if (OrphanedItems.includes(_.name)) {
-      continue;
-    }
+ */
+const renderAll = (subject) => {
+	for (const _ of Object.values(subject)) {
+		if (OrphanedItems.includes(_.name)) {
+			continue;
+		}
 
-    render(
-      `${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}\\n${renderPrices(_.prices ?? [])}";];`,
-    );
-  }
+		render(
+			`${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}\\n${renderPrices(_.prices ?? [])}";];`,
+		);
+	}
 };
 
 const renderNodesBuildings = () => {
-  render(
-    `node [fillcolor="#f2d174"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
-  );
-  for (const _ of Object.values(buildings)) {
-    if (OrphanedItems.includes(_.name)) {
-      continue;
-    }
+	render(
+		`node [fillcolor="#f2d174"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	for (const _ of Object.values(buildings)) {
+		if (OrphanedItems.includes(_.name)) {
+			continue;
+		}
 
-    if (_.stages) {
-      render(
-        `${_.name} [label="   ${_.stages[0].label}   "; tooltip="ID: ${_.name}:0\\n${renderPrices(_.stages[0].prices)}";];`,
-      );
-      render(
-        `${_.name}1 [label="   ${_.stages[1].label}   "; tooltip="ID: ${_.name}:1\\n${renderPrices(_.stages[1].prices)}";];`,
-      );
-      continue;
-    }
+		if (_.stages) {
+			render(
+				`${_.name} [label="   ${_.stages[0].label}   "; tooltip="ID: ${_.name}:0\\n${renderPrices(_.stages[0].prices)}";];`,
+			);
+			render(
+				`${_.name}1 [label="   ${_.stages[1].label}   "; tooltip="ID: ${_.name}:1\\n${renderPrices(_.stages[1].prices)}";];`,
+			);
+			continue;
+		}
 
-    render(
-      `${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`,
-    );
-  }
+		render(
+			`${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}\\n${renderPrices(_.prices)}";];`,
+		);
+	}
 };
 
 const renderNodesVoidspaceUpgrades = () => {
-  render(
-    `node [fillcolor="#eb9de4"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
-  );
-  renderAll(voidspaceUpgrades);
+	render(
+		`node [fillcolor="#eb9de4"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	renderAll(voidspaceUpgrades);
 };
 
 const renderNodesChronoforgeUpgrades = () => {
-  render(
-    `node [fillcolor="#eb9de4"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
-  );
-  renderAll(chronoforgeUpgrades);
+	render(
+		`node [fillcolor="#eb9de4"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	renderAll(chronoforgeUpgrades);
 };
 
 const renderNodesPrograms = () => {
-  render(
-    `node [fillcolor="#29472c"; fontcolor="#ffffff"; fontname="sans-serif"; shape="box"; style="filled";];`,
-  );
-  renderAll(programs);
+	render(
+		`node [fillcolor="#29472c"; fontcolor="#ffffff"; fontname="sans-serif"; shape="box"; style="filled";];`,
+	);
+	renderAll(programs);
 };
 
 const renderNodesTechs = () => {
-  render(
-    `node [fillcolor="#465666"; fontcolor="#ffffff"; fontname="sans-serif"; shape="box"; style="filled";];`,
-  );
-  renderAll(techs);
+	render(
+		`node [fillcolor="#465666"; fontcolor="#ffffff"; fontname="sans-serif"; shape="box"; style="filled";];`,
+	);
+	renderAll(techs);
 };
 
 const renderNodesZigguratUpgrades = () => {
-  render(
-    `node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
-  );
-  renderAll(zigguratUpgrades);
+	render(
+		`node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	renderAll(zigguratUpgrades);
 };
 
 const renderNodesTranscendenceUpgrades = () => {
-  render(
-    `node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
-  );
-  renderAll(transcendenceUpgrades);
+	render(
+		`node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	renderAll(transcendenceUpgrades);
 };
 
 const renderNodesReligionUpgrades = () => {
-  render(
-    `node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
-  );
-  renderAll(religionUpgrades);
+	render(
+		`node [fillcolor="#f7f065"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	renderAll(religionUpgrades);
 };
 
 const renderNodesUpgrades = () => {
-  render(
-    `node [fillcolor="#93ccc6"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
-  );
-  renderAll(upgrades);
+	render(
+		`node [fillcolor="#93ccc6"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	renderAll(upgrades);
 };
 
 const renderNodesPlanets = () => {
-  for (const _ of Object.values(planets)) {
-    if (OrphanedItems.includes(_.name)) {
-      continue;
-    }
+	for (const _ of Object.values(planets)) {
+		if (OrphanedItems.includes(_.name)) {
+			continue;
+		}
 
-    render(
-      `${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}"; fillcolor="#ffffff"; fontcolor="#000000"; fontname="sans-serif"; shape="circle"; style="filled";];`,
-    );
+		render(
+			`${_.name} [label="   ${_.label}   "; tooltip="ID: ${_.name}"; fillcolor="#ffffff"; fontcolor="#000000"; fontname="sans-serif"; shape="circle"; style="filled";];`,
+		);
 
-    buffer.push(
-      indent(
-        `node [fillcolor="#9ef0a5"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
-        indentation,
-      ),
-    );
-    for (const building of _.buildings) {
-      const name = building.name === "hydroponics" ? "hydroponicsBuilding" : building.name;
-      render(
-        `${name} [label="   ${building.label}   "; tooltip="ID: ${building.name}\\n${renderPrices(building.prices)}";];`,
-      );
-      renderDependency(_.name, name);
+		buffer.push(
+			indent(
+				`node [fillcolor="#9ef0a5"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+				indentation,
+			),
+		);
+		for (const building of _.buildings) {
+			const name =
+				building.name === "hydroponics" ? "hydroponicsBuilding" : building.name;
+			render(
+				`${name} [label="   ${building.label}   "; tooltip="ID: ${building.name}\\n${renderPrices(building.prices)}";];`,
+			);
+			renderDependency(_.name, name);
 
-      for (const tech of Array.isArray(building.requiredTech) ? building.requiredTech : []) {
-        renderDependency(tech, name);
-      }
-    }
-  }
+			for (const tech of Array.isArray(building.requiredTech)
+				? building.requiredTech
+				: []) {
+				renderDependency(tech, name);
+			}
+		}
+	}
 };
 
 render("digraph {");
@@ -176,78 +180,78 @@ render(`pad="0.5";`);
 render(`rankdir="LR";`);
 
 const DeclarationOrder = [
-  "buildings",
-  "chronoforgeUpgrades",
-  "planets",
-  "programs",
-  "religionUpgrades",
-  "techs",
-  "transcendenceUpgrades",
-  "upgrades",
-  "voidspaceUpgrades",
-  "zigguratUpgrades",
+	"buildings",
+	"chronoforgeUpgrades",
+	"planets",
+	"programs",
+	"religionUpgrades",
+	"techs",
+	"transcendenceUpgrades",
+	"upgrades",
+	"voidspaceUpgrades",
+	"zigguratUpgrades",
 ];
 const DeclarationMap = {
-  buildings: renderNodesBuildings,
-  chronoforgeUpgrades: renderNodesChronoforgeUpgrades,
-  planets: renderNodesPlanets,
-  programs: renderNodesPrograms,
-  religionUpgrades: renderNodesReligionUpgrades,
-  techs: renderNodesTechs,
-  transcendenceUpgrades: renderNodesTranscendenceUpgrades,
-  upgrades: renderNodesUpgrades,
-  voidspaceUpgrades: renderNodesVoidspaceUpgrades,
-  zigguratUpgrades: renderNodesZigguratUpgrades,
+	buildings: renderNodesBuildings,
+	chronoforgeUpgrades: renderNodesChronoforgeUpgrades,
+	planets: renderNodesPlanets,
+	programs: renderNodesPrograms,
+	religionUpgrades: renderNodesReligionUpgrades,
+	techs: renderNodesTechs,
+	transcendenceUpgrades: renderNodesTranscendenceUpgrades,
+	upgrades: renderNodesUpgrades,
+	voidspaceUpgrades: renderNodesVoidspaceUpgrades,
+	zigguratUpgrades: renderNodesZigguratUpgrades,
 };
 
 for (const declaration of Object.keys(DeclarationOrder)) {
-  DeclarationMap[/** @type {keyof DeclarationMap} */(declaration)].call(this);
+	DeclarationMap[/** @type {keyof DeclarationMap} */ (declaration)].call(this);
 }
 
 // Render unlocks
 for (const _ of [
-  ...Object.values(buildings),
-  ...Object.values(chronoforgeUpgrades),
-  ...Object.values(planets).flatMap(p => p.buildings),
-  ...Object.values(programs),
-  ...Object.values(religionUpgrades),
-  ...Object.values(techs),
-  ...Object.values(transcendenceUpgrades),
-  ...Object.values(upgrades),
-  ...Object.values(voidspaceUpgrades),
-  ...Object.values(zigguratUpgrades),
+	...Object.values(buildings),
+	...Object.values(chronoforgeUpgrades),
+	...Object.values(planets).flatMap((p) => p.buildings),
+	...Object.values(programs),
+	...Object.values(religionUpgrades),
+	...Object.values(techs),
+	...Object.values(transcendenceUpgrades),
+	...Object.values(upgrades),
+	...Object.values(voidspaceUpgrades),
+	...Object.values(zigguratUpgrades),
 ]) {
-  for (const unlock of [
-    ...(_.unlocks?.buildings ?? []),
-    ...(_.unlocks?.chronoforge ?? []),
-    ...(_.unlocks?.planet ?? []),
-    ...(_.unlocks?.spaceMission ?? []),
-    ...(_.unlocks?.spaceBuilding ?? []),
-    ...(_.unlocks?.tech ?? []),
-    ...(_.unlocks?.transcendenceUpgrades ?? []),
-    ...(_.unlocks?.upgrades ?? []),
-    ...(_.unlocks?.voidSpace ?? []),
-    ...(_.unlocks?.zigguratUpgrades ?? []),
-  ]) {
-    // Some stuff unlocks itself. Bug in game metadata.
-    if (_.name === unlock) {
-      continue;
-    }
-    renderLink(_.name, unlock);
-  }
-  for (const unlock of [...(_.unlocks?.stages ?? [])]) {
-    renderLink(_.name, `${unlock.bld}1`);
-  }
+	for (const unlock of [
+		...(_.unlocks?.buildings ?? []),
+		...(_.unlocks?.chronoforge ?? []),
+		...(_.unlocks?.planet ?? []),
+		...(_.unlocks?.spaceMission ?? []),
+		...(_.unlocks?.spaceBuilding ?? []),
+		...(_.unlocks?.tech ?? []),
+		...(_.unlocks?.transcendenceUpgrades ?? []),
+		...(_.unlocks?.upgrades ?? []),
+		...(_.unlocks?.voidSpace ?? []),
+		...(_.unlocks?.zigguratUpgrades ?? []),
+	]) {
+		// Some stuff unlocks itself. Bug in game metadata.
+		if (_.name === unlock) {
+			continue;
+		}
+		renderLink(_.name, unlock);
+	}
+	for (const unlock of [...(_.unlocks?.stages ?? [])]) {
+		renderLink(_.name, `${unlock.bld}1`);
+	}
 }
 
 // Perks
 render(
-  `megalomenia [label="   Megalomenia   "; tooltip="ID: megalomenia"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
+	`megalomenia [label="   Megalomenia   "; tooltip="ID: megalomenia"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
 );
 render("megalomenia -> marker;");
 render("megalomenia -> blackPyramid;");
 render(
-  `anachronomancy [label="   Anachronomancy   "; tooltip="ID: anachronomancy"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
+	`anachronomancy [label="   Anachronomancy   "; tooltip="ID: anachronomancy"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
 );
 render("anachronomancy -> chronophysics;");
 
@@ -311,11 +315,13 @@ renderImplied("theology", "unicornTomb");
 let previous;
 
 renderDependency("transcendence", "blackObelisk");
-for (const _ of Object.values(transcendenceUpgrades).sort((a, b) => a.tier - b.tier)) {
-  if (previous) {
-    renderDependency(previous.name, _.name);
-  }
-  previous = _;
+for (const _ of Object.values(transcendenceUpgrades).sort(
+	(a, b) => a.tier - b.tier,
+)) {
+	if (previous) {
+		renderDependency(previous.name, _.name);
+	}
+	previous = _;
 }
 
 render("}");
@@ -324,6 +330,6 @@ render("}");
 // In case you want to copy to another DOT renderer, like for PNG exporting.
 console.log(buffer.join("\n"));
 
-instance().then(viz => {
-  document.body.appendChild(viz.renderSVGElement(buffer.join("\n")));
+instance().then((viz) => {
+	document.body.appendChild(viz.renderSVGElement(buffer.join("\n")));
 });

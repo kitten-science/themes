@@ -13,14 +13,14 @@ docs:
 git-hook:
 	echo "make pretty" > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 
-pretty: node_modules
+pretty: node_modules/.package-lock.json
 	npm exec -- biome check --write --no-errors-on-unmatched
-	npm exec -- stylelint --fix source/**/*.{css,scss} || true
+	npm exec -- stylelint --fix source/**.{css,scss} || true
 	npm pkg fix
 
-lint: node_modules
+lint: node_modules/.package-lock.json
 	npm exec -- biome check .
-	npm exec -- stylelint source/**/*.{css,scss}
+	npm exec -- stylelint source/**.{css,scss}
 	npm exec -- tsc --noEmit
 
 test:
@@ -30,13 +30,15 @@ run: build
 	node ./output/main.js
 
 
-node_modules:
-	npm install
+package-lock.json: package.json
+	npm install --package-lock-only
+node_modules/.package-lock.json: package-lock.json
+	npm ci
 
-icons: node_modules
+icons: node_modules/.package-lock.json
 	node contrib/convert-icons.js > source/_icons.scss
 
-output: node_modules icons
+output: node_modules/.package-lock.json icons
 	mkdir -p output
 	node build.js > output/theme_neon.css
 	MINIFY=true node build.js > output/theme_neon.min.css
@@ -45,12 +47,12 @@ output: node_modules icons
 	npm exec -- vite build --config source/science/vite.config.js
 
 .PHONY: injectable
-injectable: node_modules output
+injectable: node_modules/.package-lock.json output
 	npm exec -- vite --config vite.config.inject.js build
 	MINIFY=true npm exec -- vite --config vite.config.inject.js build
 
 .PHONY: userscript
-userscript: node_modules output
+userscript: node_modules/.package-lock.json output
 	npm exec -- vite --config vite.config.user.js build
 	MINIFY=true npm exec -- vite --config vite.config.user.js build
 
