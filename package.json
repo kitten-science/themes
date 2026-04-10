@@ -28,7 +28,7 @@
 		"@types/node": "25.5.2",
 		"@types/web": "0.0.345",
 		"@viz-js/viz": "3.25.0",
-		"esbuild": "0.27.7",
+		"esbuild": "0.28.0",
 		"postcss": "8.5.9",
 		"rollup": "4.59.0",
 		"rollup-plugin-cleanup": "3.2.1",
