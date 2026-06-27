@@ -30,7 +30,7 @@
 		"@viz-js/viz": "3.28.0",
 		"esbuild": "0.28.1",
 		"postcss": "8.5.15",
-		"rollup": "4.62.0",
+		"rollup": "4.62.2",
 		"rollup-plugin-cleanup": "3.2.1",
 		"sass-embedded": "1.100.0",
 		"stylelint": "17.13.0",
