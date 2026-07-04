@@ -26,7 +26,7 @@
 		"@stylistic/stylelint-config": "5.0.0",
 		"@stylistic/stylelint-plugin": "5.2.0",
 		"@types/node": "26.0.1",
-		"@types/web": "0.0.350",
+		"@types/web": "0.0.352",
 		"@viz-js/viz": "3.28.0",
 		"esbuild": "0.28.1",
 		"postcss": "8.5.15",
