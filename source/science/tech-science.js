@@ -205,7 +205,9 @@ const DeclarationMap = {
 };
 
 for (const declaration of Object.keys(DeclarationOrder)) {
-	DeclarationMap[/** @type {keyof DeclarationMap} */ (declaration)].call(this);
+	DeclarationMap[/** @type {keyof typeof DeclarationMap} */ (declaration)].call(
+		this,
+	);
 }
 
 // Render unlocks

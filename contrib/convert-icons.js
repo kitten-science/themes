@@ -14,7 +14,7 @@ const encodeSVG = (subject) =>
 
 let metaSCSS = "";
 for (const [icon, metadata] of Object.entries(library)) {
-	const iconKey = /** @type {keyof library} */ (icon);
+	const iconKey = /** @type {keyof typeof library} */ (icon);
 	const descriptor = {
 		filled: metadata.filled,
 		id: library[iconKey].id,
