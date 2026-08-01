@@ -69,7 +69,7 @@ jobs:
 
       - id: changelog
         name: Generate changelog
-        uses: oliversalzburg/action-automatic-semantic-releases@2e25c6e07803836b962af72ff4c7e1c88a96609f # v2.1.0
+        uses: oliversalzburg/action-automatic-semantic-releases@03452a26feb6c9a73ab362720984d8f2bf9db395 # v3.3.2
         with:
           automatic-release-tag: ${{ needs.params.outputs.release-tag }}
           changelog-artifact: changelog.json
@@ -158,7 +158,7 @@ jobs:
           name: changelog.json
 
       - name: Generate GitHub release
-        uses: oliversalzburg/action-automatic-semantic-releases@2e25c6e07803836b962af72ff4c7e1c88a96609f # v2.1.0
+        uses: oliversalzburg/action-automatic-semantic-releases@03452a26feb6c9a73ab362720984d8f2bf9db395 # v3.3.2
         with:
           automatic-release-tag: ${{ needs.params.outputs.release-tag }}
           body-suffix: |

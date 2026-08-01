@@ -69,7 +69,7 @@ jobs:
 
       - id: changelog
         name: Generate changelog
-        uses: oliversalzburg/action-automatic-semantic-releases@v2.1.0
+        uses: oliversalzburg/action-automatic-semantic-releases@v3.3.2
         with:
           changelog-artifact: changelog.json
           dry-run: true
@@ -141,7 +141,7 @@ jobs:
           name: changelog.json
 
       - name: Generate GitHub release
-        uses: oliversalzburg/action-automatic-semantic-releases@v2.1.0
+        uses: oliversalzburg/action-automatic-semantic-releases@v3.3.2
         with:
           body-suffix: |
 
