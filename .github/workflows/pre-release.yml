@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
           sparse-checkout: package.json
@@ -69,7 +69,7 @@ jobs:
 
       - id: changelog
         name: Generate changelog
-        uses: oliversalzburg/action-automatic-semantic-releases@2e25c6e07803836b962af72ff4c7e1c88a96609f # v2.1.0
+        uses: oliversalzburg/action-automatic-semantic-releases@v2.1.0
         with:
           automatic-release-tag: ${{ needs.params.outputs.release-tag }}
           changelog-artifact: changelog.json
@@ -79,7 +79,7 @@ jobs:
           root-version: ${{ steps.version.outputs.root-version }}
 
       - name: Store changelog
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
+        uses: actions/upload-artifact@v7
         with:
           name: changelog.json
           path: changelog.json
@@ -110,18 +110,18 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
 
       - name: Select Node.js version
-        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: https://registry.npmjs.org
 
       - name: Load cached dependencies
-        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5
+        uses: actions/cache@v5
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node{{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
@@ -134,13 +134,13 @@ jobs:
         run: make
 
       - name: Download changelog
-        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8
+        uses: actions/download-artifact@v8
         with:
           name: changelog.json
 
       - if: success() && needs.params.outputs.publish-github-release == 'true'
         name: Generate GitHub release
-        uses: oliversalzburg/action-automatic-semantic-releases@2e25c6e07803836b962af72ff4c7e1c88a96609f # v2.1.0
+        uses: oliversalzburg/action-automatic-semantic-releases@v2.1.0
         with:
           automatic-release-tag: ${{ needs.params.outputs.release-tag }}
           body-suffix: |
