@@ -89,6 +89,8 @@ jobs:
     name: Skip
     needs:
       - changelog
+    permissions:
+      contents: none
     runs-on: ubuntu-24.04
     steps:
       - name: Print skip reason
@@ -99,6 +101,9 @@ jobs:
     name: 🔹 QA
     needs:
       - changelog
+    permissions:
+      contents: read
+      packages: read
     uses: ./.github/workflows/qa.yml
 
   nightly:

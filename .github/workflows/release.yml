@@ -85,6 +85,9 @@ jobs:
 
   qa:
     name: 🔹 QA
+    permissions:
+      contents: read
+      packages: read
     uses: ./.github/workflows/qa.yml
 
   release:
