@@ -1,11 +1,12 @@
 name: Publish
 
 on:
+  workflow_dispatch:
   workflow_run:
     types:
       - completed
     workflows:
-      - 🔹 QA
+      - Pre-Release
 
 concurrency: publish
 
