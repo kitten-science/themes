@@ -172,7 +172,7 @@ const renderNodesUpgrades = () => {
 
 const renderNodesPerks = () => {
 	render(
-		`node [fillcolor="#ff0000"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+		`node [fillcolor="#fffcbf"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
 	);
 	renderAll(perks);
 };

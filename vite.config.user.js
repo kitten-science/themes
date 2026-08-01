@@ -47,7 +47,7 @@ export default defineConfig({
 	},
 	plugins: [
 		cssInjectedByJsPlugin({
-			styleId: "neon-theme",
+			attributes: { id: "neon-theme" },
 			topExecutionPriority: false,
 		}),
 		{
