@@ -1,7 +1,9 @@
 import {
 	buildings,
 	chronoforgeUpgrades,
+	perks,
 	planets,
+	policies,
 	programs,
 	religionUpgrades,
 	techs,
@@ -20,6 +22,35 @@ const renderPrices = (price) =>
 	price.map((_) => `${_.name}: ${_.val}`).join("\\n");
 // Metadata entries not in active use in game.
 const OrphanedItems = ["unobtainiumAxe", "unobtainiumSaw"];
+// These just don't look good in the tree map.
+const IgnoredItems = [
+	"alicornStable",
+	"cryochamberExtraction",
+	"dragonRelationsAstrologers",
+	"dragonRelationsDynamicists",
+	"dragonRelationsPhysicists",
+	"griffinRelationsMachinists",
+	"griffinRelationsMetallurgists",
+	"griffinRelationsScouts",
+	"lizardRelationsDiplomats",
+	"lizardRelationsEcologists",
+	"lizardRelationsPriests",
+	"nagaRelationsArchitects",
+	"nagaRelationsCultists",
+	"nagaRelationsMasons",
+	"necrocracy",
+	"radicalXenophobia",
+	"sharkRelationsBotanists",
+	"sharkRelationsMerchants",
+	"sharkRelationsScribes",
+	"spiderRelationsChemists",
+	"spiderRelationsGeologists",
+	"spiderRelationsPaleontologists",
+	"terraformingInsight",
+	"transkittenism",
+	"zebraRelationsAppeasement",
+	"zebraRelationsBellicosity",
+];
 /** @type {Array<string>} */
 const buffer = [];
 let indentation = 0;
@@ -48,7 +79,7 @@ const renderDependency = (a, b) => render(`${a} -> ${b} [style="dashed";];`);
  */
 const renderAll = (subject) => {
 	for (const _ of Object.values(subject)) {
-		if (OrphanedItems.includes(_.name)) {
+		if (IgnoredItems.includes(_.name) || OrphanedItems.includes(_.name)) {
 			continue;
 		}
 
@@ -139,6 +170,20 @@ const renderNodesUpgrades = () => {
 	renderAll(upgrades);
 };
 
+const renderNodesPerks = () => {
+	render(
+		`node [fillcolor="#ff0000"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	renderAll(perks);
+};
+
+const renderNodesPolicies = () => {
+	render(
+		`node [fillcolor="#28e2ce"; fontcolor="#000000"; fontname="sans-serif"; shape="oval"; style="filled";];`,
+	);
+	renderAll(policies);
+};
+
 const renderNodesPlanets = () => {
 	for (const _ of Object.values(planets)) {
 		if (OrphanedItems.includes(_.name)) {
@@ -185,16 +230,20 @@ const DeclarationOrder = [
 	"planets",
 	"programs",
 	"religionUpgrades",
+	"perks",
 	"techs",
 	"transcendenceUpgrades",
 	"upgrades",
 	"voidspaceUpgrades",
 	"zigguratUpgrades",
+	"policies",
 ];
 const DeclarationMap = {
 	buildings: renderNodesBuildings,
 	chronoforgeUpgrades: renderNodesChronoforgeUpgrades,
+	perks: renderNodesPerks,
 	planets: renderNodesPlanets,
+	policies: renderNodesPolicies,
 	programs: renderNodesPrograms,
 	religionUpgrades: renderNodesReligionUpgrades,
 	techs: renderNodesTechs,
@@ -204,7 +253,11 @@ const DeclarationMap = {
 	zigguratUpgrades: renderNodesZigguratUpgrades,
 };
 
-for (const declaration of Object.keys(DeclarationOrder)) {
+for (const declaration of DeclarationOrder) {
+	if (declaration in DeclarationMap === false) {
+		console.error(`${declaration} is not in map!`);
+		continue;
+	}
 	DeclarationMap[/** @type {keyof typeof DeclarationMap} */ (declaration)].call(
 		this,
 	);
@@ -214,7 +267,9 @@ for (const declaration of Object.keys(DeclarationOrder)) {
 for (const _ of [
 	...Object.values(buildings),
 	...Object.values(chronoforgeUpgrades),
+	...Object.values(perks),
 	...Object.values(planets).flatMap((p) => p.buildings),
+	...Object.values(policies),
 	...Object.values(programs),
 	...Object.values(religionUpgrades),
 	...Object.values(techs),
@@ -226,9 +281,11 @@ for (const _ of [
 	for (const unlock of [
 		...(_.unlocks?.buildings ?? []),
 		...(_.unlocks?.chronoforge ?? []),
+		...(_.unlocks?.perks ?? []),
 		...(_.unlocks?.planet ?? []),
-		...(_.unlocks?.spaceMission ?? []),
+		...(_.unlocks?.policies ?? []),
 		...(_.unlocks?.spaceBuilding ?? []),
+		...(_.unlocks?.spaceMission ?? []),
 		...(_.unlocks?.tech ?? []),
 		...(_.unlocks?.transcendenceUpgrades ?? []),
 		...(_.unlocks?.upgrades ?? []),
@@ -247,15 +304,21 @@ for (const _ of [
 }
 
 // Perks
-render(
-	`megalomenia [label="   Megalomenia   "; tooltip="ID: megalomenia"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
-);
-render("megalomenia -> marker;");
-render("megalomenia -> blackPyramid;");
-render(
-	`anachronomancy [label="   Anachronomancy   "; tooltip="ID: anachronomancy"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
-);
-render("anachronomancy -> chronophysics;");
+//render(
+//	`megalomenia [label="   Megalomenia   "; tooltip="ID: megalomenia"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
+//);
+//render("megalomenia -> marker;");
+//render("megalomenia -> blackPyramid;");
+//render(
+//	`anachronomancy [label="   Anachronomancy   "; tooltip="ID: anachronomancy"; fillcolor="#afffff"; fontcolor="#000000"; fontname="sans-serif"; shape="rect"; style="dashed";];`,
+//);
+//render("anachronomancy -> chronophysics;");
+
+renderDependency("metaphysics", "adjustmentBureau");
+renderDependency("metaphysics", "carnivals");
+renderDependency("metaphysics", "chronomancy");
+renderDependency("metaphysics", "engeneering");
+renderDependency("metaphysics", "megalomania");
 
 // Fill implicit unlocks.
 renderDependency("library", "calendar");
@@ -300,6 +363,7 @@ renderDependency("solarRevolution", "basilica");
 renderDependency("basilica", "templars");
 renderDependency("templars", "apocripha");
 renderDependency("apocripha", "transcendence");
+renderDependency("transcendence", "frescoes");
 // No unobtainium, no crazy space stuff.
 renderImplied("moonOutpost", "spaceElevator");
 renderImplied("moonOutpost", "moonBase");
@@ -324,6 +388,10 @@ for (const _ of Object.values(transcendenceUpgrades).sort(
 		renderDependency(previous.name, _.name);
 	}
 	previous = _;
+}
+
+for (const _ of Object.values(perks)) {
+	renderImplied("metaphysics", _.name);
 }
 
 render("}");
